@@ -10,6 +10,7 @@
 		8310B8381EFC4EC7000FA77E /* PGWiringX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */; };
 		8310B83D1EFC4EC7000FA77E /* PGWiringXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8310B83C1EFC4EC7000FA77E /* PGWiringXTests.m */; };
 		8310B83F1EFC4EC7000FA77E /* PGWiringX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8310B8311EFC4EC7000FA77E /* PGWiringX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8310B84A1EFC4F06000FA77E /* Rubicon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8310B8491EFC4F06000FA77E /* Rubicon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +24,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1117D00E9CA23956120A8845 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1117D2BFC09DCC96D6FEF56F /* fetch_and_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fetch_and_config.sh; sourceTree = "<group>"; };
+		1117D3C4A979B05EAD289E2B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1117D8A2A6B08114692895BF /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		1117D8C5840215A915E3984C /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		1117D9B26A3F72EAD2F0924F /* macInstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = macInstall.sh; sourceTree = "<group>"; };
 		8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PGWiringX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310B8311EFC4EC7000FA77E /* PGWiringX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGWiringX.h; sourceTree = "<group>"; };
 		8310B8321EFC4EC7000FA77E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8310B8371EFC4EC7000FA77E /* PGWiringXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGWiringXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310B83C1EFC4EC7000FA77E /* PGWiringXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGWiringXTests.m; sourceTree = "<group>"; };
 		8310B83E1EFC4EC7000FA77E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8310B8491EFC4F06000FA77E /* Rubicon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rubicon.framework; path = ../../../Library/Frameworks/Rubicon.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8310B84A1EFC4F06000FA77E /* Rubicon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +59,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1117DC8BBF7B7A3C7C8917C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1117D8C5840215A915E3984C /* CMakeLists.txt */,
+				1117D00E9CA23956120A8845 /* README.md */,
+				1117D2BFC09DCC96D6FEF56F /* fetch_and_config.sh */,
+				1117D9B26A3F72EAD2F0924F /* macInstall.sh */,
+				1117D3C4A979B05EAD289E2B /* LICENSE */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1117DEF847BFB1C99248C8D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1117D8A2A6B08114692895BF /* CMakeLists.txt */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8310B8241EFC4EC7000FA77E = {
 			isa = PBXGroup;
 			children = (
 				8310B8301EFC4EC7000FA77E /* PGWiringX */,
 				8310B83B1EFC4EC7000FA77E /* PGWiringXTests */,
 				8310B82F1EFC4EC7000FA77E /* Products */,
+				8310B8481EFC4F06000FA77E /* Frameworks */,
+				1117DC8BBF7B7A3C7C8917C0 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +104,7 @@
 			children = (
 				8310B8311EFC4EC7000FA77E /* PGWiringX.h */,
 				8310B8321EFC4EC7000FA77E /* Info.plist */,
+				1117DEF847BFB1C99248C8D6 /* Supporting Files */,
 			);
 			path = PGWiringX;
 			sourceTree = "<group>";
@@ -84,6 +116,14 @@
 				8310B83E1EFC4EC7000FA77E /* Info.plist */,
 			);
 			path = PGWiringXTests;
+			sourceTree = "<group>";
+		};
+		8310B8481EFC4F06000FA77E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8310B8491EFC4F06000FA77E /* Rubicon.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +364,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PGWiringX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -344,6 +388,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PGWiringX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
