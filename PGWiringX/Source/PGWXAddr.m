@@ -41,7 +41,7 @@
         return self;
     }
 
-    +(instancetype)addrWithAddress:(NSUInteger)address offset:(NSUInteger)offset {
+    +(instancetype)address:(NSUInteger)address offset:(NSUInteger)offset {
         static NSMutableDictionary<NSString *, PGWXAddr *> *_dict = nil;
 
         @synchronized([PGWXAddr class]) {

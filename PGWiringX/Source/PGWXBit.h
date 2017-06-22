@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(id)copyWithZone:(nullable NSZone *)zone;
 
-    +(instancetype)bitWithBit:(NSUInteger)bit offset:(NSUInteger)offset;
+    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
 
 @end
 

@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(id)copyWithZone:(nullable NSZone *)zone;
 
-    +(instancetype)addrWithAddress:(NSUInteger)address offset:(NSUInteger)offset;
+    +(instancetype)address:(NSUInteger)address offset:(NSUInteger)offset;
 
 @end
 

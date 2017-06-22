@@ -41,7 +41,7 @@
         return self;
     }
 
-    +(instancetype)bitWithBit:(NSUInteger)bit offset:(NSUInteger)offset {
+    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset {
         static NSMutableDictionary<NSString *, PGWXBit *> *_dict = nil;
 
         @synchronized([PGWXBit class]) {
