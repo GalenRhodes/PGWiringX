@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1117D7EFB6B631798ACBB1FC /* PGWXBit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D4BE807FC90F8186CE83 /* PGWXBit.m */; };
+		1117DA66D3A53E64F4BCE9F6 /* PGWXBit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DF789C5C0F5AF2D4B5BF /* PGWXBit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1117DB0BFC98F11EB061754E /* PGWXAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DEC85B50A54D49DC60EE /* PGWXAddr.m */; };
+		1117DD1012E32A5897CF3BC2 /* PGWiringX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D215221AA66982B62CE5 /* PGWiringX.m */; };
+		1117DE990DA834B34A2F9529 /* PGWXAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D459DE766D3D1020B883 /* PGWXAddr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8310B8381EFC4EC7000FA77E /* PGWiringX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */; };
 		8310B83D1EFC4EC7000FA77E /* PGWiringXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8310B83C1EFC4EC7000FA77E /* PGWiringXTests.m */; };
 		8310B83F1EFC4EC7000FA77E /* PGWiringX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8310B8311EFC4EC7000FA77E /* PGWiringX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,11 +30,16 @@
 
 /* Begin PBXFileReference section */
 		1117D00E9CA23956120A8845 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1117D215221AA66982B62CE5 /* PGWiringX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWiringX.m; sourceTree = "<group>"; };
 		1117D2BFC09DCC96D6FEF56F /* fetch_and_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fetch_and_config.sh; sourceTree = "<group>"; };
 		1117D3C4A979B05EAD289E2B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1117D459DE766D3D1020B883 /* PGWXAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXAddr.h; sourceTree = "<group>"; };
+		1117D4BE807FC90F8186CE83 /* PGWXBit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXBit.m; sourceTree = "<group>"; };
 		1117D8A2A6B08114692895BF /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D8C5840215A915E3984C /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D9B26A3F72EAD2F0924F /* macInstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = macInstall.sh; sourceTree = "<group>"; };
+		1117DEC85B50A54D49DC60EE /* PGWXAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXAddr.m; sourceTree = "<group>"; };
+		1117DF789C5C0F5AF2D4B5BF /* PGWXBit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXBit.h; sourceTree = "<group>"; };
 		8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PGWiringX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310B8311EFC4EC7000FA77E /* PGWiringX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGWiringX.h; sourceTree = "<group>"; };
 		8310B8321EFC4EC7000FA77E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1117D8EC7C8661EDCCFE69E7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1117DEC85B50A54D49DC60EE /* PGWXAddr.m */,
+				1117D459DE766D3D1020B883 /* PGWXAddr.h */,
+				1117D4BE807FC90F8186CE83 /* PGWXBit.m */,
+				1117DF789C5C0F5AF2D4B5BF /* PGWXBit.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		1117DC8BBF7B7A3C7C8917C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +126,8 @@
 				8310B8311EFC4EC7000FA77E /* PGWiringX.h */,
 				8310B8321EFC4EC7000FA77E /* Info.plist */,
 				1117DEF847BFB1C99248C8D6 /* Supporting Files */,
+				1117D215221AA66982B62CE5 /* PGWiringX.m */,
+				1117D8EC7C8661EDCCFE69E7 /* Source */,
 			);
 			path = PGWiringX;
 			sourceTree = "<group>";
@@ -134,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8310B83F1EFC4EC7000FA77E /* PGWiringX.h in Headers */,
+				1117DE990DA834B34A2F9529 /* PGWXAddr.h in Headers */,
+				1117DA66D3A53E64F4BCE9F6 /* PGWXBit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1117DD1012E32A5897CF3BC2 /* PGWiringX.m in Sources */,
+				1117DB0BFC98F11EB061754E /* PGWXAddr.m in Sources */,
+				1117D7EFB6B631798ACBB1FC /* PGWXBit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +473,7 @@
 				8310B8441EFC4EC7000FA77E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8310B8451EFC4EC7000FA77E /* Build configuration list for PBXNativeTarget "PGWiringXTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +482,7 @@
 				8310B8471EFC4EC7000FA77E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,6 +1,7 @@
 #!/bin/bash
 ###########################################################################
 #    FILENAME: fetch_and_config.sh
+#     PROJECT: PGWiringX
 #         IDE: AppCode
 #      AUTHOR: Galen Rhodes
 #        DATE: 7/26/16 4:27 PM

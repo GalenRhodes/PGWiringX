@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-#     PROJECT: Rubicon
+#     PROJECT: PGWiringX
 #    FILENAME: macInstall.sh
 #         IDE: AppCode
 #      AUTHOR: grhodes

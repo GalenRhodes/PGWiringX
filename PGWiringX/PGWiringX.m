@@ -1,6 +1,6 @@
 /***************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWiringX.h
+ *    FILENAME: PGWiringX.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
  *        DATE: 06/22/17 15:35
@@ -21,9 +21,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *******************************************************************************/
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXAddr.h>
-#import <PGWiringX/PGWXBit.h>
+#ifndef __APPLE__
 
-FOUNDATION_EXPORT double PGWiringXVersionNumber;
-FOUNDATION_EXPORT const unsigned char PGWiringXVersionString[];
+double PGWiringXVersionNumber = 1.0;
+const unsigned char PGWiringXVersionString[] = "1.0.0\0";
+
+#endif
