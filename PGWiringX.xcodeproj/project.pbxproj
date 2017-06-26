@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1117D0FF01F7B4FEFB72C70B /* PGWXLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D83EAC87629F887B8882 /* PGWXLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1117D4A0A04405881D9DD58C /* PGWXLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D3CDB562211D40FE2008 /* PGWXLayout.m */; };
 		1117D7EFB6B631798ACBB1FC /* PGWXBit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D4BE807FC90F8186CE83 /* PGWXBit.m */; };
 		1117DA66D3A53E64F4BCE9F6 /* PGWXBit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DF789C5C0F5AF2D4B5BF /* PGWXBit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1117DB0BFC98F11EB061754E /* PGWXAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DEC85B50A54D49DC60EE /* PGWXAddr.m */; };
@@ -33,8 +35,10 @@
 		1117D215221AA66982B62CE5 /* PGWiringX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWiringX.m; sourceTree = "<group>"; };
 		1117D2BFC09DCC96D6FEF56F /* fetch_and_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fetch_and_config.sh; sourceTree = "<group>"; };
 		1117D3C4A979B05EAD289E2B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1117D3CDB562211D40FE2008 /* PGWXLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXLayout.m; sourceTree = "<group>"; };
 		1117D459DE766D3D1020B883 /* PGWXAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXAddr.h; sourceTree = "<group>"; };
 		1117D4BE807FC90F8186CE83 /* PGWXBit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXBit.m; sourceTree = "<group>"; };
+		1117D83EAC87629F887B8882 /* PGWXLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXLayout.h; sourceTree = "<group>"; };
 		1117D8A2A6B08114692895BF /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D8C5840215A915E3984C /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D9B26A3F72EAD2F0924F /* macInstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = macInstall.sh; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				1117D459DE766D3D1020B883 /* PGWXAddr.h */,
 				1117D4BE807FC90F8186CE83 /* PGWXBit.m */,
 				1117DF789C5C0F5AF2D4B5BF /* PGWXBit.h */,
+				1117D3CDB562211D40FE2008 /* PGWXLayout.m */,
+				1117D83EAC87629F887B8882 /* PGWXLayout.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 				8310B83F1EFC4EC7000FA77E /* PGWiringX.h in Headers */,
 				1117DE990DA834B34A2F9529 /* PGWXAddr.h in Headers */,
 				1117DA66D3A53E64F4BCE9F6 /* PGWXBit.h in Headers */,
+				1117D0FF01F7B4FEFB72C70B /* PGWXLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 				1117DD1012E32A5897CF3BC2 /* PGWiringX.m in Sources */,
 				1117DB0BFC98F11EB061754E /* PGWXAddr.m in Sources */,
 				1117D7EFB6B631798ACBB1FC /* PGWXBit.m in Sources */,
+				1117D4A0A04405881D9DD58C /* PGWXLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

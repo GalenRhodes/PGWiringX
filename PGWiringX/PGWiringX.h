@@ -24,6 +24,7 @@
 #import <Rubicon/Rubicon.h>
 #import <PGWiringX/PGWXAddr.h>
 #import <PGWiringX/PGWXBit.h>
+#import <PGWiringX/PGWXLayout.h>
 
 FOUNDATION_EXPORT double PGWiringXVersionNumber;
 FOUNDATION_EXPORT const unsigned char PGWiringXVersionString[];
