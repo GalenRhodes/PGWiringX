@@ -22,9 +22,23 @@
  *******************************************************************************/
 
 #import <Rubicon/Rubicon.h>
+#import <PGWiringX/PGWXSupport.h>
 #import <PGWiringX/PGWXAddr.h>
 #import <PGWiringX/PGWXBit.h>
 #import <PGWiringX/PGWXLayout.h>
+#import <PGWiringX/PGWXSOCAllwinner.h>
+#import <PGWiringX/PGWXSOCAmlogic.h>
+#import <PGWiringX/PGWXSOCBroadcomm.h>
+#import <PGWiringX/PGWXSOCNXP.h>
+#import <PGWiringX/PGWXSOCSamsung.h>
+#import <PGWiringX/PGWXPlatform.h>
+#import <PGWiringX/PGWXPlatformHardkernel.h>
+#import <PGWiringX/PGWXPlatformLemaker.h>
+#import <PGWiringX/PGWXPlatformLinkSprite.h>
+#import <PGWiringX/PGWXPlatformRaspberryPi.h>
+#import <PGWiringX/PGWXPlatformSolidRun.h>
+#import <PGWiringX/PGWXPlatformXunLong.h>
 
 FOUNDATION_EXPORT double PGWiringXVersionNumber;
 FOUNDATION_EXPORT const unsigned char PGWiringXVersionString[];
+

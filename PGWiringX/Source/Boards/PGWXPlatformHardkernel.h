@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXPlatformHardkernel.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 2:57 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,104 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#ifndef __PGWiringX_PGWXPlatformHardkernel_H_
+#define __PGWiringX_PGWXPlatformHardkernel_H_
 
-#import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
+#import <PGWiringX/PGWXPlatform.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGWXBit : NSObject<NSCopying>
+/*
+ * |-----|
+ * |3v|5v|
+ * | 8|5v|
+ * | 9|0v|
+ * | 7|TX|
+ * |0v|RX|
+ * | 0| 1|
+ * | 2|0v|
+ * | 3| 4|
+ * |3v| 5|
+ * |12|0v|
+ * |13| 6|
+ * |14|10|
+ * |0v|11|
+ * |17|18|
+ * |21|0v|
+ * |22|26|
+ * |23|0v|
+ * |24|27|
+ * |AD|2v|
+ * |0v|AD|
+ * |-----|
+ */
+@interface PGWXPlatformHardkernelOdroidC1 : PGWXPlatform
 
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
-
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
-
-    -(NSUInteger)hash;
-
-    -(id)copyWithZone:(nullable NSZone *)zone;
-
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
+    -(instancetype)init:(NSError **)error;
 
 @end
 
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
+/*
+ * |-----|
+ * |3v|5v|
+ * |I2|5v|
+ * |I2|0v|
+ * | 7|TX|
+ * |0v|RX|
+ * | 0| 1|
+ * | 2|0v|
+ * | 3| 4|
+ * |3v| 5|
+ * |12|0v|
+ * |13| 6|
+ * |14|10|
+ * |0v|11|
+ * |I2|I2|
+ * |21|0v|
+ * |22|26|
+ * |23|0v|
+ * |24|27|
+ * |AD|2v|
+ * |0v|AD|
+ * |-----|
  */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
+@interface PGWXPlatformHardkernelOdroidC2 : PGWXPlatform
+
+    -(instancetype)init:(NSError **)error;
+
+@end
+
+/*
+ * |-----|
+ * |5v|0v|
+ * |AD| 1|
+ * | 0|16|
+ * |12|15|
+ * |13|14|
+ * |10|PW|
+ * | 2| 9|
+ * | 7| 8|
+ * | 3| 4|
+ * |22|21|
+ * |26|23|
+ * |AD|11|
+ * | 5| 6|
+ * |27|0v|
+ * |2v|0v|
+ * |-----|
+ *
+ * -------------------
+ * |36 34 33 32 2v 5v|
+ * |37 35 0v 31 30 0v|
+ * -------------------
+ */
+@interface PGWXPlatformHardkernelOdroidXU4 : PGWXPlatform
+
+    -(instancetype)init:(NSError **)error;
+
+@end
 
 NS_ASSUME_NONNULL_END
 
-#endif //__PGWiringX_PGWXBit_H_
+#endif //__PGWiringX_PGWXPlatformHardkernel_H_

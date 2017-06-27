@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXPlatform.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 3:02 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,23 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#ifndef __PGWiringX_PGWXPlatform_H_
+#define __PGWiringX_PGWXPlatform_H_
 
-#import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
+#import <PGWiringX/PGWXSOC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGWXBit : NSObject<NSCopying>
+@interface PGWXPlatform : NSObject
 
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
+    @property(nonatomic, readonly, copy) NSString  *boardName;
+    @property(nonatomic, readonly, retain) PGWXSOC *soc;
 
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
-
-    -(NSUInteger)hash;
-
-    -(id)copyWithZone:(nullable NSZone *)zone;
-
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
+    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError **)error;
 
 @end
 
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
- */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
-
 NS_ASSUME_NONNULL_END
 
-#endif //__PGWiringX_PGWXBit_H_
+#endif //__PGWiringX_PGWXPlatform_H_

@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXPlatformLinkSprite.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 2:58 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,43 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#ifndef __PGWiringX_PGWXPlatformLinkSprite_H_
+#define __PGWiringX_PGWXPlatformLinkSprite_H_
 
-#import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
+#import <PGWiringX/PGWXPlatform.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGWXBit : NSObject<NSCopying>
+/*
+ PI19: PCDuino GPIO 0
+ PI18: PCDuino GPIO 1
+ PH7:  PCDuino GPIO 2
+ PH6:  PCDuino GPIO 3
+ PH8:  PCDuino GPIO 4
+ PB2:  PCDuino GPIO 5
+ PI3:  PCDuino GPIO 6
+ PH9:  PCDuino GPIO 7
+ PH10: PCDuino GPIO 8
+ PH5:  PCDuino GPIO 9
+ PI10: PCDuino GPIO 10
+ PI12: PCDuino GPIO 11
+ PI13: PCDuino GPIO 12
+ PI11: PCDuino GPIO 13
+ PH11: PCDuino GPIO 14
+ PH12: PCDuino GPIO 15
+ PH13: PCDuino GPIO 16
+ PH14: PCDuino GPIO 17
+ PH15: PCDuino GPIO 18 (TX LED)
+ PH16: PCDuino GPIO 19 (RX LED)
+*/
 
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
+@interface PGWXPlatformLinkSpritePCDuino1 : PGWXPlatform
 
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
-
-    -(NSUInteger)hash;
-
-    -(id)copyWithZone:(nullable NSZone *)zone;
-
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
+    -(instancetype)init:(NSError **)error;
 
 @end
 
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
- */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
-
 NS_ASSUME_NONNULL_END
 
-#endif //__PGWiringX_PGWXBit_H_
+#endif //__PGWiringX_PGWXPlatformLinkSprite_H_

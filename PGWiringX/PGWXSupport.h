@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXSupport.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 10:39 AM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,35 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#ifndef __PGWiringX_PGWXSupport_H_
+#define __PGWiringX_PGWXSupport_H_
 
-#import <Cocoa/Cocoa.h>
+// #import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
 
-NS_ASSUME_NONNULL_BEGIN
+FOUNDATION_EXPORT NSString *_Nonnull const PGWXErrorDomain;
 
-@interface PGWXBit : NSObject<NSCopying>
+FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeError(NSError *_Nullable *_Nullable error, NSInteger code, NSString *_Nonnull message);
 
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
+FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeOSError(NSError *_Nullable *_Nullable error, int osErr);
 
-    -(BOOL)isEqual:(id)other;
+@interface PGWXPinName : NSObject<NSCopying>
 
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
+    @property(nonatomic, readonly, nonnull) NSString *pinName;
+    @property(nonatomic, readonly) NSInteger         pinNumber;
+
+    -(nonnull instancetype)initWithPinName:(nonnull NSString *)pinName pinNumber:(NSInteger)pinNumber;
+
+    -(BOOL)isEqual:(nullable id)other;
+
+    -(BOOL)isEqualToName:(nullable PGWXPinName *)name;
 
     -(NSUInteger)hash;
 
-    -(id)copyWithZone:(nullable NSZone *)zone;
+    -(nonnull id)copyWithZone:(nullable NSZone *)zone;
 
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
+    +(nonnull instancetype)pinName:(nonnull NSString *)pinName withNumber:(NSInteger)pinNumber;
 
 @end
 
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
- */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
-
-NS_ASSUME_NONNULL_END
-
-#endif //__PGWiringX_PGWXBit_H_
+#endif //__PGWiringX_PGWXSupport_H_

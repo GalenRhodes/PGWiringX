@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXPlatformRaspberryPi.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 2:58 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,32 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#ifndef __PGWiringX_PGWXPlatformRaspberryPi_H_
+#define __PGWiringX_PGWXPlatformRaspberryPi_H_
 
-#import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
+#import <PGWiringX/PGWXPlatform.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGWXBit : NSObject<NSCopying>
-
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
-
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
-
-    -(NSUInteger)hash;
-
-    -(id)copyWithZone:(nullable NSZone *)zone;
-
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
-
+@interface PGWXPlatformRaspberryPi1B1 : PGWXPlatform
 @end
 
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
- */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
+@interface PGWXPlatformRaspberryPi1B2 : PGWXPlatform
+@end
+
+@interface PGWXPlatformRaspberryPiZero : PGWXPlatform
+@end
+
+@interface PGWXPlatformRaspberryPi1BP : PGWXPlatform
+@end
+
+@interface PGWXPlatformRaspberryPi2 : PGWXPlatform
+@end
+
+@interface PGWXPlatformRaspberryPi3 : PGWXPlatform
+@end
 
 NS_ASSUME_NONNULL_END
 
-#endif //__PGWiringX_PGWXBit_H_
+#endif //__PGWiringX_PGWXPlatformRaspberryPi_H_

@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGWXAddr : NSObject<NSCopying>
 
-    @property(nonatomic, readonly) NSUInteger address;
-    @property(nonatomic, readonly) NSUInteger offset;
+    @property(nonatomic, readonly) uintptr_t address;
+    @property(nonatomic, readonly) uintptr_t offset;
 
     -(BOOL)isEqual:(id)other;
 
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(id)copyWithZone:(nullable NSZone *)zone;
 
-    +(instancetype)address:(NSUInteger)address offset:(NSUInteger)offset;
+    +(instancetype)address:(uintptr_t)address offset:(uintptr_t)offset;
 
 @end
 

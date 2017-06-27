@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXBit.h
+ *    FILENAME: PGWXPlatform.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:46 PM
+ *        DATE: 6/26/17 3:02 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,39 +21,35 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#ifndef __PGWiringX_PGWXBit_H_
-#define __PGWiringX_PGWXBit_H_
+#import "PGWXPlatform.h"
 
-#import <Cocoa/Cocoa.h>
+@implementation PGWXPlatform {
+    }
 
-NS_ASSUME_NONNULL_BEGIN
+    @synthesize boardName = _boardName;
+    @synthesize soc = _soc;
 
-@interface PGWXBit : NSObject<NSCopying>
+    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError **)error {
+        self = [super init];
 
-    @property(nonatomic, readonly) NSUInteger bit;
-    @property(nonatomic, readonly) NSUInteger offset;
+        if(self) {
+            if(boardName.length) {
+                if(soc) {
+                    _soc       = soc;
+                    _boardName = boardName.copy;
+                }
+                else {
+                    if(error && *error == nil) PGWXMakeError(error, 301, @"SOC is missing.");
+                    self = nil;
+                }
+            }
+            else {
+                PGWXMakeError(error, 300, @"Board name is missing.");
+                self = nil;
+            }
+        }
 
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToBit:(PGWXBit *)bit;
-
-    -(NSUInteger)hash;
-
-    -(id)copyWithZone:(nullable NSZone *)zone;
-
-    +(instancetype)bit:(NSUInteger)bit offset:(NSUInteger)offset;
+        return self;
+    }
 
 @end
-
-/**
- * Convienience function to create a bit.
- *
- * @param offset the offset
- * @param bit the bit
- * @return an instance of PGWXBit.
- */
-NS_INLINE PGWXBit *PGWXMakeBit(NSUInteger offset, NSUInteger bit) { return [PGWXBit bit:bit offset:offset]; }
-
-NS_ASSUME_NONNULL_END
-
-#endif //__PGWiringX_PGWXBit_H_

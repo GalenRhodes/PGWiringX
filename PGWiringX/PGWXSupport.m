@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXAddr.m
+ *    FILENAME: PGWXSupport.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/22/17 3:36 PM
+ *        DATE: 6/26/17 10:39 AM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,52 +21,56 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import <Rubicon/Rubicon.h>
-#import "PGWXAddr.h"
+#import "PGWXSupport.h"
 
-@implementation PGWXAddr {
+NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+
+NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
+    NSError *_error = [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }];
+    if(error) *error = _error;
+    return _error;
+}
+
+NSError *PGWXMakeOSError(NSError **error, int err) {
+    return PGWXMakeError(error, 100, PGStrError(err));
+}
+
+@implementation PGWXPinName {
     }
 
-    @synthesize address = _address;
-    @synthesize offset = _offset;
+    @synthesize pinName = _pinName;
+    @synthesize pinNumber = _pinNumber;
 
-    -(instancetype)initWithAddress:(uintptr_t)address offset:(uintptr_t)offset {
+    -(instancetype)initWithPinName:(NSString *)pinName pinNumber:(NSInteger)pinNumber {
         self = [super init];
 
         if(self) {
-            _address = address;
-            _offset  = offset;
+            _pinName   = [pinName copy];
+            _pinNumber = pinNumber;
         }
 
         return self;
     }
 
-    +(instancetype)address:(uintptr_t)address offset:(uintptr_t)offset {
-        static NSMutableDictionary<NSString *, PGWXAddr *> *_dict = nil;
-
-        @synchronized([PGWXAddr class]) {
-            if(_dict == nil) _dict = [NSMutableDictionary new];
-            NSString *key    = PGFormat(@"%lu:%lu", address, offset);
-            PGWXAddr *anAddr = _dict[key];
-            if(anAddr == nil) _dict[key] = (anAddr = [[self alloc] initWithAddress:address offset:offset]);
-            return anAddr;
-        }
+    +(instancetype)pinName:(NSString *)pinName withNumber:(NSInteger)pinNumber {
+        return [[self alloc] initWithPinName:pinName pinNumber:pinNumber];
     }
 
     -(BOOL)isEqual:(id)other {
-        return (other && ((self == other) || ([other isMemberOfClass:[self class]] ? [self isEqualToAddr:other] : [super isEqual:other])));
+        return (other && ((self == other) || ([other isMemberOfClass:[self class]] ? [self isEqualToName:other] : [super isEqual:other])));
     }
 
-    -(BOOL)isEqualToAddr:(PGWXAddr *)addr {
-        return (addr && ((self == addr) || ((_address == addr->_address) && (_offset == addr->_offset))));
+    -(BOOL)isEqualToName:(PGWXPinName *)name {
+        return (name && ((self == name) || (PGCompare(self.pinName, name.pinName) && (self.pinNumber == name.pinNumber))));
     }
 
     -(NSUInteger)hash {
-        return (((31u + (NSUInteger)_address) * 31u) + (NSUInteger)_offset);
+        return (((31u + self.pinName.hash) * 31u) + (NSUInteger)self.pinNumber);
     }
 
     -(id)copyWithZone:(nullable NSZone *)zone {
-        return self;  // These are immutable objects so just return a copy of itself.
+        return self;
     }
 
 @end
+
