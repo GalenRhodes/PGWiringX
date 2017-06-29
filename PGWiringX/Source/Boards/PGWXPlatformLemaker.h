@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PGWXPlatformLemakerBananaPi1 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PGWXPlatformLemakerBananaPiM2 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 

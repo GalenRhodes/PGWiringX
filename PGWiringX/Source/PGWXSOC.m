@@ -23,9 +23,22 @@
 
 #import "PGWXSOC.h"
 
+@interface PGWXSOC()
+
+    -(BOOL)allocateGPIO:(NSError *_Nullable *)error;
+
+    -(void)deallocGPIO;
+
+    -(PGWXLayout *)layoutForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(PGWXLayout *)irqLayoutForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+@end
+
 @implementation PGWXSOC {
-        size_t    _gpioCount;
-        uintptr_t *_gpio;
+        size_t          _gpioCount;
+        uintptr_t       *_gpio;
+        NSRecursiveLock *_lock;
     }
 
     @synthesize brandName = _brandName;
@@ -39,13 +52,32 @@
 
     -(instancetype)initWithBrandName:(NSString *)brandName
                              chipSet:(NSString *)chipSet
+                              layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                            isrModes:(NSUInteger)isrModes
+                            pageSize:(NSUInteger)pageSize
+                       baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
+        return (self = [self initWithBrandName:brandName
+                                       chipSet:chipSet
+                                        layout:layout
+                                       gpioMap:gpioMap
+                                        irqMap:irqMap
+                                      isrModes:isrModes
+                                      pageSize:pageSize
+                                 baseAddresses:baseAddresses
+                                 sysfsWithName:NO
+                                         error:error]);
+    }
+
+    -(instancetype)initWithBrandName:(NSString *)brandName
+                             chipSet:(NSString *)chipSet
                               layout:(NSArray<PGWXLayout *> *)layout
-                             gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                              irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
+                             gpioMap:(NSArray<NSString *> *)gpioMap
+                              irqMap:(nullable NSArray<NSString *> *)irqMap
                             isrModes:(NSUInteger)isrModes
                             pageSize:(NSUInteger)pageSize
                        baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                               error:(NSError **)error {
+                       sysfsWithName:(BOOL)sysfsWithName
+                               error:(NSError *_Nullable *)error {
         self = [super init];
 
         if(self) {
@@ -64,10 +96,18 @@
                 _isrModes      = isrModes;
                 _pageSize      = pageSize;
                 _baseAddresses = baseAddresses.copy;
+                _gpio          = NULL;
+                _gpioCount     = 0;
 
                 NSMutableDictionary *mlayout = [NSMutableDictionary dictionaryWithCapacity:layout.count];
-                for(PGWXLayout      *lo in layout) mlayout[lo.name] = lo;
+
+                for(PGWXLayout *lo in layout) {
+                    mlayout[lo.name] = lo;
+                    lo.sysfsWithName = sysfsWithName;
+                }
+
                 _layout = mlayout;
+                _lock   = [NSRecursiveLock new];
             }
             if(error) *error = err;
             if(err) self = nil;
@@ -76,57 +116,44 @@
         return self;
     }
 
-    -(NSError *)allocateGPIO {
+    -(BOOL)allocateGPIO:(NSError *_Nullable *)error {
         NSError *err = nil;
+        [_lock lock];
 
-        _gpioCount = 0;
-        int fd = open("/dev/mem", O_RDWR | O_SYNC);
+        @try {
+            if(_gpio == NULL) {
+                _gpioCount = 0;
+                int fd = open("/dev/mem", O_RDWR | O_SYNC);
 
-        if(fd < 0) {
-            _gpio = NULL;
-            PGWXMakeOSError(&err, errno);
-        }
-        else {
-            _gpio = (uintptr_t *)malloc(_baseAddresses.count * sizeof(uintptr_t));
-
-            for(PGWXAddr *ba in _baseAddresses) {
-                void *ptr = mmap(0, _pageSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, (off_t)ba.address);
-
-                if(ptr == NULL || ptr == MAP_FAILED) {
-                    err = PGWXMakeOSError(&err, errno);
-                    [self deallocGPIO];
-                    break;
+                if(fd < 0) {
+                    PGWXMakeOSError(&err, errno);
                 }
                 else {
-                    _gpio[_gpioCount++] = (uintptr_t)ptr;
+                    _gpio = (uintptr_t *)malloc(_baseAddresses.count * sizeof(uintptr_t));
+
+                    for(PGWXAddr *ba in _baseAddresses) {
+                        void *ptr = mmap(0, _pageSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, (off_t)ba.address);
+
+                        if(ptr == NULL || ptr == MAP_FAILED) {
+                            PGWXMakeOSError(&err, errno);
+                            [self deallocGPIO];
+                            break;
+                        }
+                        else {
+                            _gpio[_gpioCount++] = (uintptr_t)ptr;
+                        }
+                    }
+
+                    close(fd);
                 }
             }
-
-            close(fd);
+        }
+        @finally {
+            [_lock unlock];
         }
 
-        return err;
-    }
-
-    +(instancetype)pgwxsocWithBrandName:(NSString *)brandName
-                                chipSet:(NSString *)chipSet
-                                 layout:(NSArray<PGWXLayout *> *)layout
-                                gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                                 irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                               isrModes:(NSUInteger)isrModes
-                               pageSize:(NSUInteger)pageSize
-                          baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                                  error:(NSError **)error {
-        return [[self alloc]
-                      initWithBrandName:brandName
-                                chipSet:chipSet
-                                 layout:layout
-                                gpioMap:gpioMap
-                                 irqMap:irqMap
-                               isrModes:isrModes
-                               pageSize:pageSize
-                          baseAddresses:baseAddresses
-                                  error:error];
+        if(error) *error = err;
+        return (err == nil);
     }
 
     -(void)dealloc {
@@ -134,16 +161,135 @@
     }
 
     -(void)deallocGPIO {
-        if(_gpio) {
-            for(size_t i = 0; i < _gpioCount; i++) {
-                void *ptr = (void *)_gpio[i];
-                _gpio[i] = (uintptr_t)NULL;
-                if(ptr != NULL && ptr != MAP_FAILED) munmap(ptr, self.pageSize);
-            }
+        [_lock lock];
 
-            free(_gpio);
-            _gpio = NULL;
+        @try {
+            if(_gpio) {
+                for(size_t i = 0; i < _gpioCount; i++) {
+                    void *ptr = (void *)_gpio[i];
+                    _gpio[i] = (uintptr_t)NULL;
+                    if(ptr != NULL && ptr != MAP_FAILED) munmap(ptr, self.pageSize);
+                }
+
+                free(_gpio);
+                _gpio = NULL;
+            }
         }
+        @finally {
+            [_lock unlock];
+        }
+    }
+
+    -(PGWXLayout *)layoutForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        if(pin < self.gpioMap.count) {
+            NSString *pinName = self.gpioMap[pin];
+            if(pinName.length) {
+                PGWXLayout *layout = self.layout[pinName];
+                if(layout) return layout;
+            }
+        }
+        PGWXMakeError(error, 500, PGFormat(@"Invalid PIN Number: %@", @(pin)));
+        return nil;
+    }
+
+    -(PGWXLayout *)irqLayoutForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        if(pin < self.irqMap.count) {
+            NSString *pinName = self.irqMap[pin];
+            if(pinName.length) {
+                PGWXLayout *layout = self.layout[pinName];
+                if(layout) return layout;
+            }
+        }
+        PGWXMakeError(error, 500, PGFormat(@"Invalid PIN Number: %@", @(pin)));
+        return nil;
+    }
+
+    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin {
+        NSError *error = nil;
+        if([self allocateGPIO:&error]) {
+            /*
+             * TODO: Set Mode
+             */
+        }
+        return error;
+    }
+
+    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
+        NSError *error = nil;
+        if([self allocateGPIO:&error]) {
+            /*
+             * TODO: Digital Write
+             */
+        }
+        return error;
+    }
+
+    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        PGWXPinState currentState = PGWX_LOW;
+        if([self allocateGPIO:error]) {
+            /*
+             * TODO: Digital Read
+             */
+        }
+        return currentState;
+    }
+
+    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        NSInteger currentAnalogValue = 0;
+        if([self allocateGPIO:error]) {
+            /*
+             * TODO: Analog Read
+             */
+        }
+        return currentAnalogValue;
+    }
+
+    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin {
+        NSError *error = nil;
+        if([self allocateGPIO:&error]) {
+            /*
+             * TODO: Set ISR
+             */
+        }
+        return error;
+    }
+
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error {
+        BOOL waitResults = NO;
+        if([self allocateGPIO:error]) {
+            /*
+             * TODO: Wait For Interrupt
+             */
+        }
+        return waitResults;
+    }
+
+    -(BOOL)isValidPin:(NSUInteger)pin {
+        return ([self layoutForPin:pin error:nil] != nil);
+    }
+
+    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        int currentFD = 0;
+        if([self allocateGPIO:error]) {
+            /*
+             * TODO: Selectable FD
+             */
+        }
+        return currentFD;
+    }
+
+    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
+        NSError    *error  = nil;
+        PGWXLayout *layout = [self layoutForPin:pin error:&error];
+        if(layout) error = [layout sysfsDigitalWrite:value];
+        return error;
+    }
+
+    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        PGWXPinState value   = PGWX_LOW;
+        PGWXLayout   *layout = [self layoutForPin:pin error:error];
+        if(layout) value = [layout sysfsDigitalRead:error];
+        return value;
     }
 
 @end

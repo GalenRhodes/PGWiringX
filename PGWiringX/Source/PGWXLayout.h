@@ -44,27 +44,31 @@ typedef enum {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PGWXLayout : NSObject
+@interface PGWXLayout : NSObject<NSLocking>
 
-    @property(nonatomic, readonly, copy) NSString  *name;
-    @property(nonatomic, readonly) NSUInteger      bank;
-    @property(nonatomic, readonly, retain) PGWXBit *select;
-    @property(nonatomic, readonly, retain) PGWXBit *set;
-    @property(nonatomic, readonly, retain) PGWXBit *clear;
-    @property(nonatomic, readonly, retain) PGWXBit *read;
-    @property(nonatomic, readonly) NSUInteger      support;
-    @property(atomic, readwrite) PGWXPinMode       mode;
-    @property(atomic, readwrite) int               fd;
+    @property(nonatomic, readonly) NSString   *name;
+    @property(nonatomic, readonly) NSUInteger number;
+    @property(nonatomic, readonly) NSUInteger bank;
+    @property(nonatomic, readonly) NSString   *sysfsPath;
+    @property(nonatomic, readonly) PGWXBit    *select;
+    @property(nonatomic, readonly) PGWXBit    *set;
+    @property(nonatomic, readonly) PGWXBit    *clear;
+    @property(nonatomic, readonly) PGWXBit    *read;
+    @property(nonatomic, readonly) NSUInteger support;
+    @property(atomic, readwrite) PGWXPinMode  mode;
+    @property(atomic, readwrite) int          fd;
+    @property(atomic, readwrite) BOOL         sysfsWithName;
 
-    -(instancetype)initWithName:(NSString *)name bank:(NSUInteger)bank select:(PGWXBit *)sel read:(PGWXBit *)read set:(PGWXBit *)set clear:(PGWXBit *)clear support:(NSUInteger)sup;
+    -(instancetype)initWithName:(NSString *)name
+                         number:(NSUInteger)number
+                           bank:(NSUInteger)bank
+                         select:(PGWXBit *)sel
+                           read:(PGWXBit *)read
+                            set:(PGWXBit *)set
+                          clear:(PGWXBit *)clear
+                        support:(NSUInteger)sup;
 
-    -(BOOL)isEqual:(id)other;
-
-    -(BOOL)isEqualToLayout:(PGWXLayout *)layout;
-
-    -(NSUInteger)hash;
-
-    +(instancetype)layoutWithName:(NSString *)name
+    +(instancetype)layoutWithName:(NSString *)name number:(NSUInteger)number
                              bank:(NSUInteger)bank
                            select:(PGWXBit *)sel
                              read:(PGWXBit *)read
@@ -72,9 +76,41 @@ NS_ASSUME_NONNULL_BEGIN
                             clear:(PGWXBit *)clear
                           support:(NSUInteger)sup;
 
-    +(instancetype)layoutWithName:(NSString *)name bank:(NSUInteger)bank select:(PGWXBit *)select read:(PGWXBit *)read write:(PGWXBit *)write support:(NSUInteger)support;
+    +(instancetype)layoutWithName:(NSString *)name
+                           number:(NSUInteger)number
+                             bank:(NSUInteger)bank
+                           select:(PGWXBit *)select
+                             read:(PGWXBit *)read
+                            write:(PGWXBit *)write
+                          support:(NSUInteger)support;
 
-    +(instancetype)layoutWithName:(NSString *)name bank:(NSUInteger)bank select:(PGWXBit *)select readWrite:(PGWXBit *)readWrite support:(NSUInteger)support;
+    +(instancetype)layoutWithName:(NSString *)name
+                           number:(NSUInteger)number
+                             bank:(NSUInteger)bank
+                           select:(PGWXBit *)select
+                        readWrite:(PGWXBit *)readWrite
+                          support:(NSUInteger)support;
+
+    -(BOOL)isEqual:(id)other;
+
+    -(BOOL)isEqualToLayout:(PGWXLayout *)layout;
+
+    -(NSUInteger)hash;
+
+    -(BOOL)sysfsExport:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsUnexport:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsWrite:(NSString *)value toSubPath:(NSString *)subPath error:(NSError *_Nullable *)error;
+
+    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value;
+
+    -(PGWXPinState)sysfsDigitalRead:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsValidate:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsCheck:(NSError *_Nullable *)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

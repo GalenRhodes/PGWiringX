@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PGWXPlatformHardkernelOdroidC1 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PGWXPlatformHardkernelOdroidC2 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PGWXPlatformHardkernelOdroidXU4 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 

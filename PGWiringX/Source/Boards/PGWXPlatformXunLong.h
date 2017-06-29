@@ -61,7 +61,7 @@ LED GREEN = PL10
 
 @interface PGWXPlatformXunLongOrangePiPCP : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 

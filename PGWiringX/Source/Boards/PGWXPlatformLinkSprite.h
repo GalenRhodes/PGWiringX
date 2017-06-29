@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PGWXPlatformLinkSpritePCDuino1 : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 

@@ -34,7 +34,23 @@ NS_ASSUME_NONNULL_BEGIN
     @property(nonatomic, readonly, copy) NSString  *boardName;
     @property(nonatomic, readonly, retain) PGWXSOC *soc;
 
-    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError **)error;
+    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError *_Nullable *)error;
+
+    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin;
+
+    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+
+    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin;
+
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error;
+
+    -(BOOL)isValidPin:(NSUInteger)pin;
+
+    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
 @end
 

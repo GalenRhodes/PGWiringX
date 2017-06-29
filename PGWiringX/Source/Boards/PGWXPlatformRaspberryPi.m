@@ -25,85 +25,85 @@
 #import "PGWXSOCBroadcomm.h"
 
 #define PGWXRPIMAP1 @[\
-    [PGWXPinName pinName:@"FSEL17" withNumber:17],\
-    [PGWXPinName pinName:@"FSEL18" withNumber:18],\
-    [PGWXPinName pinName:@"FSEL27" withNumber:21],\
-    [PGWXPinName pinName:@"FSEL22" withNumber:22],\
-    [PGWXPinName pinName:@"FSEL23" withNumber:23],\
-    [PGWXPinName pinName:@"FSEL24" withNumber:24],\
-    [PGWXPinName pinName:@"FSEL25" withNumber:25],\
-    [PGWXPinName pinName:@"FSEL4"  withNumber: 4],\
-    [PGWXPinName pinName:@"FSEL2"  withNumber: 0],\
-    [PGWXPinName pinName:@"FSEL3"  withNumber: 1],\
-    [PGWXPinName pinName:@"FSEL8"  withNumber: 8],\
-    [PGWXPinName pinName:@"FSEL7"  withNumber: 7],\
-    [PGWXPinName pinName:@"FSEL10" withNumber:10],\
-    [PGWXPinName pinName:@"FSEL9"  withNumber: 9],\
-    [PGWXPinName pinName:@"FSEL11" withNumber:11],\
-    [PGWXPinName pinName:@"FSEL14" withNumber:14],\
-    [PGWXPinName pinName:@"FSEL15" withNumber:15]]
+    @"FSEL17",\
+    @"FSEL18",\
+    @"FSEL27",\
+    @"FSEL22",\
+    @"FSEL23",\
+    @"FSEL24",\
+    @"FSEL25",\
+    @"FSEL4",\
+    @"FSEL2",\
+    @"FSEL3",\
+    @"FSEL8",\
+    @"FSEL7",\
+    @"FSEL10",\
+    @"FSEL9",\
+    @"FSEL11",\
+    @"FSEL14",\
+    @"FSEL15"]
 
 #define PGWXRPIMAP2 @[\
-    [PGWXPinName pinName:@"FSEL17" withNumber:17],\
-    [PGWXPinName pinName:@"FSEL18" withNumber:18],\
-    [PGWXPinName pinName:@"FSEL27" withNumber:27],\
-    [PGWXPinName pinName:@"FSEL22" withNumber:22],\
-    [PGWXPinName pinName:@"FSEL23" withNumber:23],\
-    [PGWXPinName pinName:@"FSEL24" withNumber:24],\
-    [PGWXPinName pinName:@"FSEL25" withNumber:25],\
-    [PGWXPinName pinName:@"FSEL4"  withNumber: 4],\
-    [PGWXPinName pinName:@"FSEL2"  withNumber: 2],\
-    [PGWXPinName pinName:@"FSEL3"  withNumber: 3],\
-    [PGWXPinName pinName:@"FSEL8"  withNumber: 8],\
-    [PGWXPinName pinName:@"FSEL7"  withNumber: 7],\
-    [PGWXPinName pinName:@"FSEL10" withNumber:10],\
-    [PGWXPinName pinName:@"FSEL9"  withNumber: 9],\
-    [PGWXPinName pinName:@"FSEL11" withNumber:11],\
-    [PGWXPinName pinName:@"FSEL14" withNumber:14],\
-    [PGWXPinName pinName:@"FSEL15" withNumber:15],\
-    [PGWXPinName pinName:@"FSEL28" withNumber:28],\
-    [PGWXPinName pinName:@"FSEL29" withNumber:29],\
-    [PGWXPinName pinName:@"FSEL30" withNumber:30],\
-    [PGWXPinName pinName:@"FSEL31" withNumber:31]]
+    @"FSEL17",\
+    @"FSEL18",\
+    @"FSEL27",\
+    @"FSEL22",\
+    @"FSEL23",\
+    @"FSEL24",\
+    @"FSEL25",\
+    @"FSEL4",\
+    @"FSEL2",\
+    @"FSEL3",\
+    @"FSEL8",\
+    @"FSEL7",\
+    @"FSEL10",\
+    @"FSEL9",\
+    @"FSEL11",\
+    @"FSEL14",\
+    @"FSEL15",\
+    @"FSEL28",\
+    @"FSEL29",\
+    @"FSEL30",\
+    @"FSEL31"]
 
 #define PGWXRPIMAP3 @[\
-    [PGWXPinName pinName:@"FSEL17"    withNumber:17],\
-    [PGWXPinName pinName:@"FSEL18"    withNumber:18],\
-    [PGWXPinName pinName:@"FSEL27"    withNumber:27],\
-    [PGWXPinName pinName:@"FSEL22"    withNumber:22],\
-    [PGWXPinName pinName:@"FSEL23"    withNumber:23],\
-    [PGWXPinName pinName:@"FSEL24"    withNumber:24],\
-    [PGWXPinName pinName:@"FSEL25"    withNumber:25],\
-    [PGWXPinName pinName:@"FSEL4"     withNumber: 4],\
-    [PGWXPinName pinName:@"FSEL2"     withNumber: 2],\
-    [PGWXPinName pinName:@"FSEL3"     withNumber: 3],\
-    [PGWXPinName pinName:@"FSEL8"     withNumber: 8],\
-    [PGWXPinName pinName:@"FSEL7"     withNumber: 7],\
-    [PGWXPinName pinName:@"FSEL10"    withNumber:10],\
-    [PGWXPinName pinName:@"FSEL9"     withNumber: 9],\
-    [PGWXPinName pinName:@"FSEL11"    withNumber:11],\
-    [PGWXPinName pinName:@"FSEL14"    withNumber:14],\
-    [PGWXPinName pinName:@"FSEL15"    withNumber:15],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"FSEL5"     withNumber: 5],\
-    [PGWXPinName pinName:@"FSEL6"     withNumber: 6],\
-    [PGWXPinName pinName:@"FSEL13"    withNumber:13],\
-    [PGWXPinName pinName:@"FSEL19"    withNumber:19],\
-    [PGWXPinName pinName:@"FSEL26"    withNumber:26],\
-    [PGWXPinName pinName:@"FSEL12"    withNumber:12],\
-    [PGWXPinName pinName:@"FSEL16"    withNumber:16],\
-    [PGWXPinName pinName:@"FSEL20"    withNumber:20],\
-    [PGWXPinName pinName:@"FSEL21"    withNumber:21],\
-    [PGWXPinName pinName:@"FSEL0"     withNumber: 0],\
-    [PGWXPinName pinName:@"FSEL1"     withNumber: 1]]
+    @"FSEL17",\
+    @"FSEL18",\
+    @"FSEL27",\
+    @"FSEL22",\
+    @"FSEL23",\
+    @"FSEL24",\
+    @"FSEL25",\
+    @"FSEL4",\
+    @"FSEL2",\
+    @"FSEL3",\
+    @"FSEL8",\
+    @"FSEL7",\
+    @"FSEL10",\
+    @"FSEL9",\
+    @"FSEL11",\
+    @"FSEL14",\
+    @"FSEL15",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"FSEL5",\
+    @"FSEL6",\
+    @"FSEL13",\
+    @"FSEL19",\
+    @"FSEL26",\
+    @"FSEL12",\
+    @"FSEL16",\
+    @"FSEL20",\
+    @"FSEL21",\
+    @"FSEL0",\
+    @"FSEL1"]
 
 @implementation PGWXPlatformRaspberryPi1B1 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP1 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-1B1" soc:soc error:error]);
     }
@@ -113,7 +113,7 @@
 @implementation PGWXPlatformRaspberryPi1B2 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP2 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-1B2" soc:soc error:error]);
     }
@@ -123,7 +123,7 @@
 @implementation PGWXPlatformRaspberryPiZero {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP2 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-Zero" soc:soc error:error]);
     }
@@ -133,7 +133,7 @@
 @implementation PGWXPlatformRaspberryPi1BP {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-1B+" soc:soc error:error]);
     }
@@ -143,7 +143,7 @@
 @implementation PGWXPlatformRaspberryPi2 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2836 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-2" soc:soc error:error]);
     }
@@ -153,7 +153,7 @@
 @implementation PGWXPlatformRaspberryPi3 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2837 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Raspberry PI-3" soc:soc error:error]);
     }

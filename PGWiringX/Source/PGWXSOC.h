@@ -35,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
     @property(nonatomic, readonly, copy) NSString                               *brandName;
     @property(nonatomic, readonly, copy) NSString                               *chipSet;
-    @property(nonatomic, readonly, copy) NSArray<PGWXPinName *>                 *gpioMap;
-    @property(nonatomic, readonly, copy) NSArray<PGWXPinName *>                 *irqMap;
+    @property(nonatomic, readonly, copy) NSArray<NSString *>                    *gpioMap;
+    @property(nonatomic, readonly, copy) NSArray<NSString *>                    *irqMap;
     @property(nonatomic, readonly, copy) NSDictionary<NSString *, PGWXLayout *> *layout;
     @property(nonatomic, readonly) NSUInteger                                   isrModes;
     @property(nonatomic, readonly) NSUInteger                                   pageSize;
@@ -44,23 +44,41 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(instancetype)initWithBrandName:(NSString *)brandName
                              chipSet:(NSString *)chipSet
+                              layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                            isrModes:(NSUInteger)isrModes
+                            pageSize:(NSUInteger)pageSize
+                       baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
+
+    -(instancetype)initWithBrandName:(NSString *)brandName
+                             chipSet:(NSString *)chipSet
                               layout:(NSArray<PGWXLayout *> *)layout
-                             gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                              irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
+                             gpioMap:(NSArray<NSString *> *)gpioMap
+                              irqMap:(nullable NSArray<NSString *> *)irqMap
                             isrModes:(NSUInteger)isrModes
                             pageSize:(NSUInteger)pageSize
                        baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                               error:(NSError **)error;
+                       sysfsWithName:(BOOL)sysfsWithName
+                               error:(NSError *_Nullable *)error;
 
-    +(instancetype)pgwxsocWithBrandName:(NSString *)brandName
-                                chipSet:(NSString *)chipSet
-                                 layout:(NSArray<PGWXLayout *> *)layout
-                                gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                                 irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                               isrModes:(NSUInteger)isrModes
-                               pageSize:(NSUInteger)pageSize
-                          baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                                  error:(NSError **)error;
+    -(nullable NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin;
+
+    -(nullable NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+
+    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(nullable NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin;
+
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error;
+
+    -(BOOL)isValidPin:(NSUInteger)pin;
+
+    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+
+    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
 @end
 

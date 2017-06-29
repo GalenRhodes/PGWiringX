@@ -50,34 +50,34 @@
  * |-----|
  */
 #define PGWXMAPODROIDC1 @[\
-    [PGWXPinName pinName:@"GPIOY_8"   withNumber: 88],\
-    [PGWXPinName pinName:@"GPIOY_7"   withNumber: 87],\
-    [PGWXPinName pinName:@"GPIOX_19"  withNumber:116],\
-    [PGWXPinName pinName:@"GPIOX_18"  withNumber:115],\
-    [PGWXPinName pinName:@"GPIOX_7"   withNumber:104],\
-    [PGWXPinName pinName:@"GPIOX_5"   withNumber:102],\
-    [PGWXPinName pinName:@"GPIOX_6"   withNumber:103],\
-    [PGWXPinName pinName:@"GPIOY_3"   withNumber: 83],\
-    [PGWXPinName pinName:@"GPIODV_24" withNumber: 74],\
-    [PGWXPinName pinName:@"GPIODV_25" withNumber: 75],\
-    [PGWXPinName pinName:@"GPIOX_20"  withNumber:117],\
-    [PGWXPinName pinName:@"GPIOX_21"  withNumber:118],\
-    [PGWXPinName pinName:@"GPIOX_10"  withNumber:107],\
-    [PGWXPinName pinName:@"GPIOX_9"   withNumber:106],\
-    [PGWXPinName pinName:@"GPIOX_8"   withNumber:105],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIODV_26" withNumber: 76],\
-    [PGWXPinName pinName:@"GPIODV_27" withNumber: 77],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIOX_4"   withNumber:101],\
-    [PGWXPinName pinName:@"GPIOX_3"   withNumber:100],\
-    [PGWXPinName pinName:@"GPIOX_11"  withNumber:108],\
-    [PGWXPinName pinName:@"GPIOX_0"   withNumber: 97],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIOX_2"   withNumber: 99],\
-    [PGWXPinName pinName:@"GPIOX_1"   withNumber: 98]]
+    @"GPIOY_8",\
+    @"GPIOY_7",\
+    @"GPIOX_19",\
+    @"GPIOX_18",\
+    @"GPIOX_7",\
+    @"GPIOX_5",\
+    @"GPIOX_6",\
+    @"GPIOY_3",\
+    @"GPIODV_24",\
+    @"GPIODV_25",\
+    @"GPIOX_20",\
+    @"GPIOX_21",\
+    @"GPIOX_10",\
+    @"GPIOX_9",\
+    @"GPIOX_8",\
+    @"",\
+    @"",\
+    @"GPIODV_26",\
+    @"GPIODV_27",\
+    @"",\
+    @"",\
+    @"GPIOX_4",\
+    @"GPIOX_3",\
+    @"GPIOX_11",\
+    @"GPIOX_0",\
+    @"",\
+    @"GPIOX_2",\
+    @"GPIOX_1"]
 
 /*
  * |-----|
@@ -104,34 +104,34 @@
  * |-----|
  */
 #define PGWXMAPODROIDC2 @[\
-    [PGWXPinName pinName:@"GPIOX_19"  withNumber:125],\
-    [PGWXPinName pinName:@"GPIOX_10"  withNumber:116],\
-    [PGWXPinName pinName:@"GPIOX_11"  withNumber:117],\
-    [PGWXPinName pinName:@"GPIOX_9"   withNumber:115],\
-    [PGWXPinName pinName:@"GPIOX_8"   withNumber:114],\
-    [PGWXPinName pinName:@"GPIOX_5"   withNumber:111],\
-    [PGWXPinName pinName:@"GPIOX_3"   withNumber:109],\
-    [PGWXPinName pinName:@"GPIOX_21"  withNumber:127],\
-    [PGWXPinName pinName:@"GPIODV_24" withNumber: 83],\
-    [PGWXPinName pinName:@"GPIODV_25" withNumber: 84],\
-    [PGWXPinName pinName:@"GPIOX_1"   withNumber:107],\
-    [PGWXPinName pinName:@"GPIOY_11"  withNumber:103],\
-    [PGWXPinName pinName:@"GPIOX_7"   withNumber:113],\
-    [PGWXPinName pinName:@"GPIOX_4"   withNumber:110],\
-    [PGWXPinName pinName:@"GPIOX_2"   withNumber:108],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIOX_0"   withNumber:106],\
-    [PGWXPinName pinName:@"GPIOY_8"   withNumber: 97],\
-    [PGWXPinName pinName:@"GPIOX_6"   withNumber:112],\
-    [PGWXPinName pinName:@"GPIOY_3"   withNumber: 92],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIOY_13"  withNumber:102],\
-    [PGWXPinName pinName:@"GPIOY_7"   withNumber: 96]]
+    @"GPIOX_19",\
+    @"GPIOX_10",\
+    @"GPIOX_11",\
+    @"GPIOX_9",\
+    @"GPIOX_8",\
+    @"GPIOX_5",\
+    @"GPIOX_3",\
+    @"GPIOX_21",\
+    @"GPIODV_24",\
+    @"GPIODV_25",\
+    @"GPIOX_1",\
+    @"GPIOY_11",\
+    @"GPIOX_7",\
+    @"GPIOX_4",\
+    @"GPIOX_2",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"GPIOX_0",\
+    @"GPIOY_8",\
+    @"GPIOX_6",\
+    @"GPIOY_3",\
+    @"",\
+    @"GPIOY_13",\
+    @"GPIOY_7"]
 
 /*
  * |-----|
@@ -159,49 +159,49 @@
  */
 
 #define PGWXMAPODROIDXU4 @[\
-    [PGWXPinName pinName:@"GPIX_A03"  withNumber:174],\
-    [PGWXPinName pinName:@"GPIO_A02"  withNumber:173],\
-    [PGWXPinName pinName:@"GPIO_X15"  withNumber: 21],\
-    [PGWXPinName pinName:@"GPIO_X16"  withNumber: 22],\
-    [PGWXPinName pinName:@"GPIO_X13"  withNumber: 19],\
-    [PGWXPinName pinName:@"GPIO_X17"  withNumber: 23],\
-    [PGWXPinName pinName:@"GPIO_X20"  withNumber: 24],\
-    [PGWXPinName pinName:@"GPIO_X12"  withNumber: 18],\
-    [PGWXPinName pinName:@"GPIO_B32"  withNumber:209],\
-    [PGWXPinName pinName:@"GPIO_B33"  withNumber:210],\
-    [PGWXPinName pinName:@"GPIO_A25"  withNumber:190],\
-    [PGWXPinName pinName:@"GPIO_X21"  withNumber: 25],\
-    [PGWXPinName pinName:@"GPIO_A27"  withNumber:192],\
-    [PGWXPinName pinName:@"GPIO_A26"  withNumber:191],\
-    [PGWXPinName pinName:@"GPIO_A24"  withNumber:189],\
-    [PGWXPinName pinName:@"GPIO_A01"  withNumber:172],\
-    [PGWXPinName pinName:@"GPIO_A00"  withNumber:171],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIO_X24"  withNumber: 28],\
-    [PGWXPinName pinName:@"GPIO_X26"  withNumber: 30],\
-    [PGWXPinName pinName:@"GPIO_X27"  withNumber: 31],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIO_X25"  withNumber: 29],\
-    [PGWXPinName pinName:@"GPIO_X31"  withNumber: 33],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"GPIO_A22"  withNumber:187],\
-    [PGWXPinName pinName:@"GPIO_A23"  withNumber:188],\
-    [PGWXPinName pinName:@"GPIO_X32"  withNumber: 34],\
-    [PGWXPinName pinName:@"GPIO_Z0"   withNumber:225],\
-    [PGWXPinName pinName:@"GPIO_Z1"   withNumber:226],\
-    [PGWXPinName pinName:@"GPIO_Z4"   withNumber:229],\
-    [PGWXPinName pinName:@"GPIO_Z2"   withNumber:227],\
-    [PGWXPinName pinName:@"GPIO_Z3"   withNumber:228]]
+    @"GPIX_A03",\
+    @"GPIO_A02",\
+    @"GPIO_X15",\
+    @"GPIO_X16",\
+    @"GPIO_X13",\
+    @"GPIO_X17",\
+    @"GPIO_X20",\
+    @"GPIO_X12",\
+    @"GPIO_B32",\
+    @"GPIO_B33",\
+    @"GPIO_A25",\
+    @"GPIO_X21",\
+    @"GPIO_A27",\
+    @"GPIO_A26",\
+    @"GPIO_A24",\
+    @"GPIO_A01",\
+    @"GPIO_A00",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"GPIO_X24",\
+    @"GPIO_X26",\
+    @"GPIO_X27",\
+    @"",\
+    @"",\
+    @"GPIO_X25",\
+    @"GPIO_X31",\
+    @"",\
+    @"",\
+    @"GPIO_A22",\
+    @"GPIO_A23",\
+    @"GPIO_X32",\
+    @"GPIO_Z0",\
+    @"GPIO_Z1",\
+    @"GPIO_Z4",\
+    @"GPIO_Z2",\
+    @"GPIO_Z3"]
 
 @implementation PGWXPlatformHardkernelOdroidC1 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAmlogicS805 alloc] initWithGPIOMap:PGWXMAPODROIDC1 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"ODROID C1" soc:soc error:error]);
     }
@@ -211,7 +211,7 @@
 @implementation PGWXPlatformHardkernelOdroidC2 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAmlogicS905 alloc] initWithGPIOMap:PGWXMAPODROIDC2 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Odroid C2" soc:soc error:error]);
     }
@@ -221,7 +221,7 @@
 @implementation PGWXPlatformHardkernelOdroidXU4 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCSamsungExynos5422 alloc] initWithGPIOMap:PGWXMAPODROIDXU4 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Odroid XU4" soc:soc error:error]);
     }

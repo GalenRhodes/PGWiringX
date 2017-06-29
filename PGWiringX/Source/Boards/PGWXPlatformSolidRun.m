@@ -25,132 +25,132 @@
 #import "PGWXSOCNXP.h"
 
 #define PGWXMAPPRO @[\
-    [PGWXPinName pinName:@"GPIO3_IO09" withNumber: 73],\
-    [PGWXPinName pinName:@"GPIO3_IO08" withNumber: 72],\
-    [PGWXPinName pinName:@"GPIO3_IO07" withNumber: 71],\
-    [PGWXPinName pinName:@"GPIO3_IO06" withNumber: 70],\
-    [PGWXPinName pinName:@"GPIO7_IO02" withNumber:185],\
-    [PGWXPinName pinName:@"GPIO7_IO03" withNumber:186],\
-    [PGWXPinName pinName:@"GPIO3_IO03" withNumber: 67],\
-    [PGWXPinName pinName:@"GPIO1_IO01" withNumber:  1],\
-    [PGWXPinName pinName:@"GPIO3_IO18" withNumber: 82],\
-    [PGWXPinName pinName:@"GPIO3_IO17" withNumber: 81],\
-    [PGWXPinName pinName:@"GPIO2_IO26" withNumber: 58],\
-    [PGWXPinName pinName:@"GPIO2_IO27" withNumber: 59],\
-    [PGWXPinName pinName:@"GPIO2_IO24" withNumber: 56],\
-    [PGWXPinName pinName:@"GPIO2_IO25" withNumber: 57],\
-    [PGWXPinName pinName:@"GPIO2_IO23" withNumber: 55],\
-    [PGWXPinName pinName:@"GPIO5_IO28" withNumber:149],\
-    [PGWXPinName pinName:@"GPIO5_IO29" withNumber:150]]
+    @"GPIO3_IO09",\
+    @"GPIO3_IO08",\
+    @"GPIO3_IO07",\
+    @"GPIO3_IO06",\
+    @"GPIO7_IO02",\
+    @"GPIO7_IO03",\
+    @"GPIO3_IO03",\
+    @"GPIO1_IO01",\
+    @"GPIO3_IO18",\
+    @"GPIO3_IO17",\
+    @"GPIO2_IO26",\
+    @"GPIO2_IO27",\
+    @"GPIO2_IO24",\
+    @"GPIO2_IO25",\
+    @"GPIO2_IO23",\
+    @"GPIO5_IO28",\
+    @"GPIO5_IO29"]
 
 #define PGWXIRQPRO @[\
-    [PGWXPinName pinName:@"GPIO3_IO09" withNumber: 73],\
-    [PGWXPinName pinName:@"GPIO3_IO08" withNumber: 72],\
-    [PGWXPinName pinName:@"GPIO3_IO07" withNumber: 71],\
-    [PGWXPinName pinName:@"GPIO3_IO06" withNumber: 70],\
-    [PGWXPinName pinName:@"GPIO7_IO02" withNumber:185],\
-    [PGWXPinName pinName:@"GPIO7_IO03" withNumber:186],\
-    [PGWXPinName pinName:@"GPIO3_IO03" withNumber: 67],\
-    [PGWXPinName pinName:@"GPIO1_IO01" withNumber:  1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)"  withNumber: -1]]
+    @"GPIO3_IO09",\
+    @"GPIO3_IO08",\
+    @"GPIO3_IO07",\
+    @"GPIO3_IO06",\
+    @"GPIO7_IO02",\
+    @"GPIO7_IO03",\
+    @"GPIO3_IO03",\
+    @"GPIO1_IO01",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @""]
 
-#define PGWXMAPEDGE1 [PGWXPinName pinName:@"GPIO7_IO12" withNumber:195],\
-    [PGWXPinName pinName:@"GPIO7_IO11" withNumber:194],\
-    [PGWXPinName pinName:@"GPIO2_IO22" withNumber:54],\
-    [PGWXPinName pinName:@"GPIO3_IO27" withNumber:91],\
-    [PGWXPinName pinName:@"GPIO3_IO26" withNumber:90],\
-    [PGWXPinName pinName:@"GPIO3_IO30" withNumber:94],\
-    [PGWXPinName pinName:@"GPIO3_IO31" withNumber:95],\
-    [PGWXPinName pinName:@"GPIO5_IO04" withNumber:125],\
-    [PGWXPinName pinName:@"GPIO6_IO06" withNumber:159],\
-    [PGWXPinName pinName:@"GPIO2_IO16" withNumber:48],\
-    [PGWXPinName pinName:@"GPIO2_IO17" withNumber:47],\
-    [PGWXPinName pinName:@"GPIO2_IO18" withNumber:50],\
-    [PGWXPinName pinName:@"GPIO2_IO19" withNumber:51],\
-    [PGWXPinName pinName:@"GPIO2_IO20" withNumber:52],\
-    [PGWXPinName pinName:@"GPIO2_IO21" withNumber:53],\
-    [PGWXPinName pinName:@"GPIO2_IO28" withNumber:60],\
-    [PGWXPinName pinName:@"GPIO2_IO29" withNumber:61],\
-    [PGWXPinName pinName:@"GPIO3_IO00" withNumber:64],\
-    [PGWXPinName pinName:@"GPIO3_IO01" withNumber:65],\
-    [PGWXPinName pinName:@"GPIO3_IO12" withNumber:76],\
-    [PGWXPinName pinName:@"GPIO3_IO15" withNumber:79],\
-    [PGWXPinName pinName:@"GPIO3_IO14" withNumber:78],\
-    [PGWXPinName pinName:@"GPIO3_IO13" withNumber:77],\
-    [PGWXPinName pinName:@"GPIO3_IO02" withNumber:66],\
-    [PGWXPinName pinName:@"GPIO3_IO03" withNumber:67],\
-    [PGWXPinName pinName:@"GPIO3_IO04" withNumber:68],\
-    [PGWXPinName pinName:@"GPIO3_IO05" withNumber:69],\
-    [PGWXPinName pinName:@"GPIO3_IO06" withNumber:70],\
-    [PGWXPinName pinName:@"GPIO3_IO07" withNumber:71],\
-    [PGWXPinName pinName:@"GPIO3_IO08" withNumber:72],\
-    [PGWXPinName pinName:@"GPIO3_IO09" withNumber:73],\
-    [PGWXPinName pinName:@"GPIO3_IO11" withNumber:75],\
-    [PGWXPinName pinName:@"GPIO3_IO10" withNumber:74]
+#define PGWXMAPEDGE1 @"GPIO7_IO12",\
+    @"GPIO7_IO11",\
+    @"GPIO2_IO22",\
+    @"GPIO3_IO27",\
+    @"GPIO3_IO26",\
+    @"GPIO3_IO30",\
+    @"GPIO3_IO31",\
+    @"GPIO5_IO04",\
+    @"GPIO6_IO06",\
+    @"GPIO2_IO16",\
+    @"GPIO2_IO17",\
+    @"GPIO2_IO18",\
+    @"GPIO2_IO19",\
+    @"GPIO2_IO20",\
+    @"GPIO2_IO21",\
+    @"GPIO2_IO28",\
+    @"GPIO2_IO29",\
+    @"GPIO3_IO00",\
+    @"GPIO3_IO01",\
+    @"GPIO3_IO12",\
+    @"GPIO3_IO15",\
+    @"GPIO3_IO14",\
+    @"GPIO3_IO13",\
+    @"GPIO3_IO02",\
+    @"GPIO3_IO03",\
+    @"GPIO3_IO04",\
+    @"GPIO3_IO05",\
+    @"GPIO3_IO06",\
+    @"GPIO3_IO07",\
+    @"GPIO3_IO08",\
+    @"GPIO3_IO09",\
+    @"GPIO3_IO11",\
+    @"GPIO3_IO10"
 
-#define PGWXMAPEDGE2 [PGWXPinName pinName:@"GPIO2_IO26" withNumber:58],\
-    [PGWXPinName pinName:@"GPIO2_IO23" withNumber:55],\
-    [PGWXPinName pinName:@"GPIO2_IO25" withNumber:57],\
-    [PGWXPinName pinName:@"GPIO2_IO24" withNumber:56],\
-    [PGWXPinName pinName:@"GPIO4_IO29" withNumber:120],\
-    [PGWXPinName pinName:@"GPIO2_IO27" withNumber:59],\
-    [PGWXPinName pinName:@"GPIO3_IO24" withNumber:88],\
-    [PGWXPinName pinName:@"GPIO3_IO25" withNumber:89],\
-    [PGWXPinName pinName:@"GPIO3_IO17" withNumber:81],\
-    [PGWXPinName pinName:@"GPIO3_IO18" withNumber:82]
+#define PGWXMAPEDGE2 @"GPIO2_IO26",\
+    @"GPIO2_IO23",\
+    @"GPIO2_IO25",\
+    @"GPIO2_IO24",\
+    @"GPIO4_IO29",\
+    @"GPIO2_IO27",\
+    @"GPIO3_IO24",\
+    @"GPIO3_IO25",\
+    @"GPIO3_IO17",\
+    @"GPIO3_IO18"
 
-#define PGWXIRQEDGE1 [PGWXPinName pinName:@"GPIO7_IO12" withNumber:195], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"GPIO2_IO22" withNumber:54], \
-    [PGWXPinName pinName:@"GPIO3_IO27" withNumber:91], \
-    [PGWXPinName pinName:@"GPIO3_IO26" withNumber:90], \
-    [PGWXPinName pinName:@"GPIO3_IO30" withNumber:94], \
-    [PGWXPinName pinName:@"GPIO3_IO31" withNumber:95], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"GPIO3_IO06" withNumber:70], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"GPIO3_IO03" withNumber:67], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"GPIO3_IO06" withNumber:70], \
-    [PGWXPinName pinName:@"GPIO3_IO07" withNumber:71], \
-    [PGWXPinName pinName:@"GPIO3_IO08" withNumber:72], \
-    [PGWXPinName pinName:@"GPIO3_IO09" withNumber:73], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1]
+#define PGWXIRQEDGE1 @"GPIO7_IO12", \
+    @"", \
+    @"GPIO2_IO22", \
+    @"GPIO3_IO27", \
+    @"GPIO3_IO26", \
+    @"GPIO3_IO30", \
+    @"GPIO3_IO31", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"GPIO3_IO06", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"GPIO3_IO03", \
+    @"", \
+    @"", \
+    @"GPIO3_IO06", \
+    @"GPIO3_IO07", \
+    @"GPIO3_IO08", \
+    @"GPIO3_IO09", \
+    @"", \
+    @""
 
-#define PGWXIRQEDGE2 [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1], \
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1]
+#define PGWXIRQEDGE2 @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @"", \
+    @""
 
 /*
 |3v|5v|
@@ -174,7 +174,7 @@
 @implementation PGWXPlatformSolidRunHummingboardBaseProDQ {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6DQRM alloc] initWithGPIOMap:PGWXMAPPRO irqMap:PGWXIRQPRO error:error];
         return (self = [super initWithBoardName:@"Hummingboard Base/Pro DQ" soc:soc error:error]);
     }
@@ -203,7 +203,7 @@
 @implementation PGWXPlatformSolidRunHummingboardBaseProSDL {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6SDLRM alloc] initWithGPIOMap:PGWXMAPPRO irqMap:PGWXIRQPRO error:error];
         return (self = [super initWithBoardName:@"Hummingboard Base/Pro SDL" soc:soc error:error]);
     }
@@ -254,7 +254,7 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
 @implementation PGWXPlatformSolidRunHummingboardGateEdgeDQ {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6DQRM alloc] initWithGPIOMap:@[PGWXMAPEDGE1, PGWXMAPEDGE2] irqMap:@[PGWXIRQEDGE1, PGWXIRQEDGE2] error:error];
         return (self = [super initWithBoardName:@"Hummingboard Gate/Edge DQ" soc:soc error:error]);
     }
@@ -283,7 +283,7 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
 @implementation PGWXPlatformSolidRunHummingboardGateEdgeSDL {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6SDLRM alloc] initWithGPIOMap:@[PGWXMAPEDGE1] irqMap:@[PGWXIRQEDGE1] error:error];
         return (self = [super initWithBoardName:@"Hummingboard Gate/Edge SDL" soc:soc error:error]);
     }

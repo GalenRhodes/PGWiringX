@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface PGWXPlatformSolidRunHummingboardBaseProDQ : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface PGWXPlatformSolidRunHummingboardBaseProSDL : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -122,7 +122,7 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
 */
 @interface PGWXPlatformSolidRunHummingboardGateEdgeDQ : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 
@@ -147,7 +147,7 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
 */
 @interface PGWXPlatformSolidRunHummingboardGateEdgeSDL : PGWXPlatform
 
-    -(instancetype)init:(NSError **)error;
+    -(instancetype)init:(NSError *_Nullable *)error;
 
 @end
 

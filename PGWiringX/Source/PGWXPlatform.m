@@ -29,7 +29,7 @@
     @synthesize boardName = _boardName;
     @synthesize soc = _soc;
 
-    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError **)error {
+    -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError *_Nullable *)error {
         self = [super init];
 
         if(self) {
@@ -50,6 +50,38 @@
         }
 
         return self;
+    }
+
+    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin {
+        return [self.soc setMode:mode pin:pin];
+    }
+
+    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
+        return [self.soc digitalWrite:value pin:pin];
+    }
+
+    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc digitalReadPin:pin error:error];
+    }
+
+    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc analogReadPin:pin error:error];
+    }
+
+    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin {
+        return [self.soc setISR:mode pin:pin];
+    }
+
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error {
+        return [self.soc waitForInterruptOnPin:pin timeout:timeout error:error];
+    }
+
+    -(BOOL)isValidPin:(NSUInteger)pin {
+        return [self.soc isValidPin:pin];
+    }
+
+    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc selectableFdForPin:pin error:error];
     }
 
 @end

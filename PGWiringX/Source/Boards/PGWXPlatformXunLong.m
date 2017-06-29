@@ -56,73 +56,73 @@
  * LED GREEN = PL10
  */
 #define PGWXMAPORANGEPI @[\
-    [PGWXPinName pinName:@"PA1"  withNumber:  1],\
-    [PGWXPinName pinName:@"PD14" withNumber: 55],\
-    [PGWXPinName pinName:@"PA0"  withNumber:  0],\
-    [PGWXPinName pinName:@"PA3"  withNumber:  3],\
-    [PGWXPinName pinName:@"PC4"  withNumber: 26],\
-    [PGWXPinName pinName:@"PC7"  withNumber: 29],\
-    [PGWXPinName pinName:@"PA2"  withNumber:  2],\
-    [PGWXPinName pinName:@"PA6"  withNumber:  6],\
-    [PGWXPinName pinName:@"PA12" withNumber: 12],\
-    [PGWXPinName pinName:@"PA11" withNumber: 11],\
-    [PGWXPinName pinName:@"PC3"  withNumber: 25],\
-    [PGWXPinName pinName:@"PA21" withNumber: 21],\
-    [PGWXPinName pinName:@"PC0"  withNumber: 22],\
-    [PGWXPinName pinName:@"PC1"  withNumber: 23],\
-    [PGWXPinName pinName:@"PC2"  withNumber: 24],\
-    [PGWXPinName pinName:@"PA13" withNumber: 13],\
-    [PGWXPinName pinName:@"PA14" withNumber: 14],\
-    [PGWXPinName pinName:@"PA5"  withNumber:  5],\
-    [PGWXPinName pinName:@"PA4"  withNumber:  4],\
-    [PGWXPinName pinName:@"PA15" withNumber: 15],\
-    [PGWXPinName pinName:@"PL10" withNumber:106],\
-    [PGWXPinName pinName:@"PA7"  withNumber:  7],\
-    [PGWXPinName pinName:@"PA8"  withNumber:  8],\
-    [PGWXPinName pinName:@"PA9"  withNumber:  9],\
-    [PGWXPinName pinName:@"PA10" withNumber: 10],\
-    [PGWXPinName pinName:@"PA20" withNumber: 20],\
-    [PGWXPinName pinName:@"PG8"  withNumber: 90],\
-    [PGWXPinName pinName:@"PG9"  withNumber: 91],\
-    [PGWXPinName pinName:@"PG6"  withNumber: 88],\
-    [PGWXPinName pinName:@"PG7"  withNumber: 89]]
+    @"PA1",\
+    @"PD14",\
+    @"PA0",\
+    @"PA3",\
+    @"PC4",\
+    @"PC7",\
+    @"PA2",\
+    @"PA6",\
+    @"PA12",\
+    @"PA11",\
+    @"PC3",\
+    @"PA21",\
+    @"PC0",\
+    @"PC1",\
+    @"PC2",\
+    @"PA13",\
+    @"PA14",\
+    @"PA5",\
+    @"PA4",\
+    @"PA15",\
+    @"PL10",\
+    @"PA7",\
+    @"PA8",\
+    @"PA9",\
+    @"PA10",\
+    @"PA20",\
+    @"PG8",\
+    @"PG9",\
+    @"PG6",\
+    @"PG7"]
 
 #define PGWXIRQORANGEPI @[\
-    [PGWXPinName pinName:@"PA1"       withNumber: 1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"PA0"       withNumber: 0],\
-    [PGWXPinName pinName:@"PA3"       withNumber: 3],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"PA2"       withNumber: 2],\
-    [PGWXPinName pinName:@"PA6"       withNumber: 6],\
-    [PGWXPinName pinName:@"PA12"      withNumber:12],\
-    [PGWXPinName pinName:@"PA11"      withNumber:11],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"PA21"      withNumber:21],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"PA13"      withNumber:13],\
-    [PGWXPinName pinName:@"PA14"      withNumber:14],\
-    [PGWXPinName pinName:@"PA5"       withNumber: 5],\
-    [PGWXPinName pinName:@"PA4"       withNumber: 4],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber:-1],\
-    [PGWXPinName pinName:@"PA7"       withNumber: 7],\
-    [PGWXPinName pinName:@"PA8"       withNumber: 8],\
-    [PGWXPinName pinName:@"PA9"       withNumber: 9],\
-    [PGWXPinName pinName:@"PA10"      withNumber:10],\
-    [PGWXPinName pinName:@"PA20"      withNumber:20],\
-    [PGWXPinName pinName:@"PG8"       withNumber:90],\
-    [PGWXPinName pinName:@"PG9"       withNumber:91],\
-    [PGWXPinName pinName:@"PG6"       withNumber:88],\
-    [PGWXPinName pinName:@"PG7"       withNumber:89]]
+    @"PA1",\
+    @"",\
+    @"PA0",\
+    @"PA3",\
+    @"",\
+    @"",\
+    @"PA2",\
+    @"PA6",\
+    @"PA12",\
+    @"PA11",\
+    @"",\
+    @"PA21",\
+    @"",\
+    @"",\
+    @"",\
+    @"PA13",\
+    @"PA14",\
+    @"PA5",\
+    @"PA4",\
+    @"",\
+    @"",\
+    @"PA7",\
+    @"PA8",\
+    @"PA9",\
+    @"PA10",\
+    @"PA20",\
+    @"PG8",\
+    @"PG9",\
+    @"PG6",\
+    @"PG7"]
 
 @implementation PGWXPlatformXunLongOrangePiPCP {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerH3 alloc] initWithGPIOMap:PGWXMAPORANGEPI irqMap:PGWXIRQORANGEPI error:error];
         return (self = [super initWithBoardName:@"Orange Pi PC+" soc:soc error:error]);
     }

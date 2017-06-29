@@ -33,23 +33,4 @@ FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeError(NSError *_Nullable *_Nullable 
 
 FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeOSError(NSError *_Nullable *_Nullable error, int osErr);
 
-@interface PGWXPinName : NSObject<NSCopying>
-
-    @property(nonatomic, readonly, nonnull) NSString *pinName;
-    @property(nonatomic, readonly) NSInteger         pinNumber;
-
-    -(nonnull instancetype)initWithPinName:(nonnull NSString *)pinName pinNumber:(NSInteger)pinNumber;
-
-    -(BOOL)isEqual:(nullable id)other;
-
-    -(BOOL)isEqualToName:(nullable PGWXPinName *)name;
-
-    -(NSUInteger)hash;
-
-    -(nonnull id)copyWithZone:(nullable NSZone *)zone;
-
-    +(nonnull instancetype)pinName:(nonnull NSString *)pinName withNumber:(NSInteger)pinNumber;
-
-@end
-
 #endif //__PGWiringX_PGWXSupport_H_

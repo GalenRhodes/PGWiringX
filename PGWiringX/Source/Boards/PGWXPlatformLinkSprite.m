@@ -48,31 +48,31 @@
 */
 
 #define PGWXMAPPCDUINO1 @[\
-    [PGWXPinName pinName:@"PI19" withNumber:167],\
-    [PGWXPinName pinName:@"PI18" withNumber:166],\
-    [PGWXPinName pinName:@"PH7"  withNumber:131],\
-    [PGWXPinName pinName:@"PH6"  withNumber:130],\
-    [PGWXPinName pinName:@"PH8"  withNumber:132],\
-    [PGWXPinName pinName:@"PB2"  withNumber: 20],\
-    [PGWXPinName pinName:@"PI3"  withNumber:151],\
-    [PGWXPinName pinName:@"PH9"  withNumber:133],\
-    [PGWXPinName pinName:@"PH10" withNumber:134],\
-    [PGWXPinName pinName:@"PH5"  withNumber:129],\
-    [PGWXPinName pinName:@"PI10" withNumber:158],\
-    [PGWXPinName pinName:@"PI12" withNumber:160],\
-    [PGWXPinName pinName:@"PI13" withNumber:161],\
-    [PGWXPinName pinName:@"PI11" withNumber:159],\
-    [PGWXPinName pinName:@"PH11" withNumber:135],\
-    [PGWXPinName pinName:@"PH12" withNumber:136],\
-    [PGWXPinName pinName:@"PH13" withNumber:137],\
-    [PGWXPinName pinName:@"PH14" withNumber:138],\
-    [PGWXPinName pinName:@"PH15" withNumber:139],\
-    [PGWXPinName pinName:@"PH16" withNumber:140]]
+    @"PI19",\
+    @"PI18",\
+    @"PH7",\
+    @"PH6",\
+    @"PH8",\
+    @"PB2",\
+    @"PI3",\
+    @"PH9",\
+    @"PH10",\
+    @"PH5",\
+    @"PI10",\
+    @"PI12",\
+    @"PI13",\
+    @"PI11",\
+    @"PH11",\
+    @"PH12",\
+    @"PH13",\
+    @"PH14",\
+    @"PH15",\
+    @"PH16"]
 
 @implementation PGWXPlatformLinkSpritePCDuino1 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA10 alloc] initWithGPIOMap:PGWXMAPPCDUINO1 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"PCDuino1" soc:soc error:error]);
     }

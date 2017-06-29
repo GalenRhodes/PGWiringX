@@ -46,27 +46,27 @@
  * +--+--+
  */
 #define PGWXMAPBANANAPI1 @[\
-    [PGWXPinName pinName:@"PI19" withNumber:167],\
-    [PGWXPinName pinName:@"PH2"  withNumber:126],\
-    [PGWXPinName pinName:@"PI18" withNumber:166],\
-    [PGWXPinName pinName:@"PI17" withNumber:165],\
-    [PGWXPinName pinName:@"PH20" withNumber:144],\
-    [PGWXPinName pinName:@"PH21" withNumber:145],\
-    [PGWXPinName pinName:@"PI16" withNumber:164],\
-    [PGWXPinName pinName:@"PI3"  withNumber:151],\
-    [PGWXPinName pinName:@"PB21" withNumber: 39],\
-    [PGWXPinName pinName:@"PB20" withNumber: 38],\
-    [PGWXPinName pinName:@"PI10" withNumber:158],\
-    [PGWXPinName pinName:@"PI14" withNumber:162],\
-    [PGWXPinName pinName:@"PI12" withNumber:160],\
-    [PGWXPinName pinName:@"PI13" withNumber:161],\
-    [PGWXPinName pinName:@"PI11" withNumber:159],\
-    [PGWXPinName pinName:@"PH0"  withNumber:124],\
-    [PGWXPinName pinName:@"PH1"  withNumber:125],\
-    [PGWXPinName pinName:@"PH5"  withNumber:129],\
-    [PGWXPinName pinName:@"PI21" withNumber:169],\
-    [PGWXPinName pinName:@"PH3"  withNumber:127],\
-    [PGWXPinName pinName:@"PI20" withNumber:168]]
+    @"PI19",\
+    @"PH2",\
+    @"PI18",\
+    @"PI17",\
+    @"PH20",\
+    @"PH21",\
+    @"PI16",\
+    @"PI3",\
+    @"PB21",\
+    @"PB20",\
+    @"PI10",\
+    @"PI14",\
+    @"PI12",\
+    @"PI13",\
+    @"PI11",\
+    @"PH0",\
+    @"PH1",\
+    @"PH5",\
+    @"PI21",\
+    @"PH3",\
+    @"PI20"]
 
 /*
  * +--+--+
@@ -93,43 +93,43 @@
  * +--+--+
  */
 #define PGWXMAPBANANAPIM2 @[\
-    [PGWXPinName pinName:@"PG7"       withNumber:113],\
-    [PGWXPinName pinName:@"PH10"      withNumber:126],\
-    [PGWXPinName pinName:@"PG6"       withNumber:112],\
-    [PGWXPinName pinName:@"PG9"       withNumber:115],\
-    [PGWXPinName pinName:@"PH11"      withNumber:127],\
-    [PGWXPinName pinName:@"PH12"      withNumber:128],\
-    [PGWXPinName pinName:@"PG8"       withNumber:114],\
-    [PGWXPinName pinName:@"PH9"       withNumber:125],\
-    [PGWXPinName pinName:@"PH19"      withNumber:135],\
-    [PGWXPinName pinName:@"PH18"      withNumber:134],\
-    [PGWXPinName pinName:@"PG13"      withNumber:119],\
-    [PGWXPinName pinName:@"PG12"      withNumber:118],\
-    [PGWXPinName pinName:@"PG15"      withNumber:121],\
-    [PGWXPinName pinName:@"PG16"      withNumber:122],\
-    [PGWXPinName pinName:@"PG14"      withNumber:120],\
-    [PGWXPinName pinName:@"PE4"       withNumber: 88],\
-    [PGWXPinName pinName:@"PE5"       withNumber: 89],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"(Padding)" withNumber: -1],\
-    [PGWXPinName pinName:@"PB0"       withNumber: 28],\
-    [PGWXPinName pinName:@"PB1"       withNumber: 29],\
-    [PGWXPinName pinName:@"PB2"       withNumber: 30],\
-    [PGWXPinName pinName:@"PB3"       withNumber: 31],\
-    [PGWXPinName pinName:@"PB4"       withNumber: 32],\
-    [PGWXPinName pinName:@"PB7"       withNumber: 35],\
-    [PGWXPinName pinName:@"PE6"       withNumber: 90],\
-    [PGWXPinName pinName:@"PE7"       withNumber: 91],\
-    [PGWXPinName pinName:@"PM2"       withNumber:155],\
-    [PGWXPinName pinName:@"PG10"      withNumber:116],\
-    [PGWXPinName pinName:@"PG11"      withNumber:117]]
+    @"PG7",\
+    @"PH10",\
+    @"PG6",\
+    @"PG9",\
+    @"PH11",\
+    @"PH12",\
+    @"PG8",\
+    @"PH9",\
+    @"PH19",\
+    @"PH18",\
+    @"PG13",\
+    @"PG12",\
+    @"PG15",\
+    @"PG16",\
+    @"PG14",\
+    @"PE4",\
+    @"PE5",\
+    @"",\
+    @"",\
+    @"",\
+    @"",\
+    @"PB0",\
+    @"PB1",\
+    @"PB2",\
+    @"PB3",\
+    @"PB4",\
+    @"PB7",\
+    @"PE6",\
+    @"PE7",\
+    @"PM2",\
+    @"PG10",\
+    @"PG11"]
 
 @implementation PGWXPlatformLemakerBananaPi1 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA10 alloc] initWithGPIOMap:PGWXMAPBANANAPI1 irqMap:nil error:error];
         return (self = [super initWithBoardName:@"Banana Pi1" soc:soc error:error]);
     }
@@ -139,9 +139,9 @@
 @implementation PGWXPlatformLemakerBananaPiM2 {
     }
 
-    -(instancetype)init:(NSError **)error {
+    -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA31s alloc] initWithGPIOMap:PGWXMAPBANANAPIM2 irqMap:nil error:error];
-        return nil;
+        return (self = [super initWithBoardName:@"Banana Pi M2" soc:soc error:error]);
     }
 
 @end

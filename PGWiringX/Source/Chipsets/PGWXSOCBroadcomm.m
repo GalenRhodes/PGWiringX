@@ -24,454 +24,100 @@
 #import "PGWXSOCBroadcomm.h"
 #import "PGWXBit.h"
 
-#define GPFSEL0    0x00
-#define GPFSEL1    0x04
-#define GPFSEL2    0x08
-#define GPFSEL3    0x0C
-#define GPFSEL4    0x10
-#define GPFSEL5    0x14
+#define PGSZ     (4 * 1024)
+#define IM       (PGWX_ISR_MODE_RISING | PGWX_ISR_MODE_FALLING | PGWX_ISR_MODE_BOTH | PGWX_ISR_MODE_NONE)
+#define MB(b, o)  PGWXMakeBit((b),(o))
 
-#define GPSET0    0x1C
-#define GPSET1    0x20
-
-#define GPCLR0    0x28
-#define GPCLR1    0x2C
-
-#define GPLEV0    0x34
-#define GPLEV1    0x38
+#define SUP1 PGWX_FUNCTION_DIGITAL
 
 @interface PGWXSOCBroadcomm2835()
 
     -(instancetype)initWithChipset:(NSString *)chipSet
-                            layout:(NSArray<PGWXLayout *> *)layout
-                           gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                            irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                             error:(NSError **)error;
+                            layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
 
-    -(instancetype)initWithChipSet:(NSString *)chipSet
-                           gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                            irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                             error:(NSError **)error;
-@end
-
-@interface PGWXSOCBroadcomm2836()
-
+    -(instancetype)initWithChipSet:(NSString *)chipSet gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
 @end
 
 @implementation PGWXSOCBroadcomm2835 {
     }
 
     -(instancetype)initWithChipset:(NSString *)chipSet
-                            layout:(NSArray<PGWXLayout *> *)layout
-                           gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                            irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                             error:(NSError **)error {
+                            layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
         self = [super initWithBrandName:@"Broadcomm"
                                 chipSet:chipSet
                                  layout:layout
                                 gpioMap:gpioMap
-                                 irqMap:irqMap
-                               isrModes:PGWX_ISR_MODE_RISING | PGWX_ISR_MODE_FALLING | PGWX_ISR_MODE_BOTH | PGWX_ISR_MODE_NONE
-                               pageSize:(4 * 1024)
-                          baseAddresses:baseAddresses
-                                  error:error];
+                                 irqMap:irqMap isrModes:IM pageSize:PGSZ baseAddresses:baseAddresses error:error];
         return self;
     }
 
-    -(instancetype)initWithChipSet:(NSString *)chipSet
-                           gpioMap:(NSArray<PGWXPinName *> *)gpioMap
-                            irqMap:(nullable NSArray<PGWXPinName *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
-                             error:(NSError **)error {
-        return (self = [self initWithChipset:chipSet
-                                      layout:@[[PGWXLayout layoutWithName:@"FSEL0"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 0)
-                                                                     read:PGWXMakeBit(GPLEV0, 0)
-                                                                      set:PGWXMakeBit(GPSET0, 0)
-                                                                    clear:PGWXMakeBit(GPCLR0, 0)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL1"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 3)
-                                                                     read:PGWXMakeBit(GPLEV0, 1)
-                                                                      set:PGWXMakeBit(GPSET0, 1)
-                                                                    clear:PGWXMakeBit(GPCLR0, 1)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL2"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 6)
-                                                                     read:PGWXMakeBit(GPLEV0, 2)
-                                                                      set:PGWXMakeBit(GPSET0, 2)
-                                                                    clear:PGWXMakeBit(GPCLR0, 2)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL3"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 9)
-                                                                     read:PGWXMakeBit(GPLEV0, 3)
-                                                                      set:PGWXMakeBit(GPSET0, 3)
-                                                                    clear:PGWXMakeBit(GPCLR0, 3)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL4"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 12)
-                                                                     read:PGWXMakeBit(GPLEV0, 4)
-                                                                      set:PGWXMakeBit(GPSET0, 4)
-                                                                    clear:PGWXMakeBit(GPCLR0, 4)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL5"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 15)
-                                                                     read:PGWXMakeBit(GPLEV0, 5)
-                                                                      set:PGWXMakeBit(GPSET0, 5)
-                                                                    clear:PGWXMakeBit(GPCLR0, 5)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL6"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 18)
-                                                                     read:PGWXMakeBit(GPLEV0, 6)
-                                                                      set:PGWXMakeBit(GPSET0, 6)
-                                                                    clear:PGWXMakeBit(GPCLR0, 6)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL7"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 21)
-                                                                     read:PGWXMakeBit(GPLEV0, 7)
-                                                                      set:PGWXMakeBit(GPSET0, 7)
-                                                                    clear:PGWXMakeBit(GPCLR0, 7)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL8"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 24)
-                                                                     read:PGWXMakeBit(GPLEV0, 8)
-                                                                      set:PGWXMakeBit(GPSET0, 8)
-                                                                    clear:PGWXMakeBit(GPCLR0, 8)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL9"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL0, 27)
-                                                                     read:PGWXMakeBit(GPLEV0, 9)
-                                                                      set:PGWXMakeBit(GPSET0, 9)
-                                                                    clear:PGWXMakeBit(GPCLR0, 9)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL10"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 0)
-                                                                     read:PGWXMakeBit(GPLEV0, 10)
-                                                                      set:PGWXMakeBit(GPSET0, 10)
-                                                                    clear:PGWXMakeBit(GPCLR0, 10)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL11"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 3)
-                                                                     read:PGWXMakeBit(GPLEV0, 11)
-                                                                      set:PGWXMakeBit(GPSET0, 11)
-                                                                    clear:PGWXMakeBit(GPCLR0, 11)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL12"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 6)
-                                                                     read:PGWXMakeBit(GPLEV0, 12)
-                                                                      set:PGWXMakeBit(GPSET0, 12)
-                                                                    clear:PGWXMakeBit(GPCLR0, 12)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL13"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 9)
-                                                                     read:PGWXMakeBit(GPLEV0, 13)
-                                                                      set:PGWXMakeBit(GPSET0, 13)
-                                                                    clear:PGWXMakeBit(GPCLR0, 13)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL14"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 12)
-                                                                     read:PGWXMakeBit(GPLEV0, 14)
-                                                                      set:PGWXMakeBit(GPSET0, 14)
-                                                                    clear:PGWXMakeBit(GPCLR0, 14)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL15"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 15)
-                                                                     read:PGWXMakeBit(GPLEV0, 15)
-                                                                      set:PGWXMakeBit(GPSET0, 15)
-                                                                    clear:PGWXMakeBit(GPCLR0, 15)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL16"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 18)
-                                                                     read:PGWXMakeBit(GPLEV0, 16)
-                                                                      set:PGWXMakeBit(GPSET0, 16)
-                                                                    clear:PGWXMakeBit(GPCLR0, 16)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL17"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 21)
-                                                                     read:PGWXMakeBit(GPLEV0, 17)
-                                                                      set:PGWXMakeBit(GPSET0, 17)
-                                                                    clear:PGWXMakeBit(GPCLR0, 17)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL18"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 24)
-                                                                     read:PGWXMakeBit(GPLEV0, 18)
-                                                                      set:PGWXMakeBit(GPSET0, 18)
-                                                                    clear:PGWXMakeBit(GPCLR0, 18)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL19"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL1, 27)
-                                                                     read:PGWXMakeBit(GPLEV0, 19)
-                                                                      set:PGWXMakeBit(GPSET0, 19)
-                                                                    clear:PGWXMakeBit(GPCLR0, 19)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL20"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 0)
-                                                                     read:PGWXMakeBit(GPLEV0, 20)
-                                                                      set:PGWXMakeBit(GPSET0, 20)
-                                                                    clear:PGWXMakeBit(GPCLR0, 20)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL21"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 3)
-                                                                     read:PGWXMakeBit(GPLEV0, 21)
-                                                                      set:PGWXMakeBit(GPSET0, 21)
-                                                                    clear:PGWXMakeBit(GPCLR0, 21)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL22"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 6)
-                                                                     read:PGWXMakeBit(GPLEV0, 22)
-                                                                      set:PGWXMakeBit(GPSET0, 22)
-                                                                    clear:PGWXMakeBit(GPCLR0, 22)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL23"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 9)
-                                                                     read:PGWXMakeBit(GPLEV0, 23)
-                                                                      set:PGWXMakeBit(GPSET0, 23)
-                                                                    clear:PGWXMakeBit(GPCLR0, 23)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL24"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 12)
-                                                                     read:PGWXMakeBit(GPLEV0, 24)
-                                                                      set:PGWXMakeBit(GPSET0, 24)
-                                                                    clear:PGWXMakeBit(GPCLR0, 24)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL25"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 15)
-                                                                     read:PGWXMakeBit(GPLEV0, 25)
-                                                                      set:PGWXMakeBit(GPSET0, 25)
-                                                                    clear:PGWXMakeBit(GPCLR0, 25)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL26"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 18)
-                                                                     read:PGWXMakeBit(GPLEV0, 26)
-                                                                      set:PGWXMakeBit(GPSET0, 26)
-                                                                    clear:PGWXMakeBit(GPCLR0, 26)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL27"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 21)
-                                                                     read:PGWXMakeBit(GPLEV0, 27)
-                                                                      set:PGWXMakeBit(GPSET0, 27)
-                                                                    clear:PGWXMakeBit(GPCLR0, 27)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL28"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 24)
-                                                                     read:PGWXMakeBit(GPLEV0, 28)
-                                                                      set:PGWXMakeBit(GPSET0, 28)
-                                                                    clear:PGWXMakeBit(GPCLR0, 28)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL29"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL2, 27)
-                                                                     read:PGWXMakeBit(GPLEV0, 29)
-                                                                      set:PGWXMakeBit(GPSET0, 29)
-                                                                    clear:PGWXMakeBit(GPCLR0, 29)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL30"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 0)
-                                                                     read:PGWXMakeBit(GPLEV0, 30)
-                                                                      set:PGWXMakeBit(GPSET0, 30)
-                                                                    clear:PGWXMakeBit(GPCLR0, 30)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL31"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 3)
-                                                                     read:PGWXMakeBit(GPLEV0, 31)
-                                                                      set:PGWXMakeBit(GPSET0, 31)
-                                                                    clear:PGWXMakeBit(GPCLR0, 31)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL32"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 6)
-                                                                     read:PGWXMakeBit(GPLEV1, 0)
-                                                                      set:PGWXMakeBit(GPSET1, 0)
-                                                                    clear:PGWXMakeBit(GPCLR1, 0)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL33"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 9)
-                                                                     read:PGWXMakeBit(GPLEV1, 1)
-                                                                      set:PGWXMakeBit(GPSET1, 1)
-                                                                    clear:PGWXMakeBit(GPCLR1, 1)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL34"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 12)
-                                                                     read:PGWXMakeBit(GPLEV1, 2)
-                                                                      set:PGWXMakeBit(GPSET1, 2)
-                                                                    clear:PGWXMakeBit(GPCLR1, 2)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL35"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 15)
-                                                                     read:PGWXMakeBit(GPLEV1, 3)
-                                                                      set:PGWXMakeBit(GPSET1, 3)
-                                                                    clear:PGWXMakeBit(GPCLR1, 3)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL36"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 18)
-                                                                     read:PGWXMakeBit(GPLEV1, 4)
-                                                                      set:PGWXMakeBit(GPSET1, 4)
-                                                                    clear:PGWXMakeBit(GPCLR1, 4)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL37"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 21)
-                                                                     read:PGWXMakeBit(GPLEV1, 5)
-                                                                      set:PGWXMakeBit(GPSET1, 5)
-                                                                    clear:PGWXMakeBit(GPCLR1, 5)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL38"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 24)
-                                                                     read:PGWXMakeBit(GPLEV1, 6)
-                                                                      set:PGWXMakeBit(GPSET1, 6)
-                                                                    clear:PGWXMakeBit(GPCLR1, 6)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL39"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL3, 27)
-                                                                     read:PGWXMakeBit(GPLEV1, 7)
-                                                                      set:PGWXMakeBit(GPSET1, 7)
-                                                                    clear:PGWXMakeBit(GPCLR1, 7)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL40"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 0)
-                                                                     read:PGWXMakeBit(GPLEV1, 8)
-                                                                      set:PGWXMakeBit(GPSET1, 8)
-                                                                    clear:PGWXMakeBit(GPCLR1, 8)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL41"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 3)
-                                                                     read:PGWXMakeBit(GPLEV1, 9)
-                                                                      set:PGWXMakeBit(GPSET1, 9)
-                                                                    clear:PGWXMakeBit(GPCLR1, 9)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL42"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 6)
-                                                                     read:PGWXMakeBit(GPLEV1, 10)
-                                                                      set:PGWXMakeBit(GPSET1, 10)
-                                                                    clear:PGWXMakeBit(GPCLR1, 10)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL43"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 9)
-                                                                     read:PGWXMakeBit(GPLEV1, 11)
-                                                                      set:PGWXMakeBit(GPSET1, 11)
-                                                                    clear:PGWXMakeBit(GPCLR1, 11)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL44"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 12)
-                                                                     read:PGWXMakeBit(GPLEV1, 12)
-                                                                      set:PGWXMakeBit(GPSET1, 12)
-                                                                    clear:PGWXMakeBit(GPCLR1, 12)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL45"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 15)
-                                                                     read:PGWXMakeBit(GPLEV1, 13)
-                                                                      set:PGWXMakeBit(GPSET1, 13)
-                                                                    clear:PGWXMakeBit(GPCLR1, 13)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL46"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 18)
-                                                                     read:PGWXMakeBit(GPLEV1, 14)
-                                                                      set:PGWXMakeBit(GPSET1, 14)
-                                                                    clear:PGWXMakeBit(GPCLR1, 14)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL47"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 21)
-                                                                     read:PGWXMakeBit(GPLEV1, 15)
-                                                                      set:PGWXMakeBit(GPSET1, 15)
-                                                                    clear:PGWXMakeBit(GPCLR1, 15)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL48"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 24)
-                                                                     read:PGWXMakeBit(GPLEV1, 16)
-                                                                      set:PGWXMakeBit(GPSET1, 16)
-                                                                    clear:PGWXMakeBit(GPCLR1, 16)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL49"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL4, 27)
-                                                                     read:PGWXMakeBit(GPLEV1, 17)
-                                                                      set:PGWXMakeBit(GPSET1, 17)
-                                                                    clear:PGWXMakeBit(GPCLR1, 17)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL50"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL5, 0)
-                                                                     read:PGWXMakeBit(GPLEV1, 18)
-                                                                      set:PGWXMakeBit(GPSET1, 18)
-                                                                    clear:PGWXMakeBit(GPCLR1, 18)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL51"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL5, 3)
-                                                                     read:PGWXMakeBit(GPLEV1, 19)
-                                                                      set:PGWXMakeBit(GPSET1, 19)
-                                                                    clear:PGWXMakeBit(GPCLR1, 19)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL52"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL5, 6)
-                                                                     read:PGWXMakeBit(GPLEV1, 20)
-                                                                      set:PGWXMakeBit(GPSET1, 20)
-                                                                    clear:PGWXMakeBit(GPCLR1, 20)
-                                                                  support:PGWX_FUNCTION_DIGITAL],
-                                               [PGWXLayout layoutWithName:@"FSEL53"
-                                                                     bank:0
-                                                                   select:PGWXMakeBit(GPFSEL5, 9)
-                                                                     read:PGWXMakeBit(GPLEV1, 21)
-                                                                      set:PGWXMakeBit(GPSET1, 21)
-                                                                    clear:PGWXMakeBit(GPCLR1, 21)
-                                                                  support:PGWX_FUNCTION_DIGITAL]]
-                                     gpioMap:gpioMap
-                                      irqMap:irqMap
-                               baseAddresses:baseAddresses
-                                       error:error]);
+    -(instancetype)initWithChipSet:(NSString *)chipSet gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
+        NSUInteger     i   = 0;
+        NSMutableArray *ar = [NSMutableArray new];
+
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL0" number:i++ bank:0 select:MB(0x00, 0) read:MB(0x34, 0) set:MB(0x1C, 0) clear:MB(0x28, 0) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL1" number:i++ bank:0 select:MB(0x00, 3) read:MB(0x34, 1) set:MB(0x1C, 1) clear:MB(0x28, 1) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL2" number:i++ bank:0 select:MB(0x00, 6) read:MB(0x34, 2) set:MB(0x1C, 2) clear:MB(0x28, 2) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL3" number:i++ bank:0 select:MB(0x00, 9) read:MB(0x34, 3) set:MB(0x1C, 3) clear:MB(0x28, 3) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL4" number:i++ bank:0 select:MB(0x00, 12) read:MB(0x34, 4) set:MB(0x1C, 4) clear:MB(0x28, 4) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL5" number:i++ bank:0 select:MB(0x00, 15) read:MB(0x34, 5) set:MB(0x1C, 5) clear:MB(0x28, 5) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL6" number:i++ bank:0 select:MB(0x00, 18) read:MB(0x34, 6) set:MB(0x1C, 6) clear:MB(0x28, 6) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL7" number:i++ bank:0 select:MB(0x00, 21) read:MB(0x34, 7) set:MB(0x1C, 7) clear:MB(0x28, 7) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL8" number:i++ bank:0 select:MB(0x00, 24) read:MB(0x34, 8) set:MB(0x1C, 8) clear:MB(0x28, 8) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL9" number:i++ bank:0 select:MB(0x00, 27) read:MB(0x34, 9) set:MB(0x1C, 9) clear:MB(0x28, 9) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL10" number:i++ bank:0 select:MB(0x04, 0) read:MB(0x34, 10) set:MB(0x1C, 10) clear:MB(0x28, 10) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL11" number:i++ bank:0 select:MB(0x04, 3) read:MB(0x34, 11) set:MB(0x1C, 11) clear:MB(0x28, 11) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL12" number:i++ bank:0 select:MB(0x04, 6) read:MB(0x34, 12) set:MB(0x1C, 12) clear:MB(0x28, 12) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL13" number:i++ bank:0 select:MB(0x04, 9) read:MB(0x34, 13) set:MB(0x1C, 13) clear:MB(0x28, 13) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL14" number:i++ bank:0 select:MB(0x04, 12) read:MB(0x34, 14) set:MB(0x1C, 14) clear:MB(0x28, 14) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL15" number:i++ bank:0 select:MB(0x04, 15) read:MB(0x34, 15) set:MB(0x1C, 15) clear:MB(0x28, 15) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL16" number:i++ bank:0 select:MB(0x04, 18) read:MB(0x34, 16) set:MB(0x1C, 16) clear:MB(0x28, 16) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL17" number:i++ bank:0 select:MB(0x04, 21) read:MB(0x34, 17) set:MB(0x1C, 17) clear:MB(0x28, 17) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL18" number:i++ bank:0 select:MB(0x04, 24) read:MB(0x34, 18) set:MB(0x1C, 18) clear:MB(0x28, 18) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL19" number:i++ bank:0 select:MB(0x04, 27) read:MB(0x34, 19) set:MB(0x1C, 19) clear:MB(0x28, 19) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL20" number:i++ bank:0 select:MB(0x08, 0) read:MB(0x34, 20) set:MB(0x1C, 20) clear:MB(0x28, 20) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL21" number:i++ bank:0 select:MB(0x08, 3) read:MB(0x34, 21) set:MB(0x1C, 21) clear:MB(0x28, 21) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL22" number:i++ bank:0 select:MB(0x08, 6) read:MB(0x34, 22) set:MB(0x1C, 22) clear:MB(0x28, 22) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL23" number:i++ bank:0 select:MB(0x08, 9) read:MB(0x34, 23) set:MB(0x1C, 23) clear:MB(0x28, 23) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL24" number:i++ bank:0 select:MB(0x08, 12) read:MB(0x34, 24) set:MB(0x1C, 24) clear:MB(0x28, 24) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL25" number:i++ bank:0 select:MB(0x08, 15) read:MB(0x34, 25) set:MB(0x1C, 25) clear:MB(0x28, 25) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL26" number:i++ bank:0 select:MB(0x08, 18) read:MB(0x34, 26) set:MB(0x1C, 26) clear:MB(0x28, 26) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL27" number:i++ bank:0 select:MB(0x08, 21) read:MB(0x34, 27) set:MB(0x1C, 27) clear:MB(0x28, 27) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL28" number:i++ bank:0 select:MB(0x08, 24) read:MB(0x34, 28) set:MB(0x1C, 28) clear:MB(0x28, 28) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL29" number:i++ bank:0 select:MB(0x08, 27) read:MB(0x34, 29) set:MB(0x1C, 29) clear:MB(0x28, 29) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL30" number:i++ bank:0 select:MB(0x0C, 0) read:MB(0x34, 30) set:MB(0x1C, 30) clear:MB(0x28, 30) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL31" number:i++ bank:0 select:MB(0x0C, 3) read:MB(0x34, 31) set:MB(0x1C, 31) clear:MB(0x28, 31) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL32" number:i++ bank:0 select:MB(0x0C, 6) read:MB(0x38, 0) set:MB(0x20, 0) clear:MB(0x2C, 0) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL33" number:i++ bank:0 select:MB(0x0C, 9) read:MB(0x38, 1) set:MB(0x20, 1) clear:MB(0x2C, 1) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL34" number:i++ bank:0 select:MB(0x0C, 12) read:MB(0x38, 2) set:MB(0x20, 2) clear:MB(0x2C, 2) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL35" number:i++ bank:0 select:MB(0x0C, 15) read:MB(0x38, 3) set:MB(0x20, 3) clear:MB(0x2C, 3) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL36" number:i++ bank:0 select:MB(0x0C, 18) read:MB(0x38, 4) set:MB(0x20, 4) clear:MB(0x2C, 4) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL37" number:i++ bank:0 select:MB(0x0C, 21) read:MB(0x38, 5) set:MB(0x20, 5) clear:MB(0x2C, 5) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL38" number:i++ bank:0 select:MB(0x0C, 24) read:MB(0x38, 6) set:MB(0x20, 6) clear:MB(0x2C, 6) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL39" number:i++ bank:0 select:MB(0x0C, 27) read:MB(0x38, 7) set:MB(0x20, 7) clear:MB(0x2C, 7) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL40" number:i++ bank:0 select:MB(0x10, 0) read:MB(0x38, 8) set:MB(0x20, 8) clear:MB(0x2C, 8) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL41" number:i++ bank:0 select:MB(0x10, 3) read:MB(0x38, 9) set:MB(0x20, 9) clear:MB(0x2C, 9) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL42" number:i++ bank:0 select:MB(0x10, 6) read:MB(0x38, 10) set:MB(0x20, 10) clear:MB(0x2C, 10) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL43" number:i++ bank:0 select:MB(0x10, 9) read:MB(0x38, 11) set:MB(0x20, 11) clear:MB(0x2C, 11) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL44" number:i++ bank:0 select:MB(0x10, 12) read:MB(0x38, 12) set:MB(0x20, 12) clear:MB(0x2C, 12) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL45" number:i++ bank:0 select:MB(0x10, 15) read:MB(0x38, 13) set:MB(0x20, 13) clear:MB(0x2C, 13) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL46" number:i++ bank:0 select:MB(0x10, 18) read:MB(0x38, 14) set:MB(0x20, 14) clear:MB(0x2C, 14) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL47" number:i++ bank:0 select:MB(0x10, 21) read:MB(0x38, 15) set:MB(0x20, 15) clear:MB(0x2C, 15) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL48" number:i++ bank:0 select:MB(0x10, 24) read:MB(0x38, 16) set:MB(0x20, 16) clear:MB(0x2C, 16) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL49" number:i++ bank:0 select:MB(0x10, 27) read:MB(0x38, 17) set:MB(0x20, 17) clear:MB(0x2C, 17) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL50" number:i++ bank:0 select:MB(0x14, 0) read:MB(0x38, 18) set:MB(0x20, 18) clear:MB(0x2C, 18) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL51" number:i++ bank:0 select:MB(0x14, 3) read:MB(0x38, 19) set:MB(0x20, 19) clear:MB(0x2C, 19) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL52" number:i++ bank:0 select:MB(0x14, 6) read:MB(0x38, 20) set:MB(0x20, 20) clear:MB(0x2C, 20) support:SUP1]];
+        [ar addObject:[PGWXLayout layoutWithName:@"FSEL53" number:i bank:0 select:MB(0x14, 9) read:MB(0x38, 21) set:MB(0x20, 21) clear:MB(0x2C, 21) support:SUP1]];
+
+        return (self = [self initWithChipset:chipSet layout:ar gpioMap:gpioMap irqMap:irqMap baseAddresses:baseAddresses error:error]);
     }
 
-    -(instancetype)initWithGPIOMap:(NSArray<PGWXPinName *> *)gpioMap irqMap:(nullable NSArray<PGWXPinName *> *)irqMap error:(NSError **)error {
+    -(instancetype)initWithGPIOMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap error:(NSError *_Nullable *)error {
         return (self = [self initWithChipSet:@"2835" gpioMap:gpioMap irqMap:irqMap baseAddresses:@[[PGWXAddr address:0x20200000 offset:0x00000000]] error:error]);
     }
 
@@ -480,7 +126,7 @@
 @implementation PGWXSOCBroadcomm2836 {
     }
 
-    -(instancetype)initWithGPIOMap:(NSArray<PGWXPinName *> *)gpioMap irqMap:(nullable NSArray<PGWXPinName *> *)irqMap error:(NSError **)error {
+    -(instancetype)initWithGPIOMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap error:(NSError *_Nullable *)error {
         return (self = [self initWithChipSet:@"2836" gpioMap:gpioMap irqMap:irqMap baseAddresses:@[[PGWXAddr address:0x3F200000 offset:0x00000000]] error:error]);
     }
 
@@ -489,7 +135,7 @@
 @implementation PGWXSOCBroadcomm2837 {
     }
 
-    -(instancetype)initWithGPIOMap:(NSArray<PGWXPinName *> *)gpioMap irqMap:(nullable NSArray<PGWXPinName *> *)irqMap error:(NSError **)error {
+    -(instancetype)initWithGPIOMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap error:(NSError *_Nullable *)error {
         return (self = [self initWithChipSet:@"2837" gpioMap:gpioMap irqMap:irqMap baseAddresses:@[[PGWXAddr address:0x3F200000 offset:0x00000000]] error:error]);
     }
 
