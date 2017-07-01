@@ -23,6 +23,7 @@
 
 #import "PGWXPlatformLemaker.h"
 #import "PGWXSOCAllwinner.h"
+#import "PGWiringX.h"
 
 /*
  * +--+--+
@@ -45,28 +46,8 @@
  * |0v|0v|
  * +--+--+
  */
-#define PGWXMAPBANANAPI1 @[\
-    @"PI19",\
-    @"PH2",\
-    @"PI18",\
-    @"PI17",\
-    @"PH20",\
-    @"PH21",\
-    @"PI16",\
-    @"PI3",\
-    @"PB21",\
-    @"PB20",\
-    @"PI10",\
-    @"PI14",\
-    @"PI12",\
-    @"PI13",\
-    @"PI11",\
-    @"PH0",\
-    @"PH1",\
-    @"PH5",\
-    @"PI21",\
-    @"PH3",\
-    @"PI20"]
+#define PGWXMAPBANANAPI1 @[ @"PI19", @"PH2", @"PI18", @"PI17", @"PH20", @"PH21", @"PI16", @"PI3", @"PB21", @"PB20", @"PI10", @"PI14", @"PI12", @"PI13", @"PI11", @"PH0",\
+    @"PH1", @"PH5", @"PI21", @"PH3", @"PI20" ]
 
 /*
  * +--+--+
@@ -92,46 +73,15 @@
  * |0v|29|
  * +--+--+
  */
-#define PGWXMAPBANANAPIM2 @[\
-    @"PG7",\
-    @"PH10",\
-    @"PG6",\
-    @"PG9",\
-    @"PH11",\
-    @"PH12",\
-    @"PG8",\
-    @"PH9",\
-    @"PH19",\
-    @"PH18",\
-    @"PG13",\
-    @"PG12",\
-    @"PG15",\
-    @"PG16",\
-    @"PG14",\
-    @"PE4",\
-    @"PE5",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"PB0",\
-    @"PB1",\
-    @"PB2",\
-    @"PB3",\
-    @"PB4",\
-    @"PB7",\
-    @"PE6",\
-    @"PE7",\
-    @"PM2",\
-    @"PG10",\
-    @"PG11"]
+#define PGWXMAPBANANAPIM2 @[ @"PG7", @"PH10", @"PG6", @"PG9", @"PH11", @"PH12", @"PG8", @"PH9", @"PH19", @"PH18", @"PG13", @"PG12", @"PG15", @"PG16", @"PG14", @"PE4", @"PE5",\
+    @"", @"", @"", @"", @"PB0", @"PB1", @"PB2", @"PB3", @"PB4", @"PB7", @"PE6", @"PE7", @"PM2", @"PG10", @"PG11" ]
 
 @implementation PGWXPlatformLemakerBananaPi1 {
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA10 alloc] initWithGPIOMap:PGWXMAPBANANAPI1 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Banana Pi1" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_BananaPi1 soc:soc error:error]);
     }
 
 @end
@@ -141,7 +91,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA31s alloc] initWithGPIOMap:PGWXMAPBANANAPIM2 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Banana Pi M2" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_BananaPiM2 soc:soc error:error]);
     }
 
 @end

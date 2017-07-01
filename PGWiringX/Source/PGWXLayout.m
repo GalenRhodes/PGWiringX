@@ -22,10 +22,8 @@
  *********************************************************************************************************************************/
 
 #include <sys/stat.h>
-#import <Rubicon/Rubicon.h>
 #import "PGWXLayout.h"
 #import "PGWXBit.h"
-#import "PGWXSupport.h"
 
 @interface PGWXLayout()
 
@@ -234,9 +232,8 @@
         return success;
     }
 
-    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value {
-        NSError *error = nil;
-        return ([self sysfsWrite:(value == PGWX_HIGH ? @"1" : @"0") toSubPath:@"/value" error:&error] ? nil : error);
+    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value error:(NSError *_Nullable *)error {
+        return [self sysfsWrite:(value == PGWX_HIGH ? @"1" : @"0") toSubPath:@"/value" error:error];
     }
 
     -(PGWXPinState)sysfsDigitalRead:(NSError *_Nullable *)error {

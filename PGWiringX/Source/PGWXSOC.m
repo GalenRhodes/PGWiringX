@@ -51,11 +51,9 @@
     @synthesize baseAddresses = _baseAddresses;
 
     -(instancetype)initWithBrandName:(NSString *)brandName
-                             chipSet:(NSString *)chipSet
-                              layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                             chipSet:(NSString *)chipSet layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
                             isrModes:(NSUInteger)isrModes
-                            pageSize:(NSUInteger)pageSize
-                       baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
+                            pageSize:(NSUInteger)pageSize baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
         return (self = [self initWithBrandName:brandName
                                        chipSet:chipSet
                                         layout:layout
@@ -204,27 +202,27 @@
         return nil;
     }
 
-    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin {
-        NSError *error = nil;
-        if([self allocateGPIO:&error]) {
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        BOOL success = NO;
+        if([self allocateGPIO:error]) {
             /*
-             * TODO: Set Mode
+             * TODO: Set Mode.
              */
         }
-        return error;
+        return success;
     }
 
-    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
-        NSError *error = nil;
-        if([self allocateGPIO:&error]) {
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        BOOL success = NO;
+        if([self allocateGPIO:error]) {
             /*
              * TODO: Digital Write
              */
         }
-        return error;
+        return success;
     }
 
-    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
         PGWXPinState currentState = PGWX_LOW;
         if([self allocateGPIO:error]) {
             /*
@@ -234,7 +232,7 @@
         return currentState;
     }
 
-    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
         NSInteger currentAnalogValue = 0;
         if([self allocateGPIO:error]) {
             /*
@@ -244,14 +242,14 @@
         return currentAnalogValue;
     }
 
-    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin {
-        NSError *error = nil;
-        if([self allocateGPIO:&error]) {
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        BOOL success = NO;
+        if([self allocateGPIO:error]) {
             /*
              * TODO: Set ISR
              */
         }
-        return error;
+        return success;
     }
 
     -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error {
@@ -278,18 +276,24 @@
         return currentFD;
     }
 
-    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
-        NSError    *error  = nil;
-        PGWXLayout *layout = [self layoutForPin:pin error:&error];
-        if(layout) error = [layout sysfsDigitalWrite:value];
-        return error;
+    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [[self layoutForPin:pin error:error] sysfsDigitalRead:error];
     }
 
-    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        PGWXPinState value   = PGWX_LOW;
-        PGWXLayout   *layout = [self layoutForPin:pin error:error];
-        if(layout) value = [layout sysfsDigitalRead:error];
-        return value;
+    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [[self layoutForPin:pin error:error] sysfsExport:error];
+    }
+
+    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [[self layoutForPin:pin error:error] sysfsUnexport:error];
+    }
+
+    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [[self layoutForPin:pin error:error] sysfsCheck:error];
+    }
+
+    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [[self layoutForPin:pin error:error] sysfsDigitalWrite:value error:error];
     }
 
 @end

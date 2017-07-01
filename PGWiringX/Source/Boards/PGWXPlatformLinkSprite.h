@@ -24,8 +24,7 @@
 #ifndef __PGWiringX_PGWXPlatformLinkSprite_H_
 #define __PGWiringX_PGWXPlatformLinkSprite_H_
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXPlatform.h>
+#import "PGWXPlatform.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

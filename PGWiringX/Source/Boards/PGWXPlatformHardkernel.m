@@ -24,6 +24,7 @@
 #import "PGWXPlatformHardkernel.h"
 #import "PGWXSOCAmlogic.h"
 #import "PGWXSOCSamsung.h"
+#import "PGWiringX.h"
 
 /*
  * |-----|
@@ -49,35 +50,8 @@
  * |0v|AD|
  * |-----|
  */
-#define PGWXMAPODROIDC1 @[\
-    @"GPIOY_8",\
-    @"GPIOY_7",\
-    @"GPIOX_19",\
-    @"GPIOX_18",\
-    @"GPIOX_7",\
-    @"GPIOX_5",\
-    @"GPIOX_6",\
-    @"GPIOY_3",\
-    @"GPIODV_24",\
-    @"GPIODV_25",\
-    @"GPIOX_20",\
-    @"GPIOX_21",\
-    @"GPIOX_10",\
-    @"GPIOX_9",\
-    @"GPIOX_8",\
-    @"",\
-    @"",\
-    @"GPIODV_26",\
-    @"GPIODV_27",\
-    @"",\
-    @"",\
-    @"GPIOX_4",\
-    @"GPIOX_3",\
-    @"GPIOX_11",\
-    @"GPIOX_0",\
-    @"",\
-    @"GPIOX_2",\
-    @"GPIOX_1"]
+#define PGWXMAPODROIDC1 @[ @"GPIOY_8", @"GPIOY_7", @"GPIOX_19", @"GPIOX_18", @"GPIOX_7", @"GPIOX_5", @"GPIOX_6", @"GPIOY_3", @"GPIODV_24", @"GPIODV_25", @"GPIOX_20",\
+    @"GPIOX_21", @"GPIOX_10", @"GPIOX_9", @"GPIOX_8", @"", @"", @"GPIODV_26", @"GPIODV_27", @"", @"", @"GPIOX_4", @"GPIOX_3", @"GPIOX_11", @"GPIOX_0", @"", @"GPIOX_2", @"GPIOX_1"]
 
 /*
  * |-----|
@@ -103,35 +77,8 @@
  * |0v|AD|
  * |-----|
  */
-#define PGWXMAPODROIDC2 @[\
-    @"GPIOX_19",\
-    @"GPIOX_10",\
-    @"GPIOX_11",\
-    @"GPIOX_9",\
-    @"GPIOX_8",\
-    @"GPIOX_5",\
-    @"GPIOX_3",\
-    @"GPIOX_21",\
-    @"GPIODV_24",\
-    @"GPIODV_25",\
-    @"GPIOX_1",\
-    @"GPIOY_11",\
-    @"GPIOX_7",\
-    @"GPIOX_4",\
-    @"GPIOX_2",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"GPIOX_0",\
-    @"GPIOY_8",\
-    @"GPIOX_6",\
-    @"GPIOY_3",\
-    @"",\
-    @"GPIOY_13",\
-    @"GPIOY_7"]
+#define PGWXMAPODROIDC2 @[ @"GPIOX_19", @"GPIOX_10", @"GPIOX_11", @"GPIOX_9", @"GPIOX_8", @"GPIOX_5", @"GPIOX_3", @"GPIOX_21", @"GPIODV_24", @"GPIODV_25", @"GPIOX_1",\
+    @"GPIOY_11", @"GPIOX_7", @"GPIOX_4", @"GPIOX_2", @"", @"", @"", @"", @"", @"", @"GPIOX_0", @"GPIOY_8", @"GPIOX_6", @"GPIOY_3", @"", @"GPIOY_13", @"GPIOY_7"]
 
 /*
  * |-----|
@@ -158,52 +105,16 @@
  * -------------------
  */
 
-#define PGWXMAPODROIDXU4 @[\
-    @"GPIX_A03",\
-    @"GPIO_A02",\
-    @"GPIO_X15",\
-    @"GPIO_X16",\
-    @"GPIO_X13",\
-    @"GPIO_X17",\
-    @"GPIO_X20",\
-    @"GPIO_X12",\
-    @"GPIO_B32",\
-    @"GPIO_B33",\
-    @"GPIO_A25",\
-    @"GPIO_X21",\
-    @"GPIO_A27",\
-    @"GPIO_A26",\
-    @"GPIO_A24",\
-    @"GPIO_A01",\
-    @"GPIO_A00",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"GPIO_X24",\
-    @"GPIO_X26",\
-    @"GPIO_X27",\
-    @"",\
-    @"",\
-    @"GPIO_X25",\
-    @"GPIO_X31",\
-    @"",\
-    @"",\
-    @"GPIO_A22",\
-    @"GPIO_A23",\
-    @"GPIO_X32",\
-    @"GPIO_Z0",\
-    @"GPIO_Z1",\
-    @"GPIO_Z4",\
-    @"GPIO_Z2",\
-    @"GPIO_Z3"]
+#define PGWXMAPODROIDXU4 @[ @"GPIX_A03", @"GPIO_A02", @"GPIO_X15", @"GPIO_X16", @"GPIO_X13", @"GPIO_X17", @"GPIO_X20", @"GPIO_X12", @"GPIO_B32", @"GPIO_B33", @"GPIO_A25",\
+    @"GPIO_X21", @"GPIO_A27", @"GPIO_A26", @"GPIO_A24", @"GPIO_A01", @"GPIO_A00", @"", @"", @"", @"", @"GPIO_X24", @"GPIO_X26", @"GPIO_X27", @"", @"", @"GPIO_X25",\
+    @"GPIO_X31", @"", @"", @"GPIO_A22", @"GPIO_A23", @"GPIO_X32", @"GPIO_Z0", @"GPIO_Z1", @"GPIO_Z4", @"GPIO_Z2", @"GPIO_Z3"]
 
 @implementation PGWXPlatformHardkernelOdroidC1 {
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAmlogicS805 alloc] initWithGPIOMap:PGWXMAPODROIDC1 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"ODROID C1" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_OdroidC1 soc:soc error:error]);
     }
 
 @end
@@ -213,7 +124,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAmlogicS905 alloc] initWithGPIOMap:PGWXMAPODROIDC2 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Odroid C2" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_OdroidC2 soc:soc error:error]);
     }
 
 @end
@@ -223,7 +134,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCSamsungExynos5422 alloc] initWithGPIOMap:PGWXMAPODROIDXU4 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Odroid XU4" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_OdroidXU4 soc:soc error:error]);
     }
 
 @end

@@ -23,6 +23,7 @@
 
 #import "PGWXPlatformLinkSprite.h"
 #import "PGWXSOCAllwinner.h"
+#import "PGWiringX.h"
 
 /*
  PI19: PCDuino GPIO 0
@@ -74,7 +75,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCAllwinnerA10 alloc] initWithGPIOMap:PGWXMAPPCDUINO1 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"PCDuino1" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_PCDuino1 soc:soc error:error]);
     }
 
 @end

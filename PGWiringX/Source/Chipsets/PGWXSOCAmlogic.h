@@ -24,9 +24,8 @@
 #ifndef __PGWiringX_PGWXSOCAmlogic_H_
 #define __PGWiringX_PGWXSOCAmlogic_H_
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXLayout.h>
-#import <PGWiringX/PGWXSOC.h>
+#import "PGWXLayout.h"
+#import "PGWXSOC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

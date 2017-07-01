@@ -23,134 +23,26 @@
 
 #import "PGWXPlatformSolidRun.h"
 #import "PGWXSOCNXP.h"
+#import "PGWiringX.h"
 
-#define PGWXMAPPRO @[\
-    @"GPIO3_IO09",\
-    @"GPIO3_IO08",\
-    @"GPIO3_IO07",\
-    @"GPIO3_IO06",\
-    @"GPIO7_IO02",\
-    @"GPIO7_IO03",\
-    @"GPIO3_IO03",\
-    @"GPIO1_IO01",\
-    @"GPIO3_IO18",\
-    @"GPIO3_IO17",\
-    @"GPIO2_IO26",\
-    @"GPIO2_IO27",\
-    @"GPIO2_IO24",\
-    @"GPIO2_IO25",\
-    @"GPIO2_IO23",\
-    @"GPIO5_IO28",\
-    @"GPIO5_IO29"]
+#define PGWXMAPPRO @[ @"GPIO3_IO09", @"GPIO3_IO08", @"GPIO3_IO07", @"GPIO3_IO06", @"GPIO7_IO02", @"GPIO7_IO03", @"GPIO3_IO03", @"GPIO1_IO01", @"GPIO3_IO18", @"GPIO3_IO17",\
+    @"GPIO2_IO26", @"GPIO2_IO27", @"GPIO2_IO24", @"GPIO2_IO25", @"GPIO2_IO23", @"GPIO5_IO28", @"GPIO5_IO29"]
 
-#define PGWXIRQPRO @[\
-    @"GPIO3_IO09",\
-    @"GPIO3_IO08",\
-    @"GPIO3_IO07",\
-    @"GPIO3_IO06",\
-    @"GPIO7_IO02",\
-    @"GPIO7_IO03",\
-    @"GPIO3_IO03",\
-    @"GPIO1_IO01",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @""]
+#define PGWXIRQPRO @[ @"GPIO3_IO09", @"GPIO3_IO08", @"GPIO3_IO07", @"GPIO3_IO06", @"GPIO7_IO02", @"GPIO7_IO03", @"GPIO3_IO03", @"GPIO1_IO01", @"", @"", @"", @"", @"", @"", @"",\
+    @"", @""]
 
-#define PGWXMAPEDGE1 @"GPIO7_IO12",\
-    @"GPIO7_IO11",\
-    @"GPIO2_IO22",\
-    @"GPIO3_IO27",\
-    @"GPIO3_IO26",\
-    @"GPIO3_IO30",\
-    @"GPIO3_IO31",\
-    @"GPIO5_IO04",\
-    @"GPIO6_IO06",\
-    @"GPIO2_IO16",\
-    @"GPIO2_IO17",\
-    @"GPIO2_IO18",\
-    @"GPIO2_IO19",\
-    @"GPIO2_IO20",\
-    @"GPIO2_IO21",\
-    @"GPIO2_IO28",\
-    @"GPIO2_IO29",\
-    @"GPIO3_IO00",\
-    @"GPIO3_IO01",\
-    @"GPIO3_IO12",\
-    @"GPIO3_IO15",\
-    @"GPIO3_IO14",\
-    @"GPIO3_IO13",\
-    @"GPIO3_IO02",\
-    @"GPIO3_IO03",\
-    @"GPIO3_IO04",\
-    @"GPIO3_IO05",\
-    @"GPIO3_IO06",\
-    @"GPIO3_IO07",\
-    @"GPIO3_IO08",\
-    @"GPIO3_IO09",\
-    @"GPIO3_IO11",\
+#define PGWXMAPEDGE1 @"GPIO7_IO12", @"GPIO7_IO11", @"GPIO2_IO22", @"GPIO3_IO27", @"GPIO3_IO26", @"GPIO3_IO30", @"GPIO3_IO31", @"GPIO5_IO04", @"GPIO6_IO06", @"GPIO2_IO16",\
+    @"GPIO2_IO17", @"GPIO2_IO18", @"GPIO2_IO19", @"GPIO2_IO20", @"GPIO2_IO21", @"GPIO2_IO28", @"GPIO2_IO29", @"GPIO3_IO00", @"GPIO3_IO01", @"GPIO3_IO12", @"GPIO3_IO15",\
+    @"GPIO3_IO14", @"GPIO3_IO13", @"GPIO3_IO02", @"GPIO3_IO03", @"GPIO3_IO04", @"GPIO3_IO05", @"GPIO3_IO06", @"GPIO3_IO07", @"GPIO3_IO08", @"GPIO3_IO09", @"GPIO3_IO11",\
     @"GPIO3_IO10"
 
-#define PGWXMAPEDGE2 @"GPIO2_IO26",\
-    @"GPIO2_IO23",\
-    @"GPIO2_IO25",\
-    @"GPIO2_IO24",\
-    @"GPIO4_IO29",\
-    @"GPIO2_IO27",\
-    @"GPIO3_IO24",\
-    @"GPIO3_IO25",\
-    @"GPIO3_IO17",\
-    @"GPIO3_IO18"
+#define PGWXMAPEDGE2 @"GPIO2_IO26", @"GPIO2_IO23", @"GPIO2_IO25", @"GPIO2_IO24", @"GPIO4_IO29", @"GPIO2_IO27", @"GPIO3_IO24", @"GPIO3_IO25", @"GPIO3_IO17", @"GPIO3_IO18"
 
-#define PGWXIRQEDGE1 @"GPIO7_IO12", \
-    @"", \
-    @"GPIO2_IO22", \
-    @"GPIO3_IO27", \
-    @"GPIO3_IO26", \
-    @"GPIO3_IO30", \
-    @"GPIO3_IO31", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"GPIO3_IO06", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"GPIO3_IO03", \
-    @"", \
-    @"", \
-    @"GPIO3_IO06", \
-    @"GPIO3_IO07", \
-    @"GPIO3_IO08", \
-    @"GPIO3_IO09", \
-    @"", \
-    @""
+#define PGWXIRQEDGE1 @"GPIO7_IO12",  @"",  @"GPIO2_IO22",  @"GPIO3_IO27",  @"GPIO3_IO26",  @"GPIO3_IO30",  @"GPIO3_IO31",  @"",  @"",  @"",  @"",  @"",  @"",  @"",  @"",  @"", \
+    @"",  @"",  @"",  @"GPIO3_IO06",  @"",  @"",  @"",  @"",  @"GPIO3_IO03",  @"",  @"",  @"GPIO3_IO06",  @"GPIO3_IO07",  @"GPIO3_IO08",  @"GPIO3_IO09",  @"",  @""
 
-#define PGWXIRQEDGE2 @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @"", \
-    @""
+#define PGWXIRQEDGE2 @"",  @"",  @"",  @"",  @"",  @"",  @"",  @"",  @"",  @""
+
 
 /*
 |3v|5v|
@@ -176,7 +68,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6DQRM alloc] initWithGPIOMap:PGWXMAPPRO irqMap:PGWXIRQPRO error:error];
-        return (self = [super initWithBoardName:@"Hummingboard Base/Pro DQ" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_HummingboardBaseDQ soc:soc error:error]);
     }
 
 @end
@@ -205,7 +97,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCNXPIMX6SDLRM alloc] initWithGPIOMap:PGWXMAPPRO irqMap:PGWXIRQPRO error:error];
-        return (self = [super initWithBoardName:@"Hummingboard Base/Pro SDL" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_HummingboardBaseSDL soc:soc error:error]);
     }
 
 @end
@@ -255,8 +147,8 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
-        PGWXSOC *soc = [[PGWXSOCNXPIMX6DQRM alloc] initWithGPIOMap:@[PGWXMAPEDGE1, PGWXMAPEDGE2] irqMap:@[PGWXIRQEDGE1, PGWXIRQEDGE2] error:error];
-        return (self = [super initWithBoardName:@"Hummingboard Gate/Edge DQ" soc:soc error:error]);
+        PGWXSOC *soc = [[PGWXSOCNXPIMX6DQRM alloc] initWithGPIOMap:@[ PGWXMAPEDGE1, PGWXMAPEDGE2 ] irqMap:@[ PGWXIRQEDGE1, PGWXIRQEDGE2 ] error:error];
+        return (self = [super initWithBoardName:PGWX_HummingboardEdgeDQ soc:soc error:error]);
     }
 
 @end
@@ -284,8 +176,8 @@ i	LABEL	PINFUNC			PAD			GPIO		wiringNo
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
-        PGWXSOC *soc = [[PGWXSOCNXPIMX6SDLRM alloc] initWithGPIOMap:@[PGWXMAPEDGE1] irqMap:@[PGWXIRQEDGE1] error:error];
-        return (self = [super initWithBoardName:@"Hummingboard Gate/Edge SDL" soc:soc error:error]);
+        PGWXSOC *soc = [[PGWXSOCNXPIMX6SDLRM alloc] initWithGPIOMap:@[ PGWXMAPEDGE1 ] irqMap:@[ PGWXIRQEDGE1 ] error:error];
+        return (self = [super initWithBoardName:PGWX_HummingboardEdgeSDL soc:soc error:error]);
     }
 
 @end

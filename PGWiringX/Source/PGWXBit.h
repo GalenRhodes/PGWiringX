@@ -24,7 +24,7 @@
 #ifndef __PGWiringX_PGWXBit_H_
 #define __PGWiringX_PGWXBit_H_
 
-#import <Cocoa/Cocoa.h>
+#import <Rubicon/Rubicon.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

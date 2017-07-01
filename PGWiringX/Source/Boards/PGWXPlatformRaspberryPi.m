@@ -23,89 +23,24 @@
 
 #import "PGWXPlatformRaspberryPi.h"
 #import "PGWXSOCBroadcomm.h"
+#import "PGWiringX.h"
 
-#define PGWXRPIMAP1 @[\
-    @"FSEL17",\
-    @"FSEL18",\
-    @"FSEL27",\
-    @"FSEL22",\
-    @"FSEL23",\
-    @"FSEL24",\
-    @"FSEL25",\
-    @"FSEL4",\
-    @"FSEL2",\
-    @"FSEL3",\
-    @"FSEL8",\
-    @"FSEL7",\
-    @"FSEL10",\
-    @"FSEL9",\
-    @"FSEL11",\
-    @"FSEL14",\
-    @"FSEL15"]
+#define PGWXRPIMAP1 @[ @"FSEL17", @"FSEL18", @"FSEL27", @"FSEL22", @"FSEL23", @"FSEL24", @"FSEL25", @"FSEL4", @"FSEL2", @"FSEL3", @"FSEL8", @"FSEL7", @"FSEL10", @"FSEL9",\
+    @"FSEL11", @"FSEL14", @"FSEL15"]
 
-#define PGWXRPIMAP2 @[\
-    @"FSEL17",\
-    @"FSEL18",\
-    @"FSEL27",\
-    @"FSEL22",\
-    @"FSEL23",\
-    @"FSEL24",\
-    @"FSEL25",\
-    @"FSEL4",\
-    @"FSEL2",\
-    @"FSEL3",\
-    @"FSEL8",\
-    @"FSEL7",\
-    @"FSEL10",\
-    @"FSEL9",\
-    @"FSEL11",\
-    @"FSEL14",\
-    @"FSEL15",\
-    @"FSEL28",\
-    @"FSEL29",\
-    @"FSEL30",\
-    @"FSEL31"]
+#define PGWXRPIMAP2 @[ @"FSEL17", @"FSEL18", @"FSEL27", @"FSEL22", @"FSEL23", @"FSEL24", @"FSEL25", @"FSEL4", @"FSEL2", @"FSEL3", @"FSEL8", @"FSEL7", @"FSEL10", @"FSEL9",\
+    @"FSEL11", @"FSEL14", @"FSEL15", @"FSEL28", @"FSEL29", @"FSEL30", @"FSEL31"]
 
-#define PGWXRPIMAP3 @[\
-    @"FSEL17",\
-    @"FSEL18",\
-    @"FSEL27",\
-    @"FSEL22",\
-    @"FSEL23",\
-    @"FSEL24",\
-    @"FSEL25",\
-    @"FSEL4",\
-    @"FSEL2",\
-    @"FSEL3",\
-    @"FSEL8",\
-    @"FSEL7",\
-    @"FSEL10",\
-    @"FSEL9",\
-    @"FSEL11",\
-    @"FSEL14",\
-    @"FSEL15",\
-    @"",\
-    @"",\
-    @"",\
-    @"",\
-    @"FSEL5",\
-    @"FSEL6",\
-    @"FSEL13",\
-    @"FSEL19",\
-    @"FSEL26",\
-    @"FSEL12",\
-    @"FSEL16",\
-    @"FSEL20",\
-    @"FSEL21",\
-    @"FSEL0",\
-    @"FSEL1"]
+#define PGWXRPIMAP3 @[ @"FSEL17", @"FSEL18", @"FSEL27", @"FSEL22", @"FSEL23", @"FSEL24", @"FSEL25", @"FSEL4", @"FSEL2", @"FSEL3", @"FSEL8", @"FSEL7", @"FSEL10", @"FSEL9",\
+    @"FSEL11", @"FSEL14", @"FSEL15", @"", @"", @"", @"", @"FSEL5", @"FSEL6", @"FSEL13", @"FSEL19", @"FSEL26", @"FSEL12", @"FSEL16", @"FSEL20", @"FSEL21", @"FSEL0", @"FSEL1"]
+
 
 @implementation PGWXPlatformRaspberryPi1B1 {
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP1 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-1B1" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPi1B1 soc:soc error:error]);
     }
 
 @end
@@ -115,7 +50,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP2 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-1B2" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPi1B2 soc:soc error:error]);
     }
 
 @end
@@ -125,17 +60,17 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP2 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-Zero" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPiZero soc:soc error:error]);
     }
 
 @end
 
-@implementation PGWXPlatformRaspberryPi1BP {
+@implementation PGWXPlatformRaspberryPi1BPlus {
     }
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2835 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-1B+" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPi1BPlus soc:soc error:error]);
     }
 
 @end
@@ -145,7 +80,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2836 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-2" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPi2 soc:soc error:error]);
     }
 
 @end
@@ -155,7 +90,7 @@
 
     -(instancetype)init:(NSError *_Nullable *)error {
         PGWXSOC *soc = [[PGWXSOCBroadcomm2837 alloc] initWithGPIOMap:PGWXRPIMAP3 irqMap:nil error:error];
-        return (self = [super initWithBoardName:@"Raspberry PI-3" soc:soc error:error]);
+        return (self = [super initWithBoardName:PGWX_RaspberryPi3 soc:soc error:error]);
     }
 
 @end

@@ -24,8 +24,7 @@
 #ifndef __PGWiringX_PGWXPlatform_H_
 #define __PGWiringX_PGWXPlatform_H_
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXSOC.h>
+#import "PGWXSOC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,23 +33,35 @@ NS_ASSUME_NONNULL_BEGIN
     @property(nonatomic, readonly, copy) NSString  *boardName;
     @property(nonatomic, readonly, retain) PGWXSOC *soc;
 
+    -(instancetype)init:(NSError *_Nullable *)error;
+
     -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError *_Nullable *)error;
 
-    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin;
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin;
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
     -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error;
 
     -(BOOL)isValidPin:(NSUInteger)pin;
 
     -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
 @end
 

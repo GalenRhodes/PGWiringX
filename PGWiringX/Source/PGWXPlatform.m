@@ -29,6 +29,17 @@
     @synthesize boardName = _boardName;
     @synthesize soc = _soc;
 
+    -(instancetype)init:(NSError *_Nullable *)error {
+        self = [super init];
+
+        if(self) {
+            PGWXMakeError(error, 302, PGFormat(@"Instances of %@ cannot be instanciated directly.", NSStringFromClass([self class])));
+            self = nil;
+        }
+
+        return nil;
+    }
+
     -(instancetype)initWithBoardName:(NSString *)boardName soc:(PGWXSOC *)soc error:(NSError *_Nullable *)error {
         self = [super init];
 
@@ -52,24 +63,24 @@
         return self;
     }
 
-    -(NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin {
-        return [self.soc setMode:mode pin:pin];
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc setMode:mode forPin:pin error:error];
     }
 
-    -(NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin {
-        return [self.soc digitalWrite:value pin:pin];
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc digitalWrite:value toPin:pin error:error];
     }
 
-    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [self.soc digitalReadPin:pin error:error];
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc setISR:mode forPin:pin error:error];
     }
 
-    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [self.soc analogReadPin:pin error:error];
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc digitalReadFromPin:pin error:error];
     }
 
-    -(NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin {
-        return [self.soc setISR:mode pin:pin];
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc analogReadFromPin:pin error:error];
     }
 
     -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error {
@@ -82,6 +93,26 @@
 
     -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
         return [self.soc selectableFdForPin:pin error:error];
+    }
+
+    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc sysfsExportPin:pin error:error];
+    }
+
+    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc sysfsUnexportPin:pin error:error];
+    }
+
+    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc sysfsCheckPin:pin error:error];
+    }
+
+    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc sysfsDigitalWrite:value toPin:pin error:error];
+    }
+
+    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+        return [self.soc sysfsDigitalReadFromPin:pin error:error];
     }
 
 @end

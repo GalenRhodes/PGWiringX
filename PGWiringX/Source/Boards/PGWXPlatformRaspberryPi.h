@@ -24,8 +24,7 @@
 #ifndef __PGWiringX_PGWXPlatformRaspberryPi_H_
 #define __PGWiringX_PGWXPlatformRaspberryPi_H_
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXPlatform.h>
+#import "PGWXPlatform.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PGWXPlatformRaspberryPiZero : PGWXPlatform
 @end
 
-@interface PGWXPlatformRaspberryPi1BP : PGWXPlatform
+@interface PGWXPlatformRaspberryPi1BPlus : PGWXPlatform
 @end
 
 @interface PGWXPlatformRaspberryPi2 : PGWXPlatform

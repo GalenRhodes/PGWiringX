@@ -210,7 +210,16 @@
         [ar addObject:[PGWXLayout layoutWithName:@"PI20" number:idx++ bank:0 select:MB(0x128, 16) readWrite:MB(0x130, 20) support:SUP1]];
         [ar addObject:[PGWXLayout layoutWithName:@"PI21" number:idx bank:0 select:MB(0x128, 20) readWrite:MB(0x130, 21) support:SUP1]];
 
-        return (self = [super initWithBrandName:BRAND chipSet:@"A10" layout:ar gpioMap:gpioMap irqMap:irqMap isrModes:IM pageSize:PAGESZ baseAddresses:ba error:error]);
+        return (self = [super initWithBrandName:BRAND
+                                        chipSet:@"A10"
+                                         layout:ar
+                                        gpioMap:gpioMap
+                                         irqMap:irqMap
+                                       isrModes:IM
+                                       pageSize:PAGESZ
+                                  baseAddresses:ba
+                                  sysfsWithName:YES
+                                          error:error]);
     }
 
 @end

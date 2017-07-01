@@ -33,29 +33,37 @@
 @interface PGWXSOCBroadcomm2835()
 
     -(instancetype)initWithChipset:(NSString *)chipSet
-                            layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
+                            layout:(NSArray<PGWXLayout *> *)layout
+                           gpioMap:(NSArray<NSString *> *)gpioMap
+                            irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
+                             error:(NSError *_Nullable *)error;
 
-    -(instancetype)initWithChipSet:(NSString *)chipSet gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
+    -(instancetype)initWithChipSet:(NSString *)chipSet
+                           gpioMap:(NSArray<NSString *> *)gpioMap
+                            irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
+                             error:(NSError *_Nullable *)error;
 @end
 
 @implementation PGWXSOCBroadcomm2835 {
     }
 
     -(instancetype)initWithChipset:(NSString *)chipSet
-                            layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
-        self = [super initWithBrandName:@"Broadcomm"
-                                chipSet:chipSet
-                                 layout:layout
-                                gpioMap:gpioMap
-                                 irqMap:irqMap isrModes:IM pageSize:PGSZ baseAddresses:baseAddresses error:error];
+                            layout:(NSArray<PGWXLayout *> *)layout
+                           gpioMap:(NSArray<NSString *> *)gpioMap
+                            irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
+                             error:(NSError *_Nullable *)error {
+        self = [super initWithBrandName:@"Broadcomm" chipSet:chipSet layout:layout gpioMap:gpioMap irqMap:irqMap isrModes:IM pageSize:PGSZ baseAddresses:baseAddresses error:error];
         return self;
     }
 
-    -(instancetype)initWithChipSet:(NSString *)chipSet gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
-                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error {
+    -(instancetype)initWithChipSet:(NSString *)chipSet
+                           gpioMap:(NSArray<NSString *> *)gpioMap
+                            irqMap:(nullable NSArray<NSString *> *)irqMap
+                     baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
+                             error:(NSError *_Nullable *)error {
         NSUInteger     i   = 0;
         NSMutableArray *ar = [NSMutableArray new];
 

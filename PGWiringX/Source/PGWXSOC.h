@@ -24,10 +24,9 @@
 #ifndef __PGWiringX_PGWXSOC_H_
 #define __PGWiringX_PGWXSOC_H_
 
-#import <Rubicon/Rubicon.h>
-#import <PGWiringX/PGWXLayout.h>
-#import <PGWiringX/PGWXAddr.h>
-#import <PGWiringX/PGWXSupport.h>
+#import "PGWXLayout.h"
+#import "PGWXAddr.h"
+#import "PGWXSupport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,11 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
     @property(nonatomic, readonly) NSArray<PGWXAddr *>                          *baseAddresses;
 
     -(instancetype)initWithBrandName:(NSString *)brandName
-                             chipSet:(NSString *)chipSet
-                              layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                             chipSet:(NSString *)chipSet layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
                             isrModes:(NSUInteger)isrModes
-                            pageSize:(NSUInteger)pageSize
-                       baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
+                            pageSize:(NSUInteger)pageSize baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
 
     -(instancetype)initWithBrandName:(NSString *)brandName
                              chipSet:(NSString *)chipSet
@@ -60,15 +57,15 @@ NS_ASSUME_NONNULL_BEGIN
                        sysfsWithName:(BOOL)sysfsWithName
                                error:(NSError *_Nullable *)error;
 
-    -(nullable NSError *)setMode:(PGWXPinMode)mode pin:(NSUInteger)pin;
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(nullable NSError *)digitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(PGWXPinState)digitalReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(NSInteger)analogReadPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(nullable NSError *)setISR:(PGWXISRMode)mode pin:(NSUInteger)pin;
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
     -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error;
 
@@ -76,7 +73,13 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
-    -(nullable NSError *)sysfsDigitalWrite:(PGWXPinState)value pin:(NSUInteger)pin;
+    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+
+    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
     -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
