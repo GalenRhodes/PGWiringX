@@ -26,7 +26,6 @@
 
 #import "PGWXLayout.h"
 #import "PGWXAddr.h"
-#import "PGWXSupport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,9 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
     @property(nonatomic, readonly) NSArray<PGWXAddr *>                          *baseAddresses;
 
     -(instancetype)initWithBrandName:(NSString *)brandName
-                             chipSet:(NSString *)chipSet layout:(NSArray<PGWXLayout *> *)layout gpioMap:(NSArray<NSString *> *)gpioMap irqMap:(nullable NSArray<NSString *> *)irqMap
+                             chipSet:(NSString *)chipSet
+                              layout:(NSArray<PGWXLayout *> *)layout
+                             gpioMap:(NSArray<NSString *> *)gpioMap
+                              irqMap:(nullable NSArray<NSString *> *)irqMap
                             isrModes:(NSUInteger)isrModes
-                            pageSize:(NSUInteger)pageSize baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses error:(NSError *_Nullable *)error;
+                            pageSize:(NSUInteger)pageSize
+                       baseAddresses:(NSArray<PGWXAddr *> *)baseAddresses
+                               error:(NSError *_Nullable *)error;
 
     -(instancetype)initWithBrandName:(NSString *)brandName
                              chipSet:(NSString *)chipSet

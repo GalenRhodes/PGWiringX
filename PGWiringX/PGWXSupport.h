@@ -30,7 +30,7 @@
 typedef enum {
     PGWX_LOW  = 0,
     PGWX_HIGH = 1
-}                          PGWXPinState;
+} PGWXPinState;
 
 typedef enum {
     PGWX_FUNCTION_UNKNOWN   = 0,
@@ -38,14 +38,14 @@ typedef enum {
     PGWX_FUNCTION_ANALOG    = 4,
     PGWX_FUNCTION_I2C       = 16,
     PGWX_FUNCTION_INTERRUPT = 32
-}                          PGWXPinFunction;
+} PGWXPinFunction;
 
 typedef enum {
     PGWX_PINMODE_NOT_SET   = 0,
     PGWX_PINMODE_INPUT     = 2,
     PGWX_PINMODE_OUTPUT    = 4,
     PGWX_PINMODE_INTERRUPT = 8
-}                          PGWXPinMode;
+} PGWXPinMode;
 
 typedef enum {
     PGWX_ISR_MODE_UNKNOWN = 0,
@@ -53,7 +53,7 @@ typedef enum {
     PGWX_ISR_MODE_FALLING = 4,
     PGWX_ISR_MODE_BOTH    = 8,
     PGWX_ISR_MODE_NONE    = 16
-}                          PGWXISRMode;
+} PGWXISRMode;
 /* @f:1 */
 
 FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeError(NSError *_Nullable *_Nullable error, NSInteger code, NSString *_Nonnull message);

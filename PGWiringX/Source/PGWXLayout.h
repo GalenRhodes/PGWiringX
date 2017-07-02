@@ -24,7 +24,7 @@
 #ifndef __PGWiringX_PGWXLayout_H_
 #define __PGWiringX_PGWXLayout_H_
 
-#import "PGWXSupport.h"
+#import <PGWiringX/PGWXSupport.h>
 
 @class PGWXBit;
 

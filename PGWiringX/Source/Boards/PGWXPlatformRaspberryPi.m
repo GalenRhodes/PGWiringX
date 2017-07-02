@@ -34,7 +34,6 @@
 #define PGWXRPIMAP3 @[ @"FSEL17", @"FSEL18", @"FSEL27", @"FSEL22", @"FSEL23", @"FSEL24", @"FSEL25", @"FSEL4", @"FSEL2", @"FSEL3", @"FSEL8", @"FSEL7", @"FSEL10", @"FSEL9",\
     @"FSEL11", @"FSEL14", @"FSEL15", @"", @"", @"", @"", @"FSEL5", @"FSEL6", @"FSEL13", @"FSEL19", @"FSEL26", @"FSEL12", @"FSEL16", @"FSEL20", @"FSEL21", @"FSEL0", @"FSEL1"]
 
-
 @implementation PGWXPlatformRaspberryPi1B1 {
     }
 
