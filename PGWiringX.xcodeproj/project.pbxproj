@@ -8,41 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		1117D000430186D201CAC256 /* PGWiringX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DB134600AE3D3EEDABD3 /* PGWiringX.m */; };
-		1117D0677D2F1563E59ABB90 /* PGWXPlatformLemaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D6A0BBFFDC23121D819F /* PGWXPlatformLemaker.h */; };
-		1117D0C607B9DA8977A5FFF5 /* PGWXSOCBroadcomm.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D4551B6115700ADD20E5 /* PGWXSOCBroadcomm.h */; };
-		1117D10F852801144ABE35D6 /* PGWXPlatformHardkernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DB7CE0554E19C2976A67 /* PGWXPlatformHardkernel.h */; };
-		1117D1FADAF6A08EFA004574 /* PGWXSOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D7DE9394306FE72BCD28 /* PGWXSOC.m */; };
-		1117D23CB9D519BFFF043EB0 /* PGWXSOCSamsung.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D52471DD93921FA0E5F1 /* PGWXSOCSamsung.m */; };
-		1117D272CEDEB148B643A706 /* PGWXPlatformSolidRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D6C0E674480F1B53D450 /* PGWXPlatformSolidRun.m */; };
-		1117D2D933AB389577318CEE /* PGWXLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D8CA0377D437AF579E56 /* PGWXLayout.m */; };
-		1117D3C5A85CE4BCB3FCA3D1 /* PGWXLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DD76F258924DA8D815C5 /* PGWXLayout.h */; };
-		1117D3E291910C5363F24738 /* PGWXPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D6DBB0DABC8C340C4CC3 /* PGWXPlatform.m */; };
-		1117D3FE5369744F45A1BF3A /* PGWXSOCNXP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D64A8FFFE6C1733640C1 /* PGWXSOCNXP.m */; };
-		1117D43A1CE3FFBBCC5C86AD /* PGWXAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DBA5F1D7D386A22C446F /* PGWXAddr.h */; };
-		1117D53483034412C86D50A3 /* PGWXSOC.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D00F0636025E4AC6D33D /* PGWXSOC.h */; };
-		1117D57B6F6E96175FC9796B /* PGWXBit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D3C5B20082D113B6296A /* PGWXBit.m */; };
-		1117D5D4288A6863CB8D7161 /* PGWXPlatformLinkSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D56A493DE04DEE7F6771 /* PGWXPlatformLinkSprite.m */; };
-		1117D5FCCA78DCDB6BA9971B /* PGWXPlatformRaspberryPi.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D16CE3E787676100E253 /* PGWXPlatformRaspberryPi.h */; };
-		1117D68B9BDB4FE63F525EC1 /* PGWXSOCAllwinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D95BFFFE1D1E753E3482 /* PGWXSOCAllwinner.h */; };
-		1117D69A80CAB3A9A3EAB942 /* PGWXSOCBroadcomm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DB0D337FBC7A96E298D3 /* PGWXSOCBroadcomm.m */; };
-		1117D78610A482A04996E84D /* PGWXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D80872D5E105C25C94C9 /* PGWXSupport.m */; };
-		1117D7B8C1745A7A5A73312D /* PGWXSOCAmlogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DCBB69C3BE3FC9F2BE54 /* PGWXSOCAmlogic.h */; };
-		1117D802DC50F4C0587DBD5A /* PGWXSOCSamsung.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D9303D40B31C0B5167EF /* PGWXSOCSamsung.h */; };
-		1117D843BF90DCD9DED06DF9 /* PGWXSOCNXP.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D34B86D301750EDDB3E2 /* PGWXSOCNXP.h */; };
-		1117D851B3F7C8016879B4C0 /* PGWXPlatformLemaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D6CE0556A5B1FAC0ABD0 /* PGWXPlatformLemaker.m */; };
-		1117D8BC9BAB3FEF92DD4B3B /* PGWXPlatformHardkernel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D54494E5D920FAF44778 /* PGWXPlatformHardkernel.m */; };
+		1117D033BA15039B73C5E4BA /* PGWXPlatformXunLong.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D8D2A169296FB6443BA2 /* PGWXPlatformXunLong.h */; };
+		1117D0B33BE2D4643BB8E6FD /* PGWXAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DA00973B88D3C954A46F /* PGWXAddr.m */; };
+		1117D0D8BDC444E1159F7185 /* PGWXSOCNXP.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D9E9EF70B484C3BC78A4 /* PGWXSOCNXP.h */; };
+		1117D0F55415D34DEB894CED /* PGWXBogusI2C.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DE7C6878A463890B8DEE /* PGWXBogusI2C.m */; };
+		1117D160568A9ADC4A8F16F1 /* PGWXSOCBroadcomm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DA87228CC3CD7999C9E5 /* PGWXSOCBroadcomm.m */; };
+		1117D1CCFA456EBE161967E9 /* PGWXPlatformSolidRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D2E298ADCB24F02E21EE /* PGWXPlatformSolidRun.m */; };
+		1117D2039288044DD65E7A20 /* PGWXSOCAmlogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D35EA7CE2FB7C92843FE /* PGWXSOCAmlogic.h */; };
+		1117D2054D9A91F3853CC090 /* PGWXPlatformLemaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D671692870EF93F7EB43 /* PGWXPlatformLemaker.m */; };
+		1117D242A23EA4854EA9CD76 /* PGWXBogusI2C.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D10706C5A94B948BE8F4 /* PGWXBogusI2C.h */; };
+		1117D24CC76BF4017DD4D1F6 /* PGWXSOCNXP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D71745EA0E4E3725EE8C /* PGWXSOCNXP.m */; };
+		1117D34D2C087F7BBCDCEAA4 /* i2c-dev.c in Sources */ = {isa = PBXBuildFile; fileRef = 1117DA1709EA6902C4E4010E /* i2c-dev.c */; };
+		1117D39F12A76A1BC01DA016 /* PGWXSOC.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D949131907B26B3C4B56 /* PGWXSOC.h */; };
+		1117D413A949799C39D22C96 /* PGWXSOCSamsung.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DC9A20E4FA2231A39051 /* PGWXSOCSamsung.m */; };
+		1117D43D7979BA20069A844E /* PGWXPlatformRaspberryPi.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DD954E4A6F005129E13D /* PGWXPlatformRaspberryPi.h */; };
+		1117D54FF66A8EBD7705BBE5 /* PGWXAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D675BE6BAD1306B0FA72 /* PGWXAddr.h */; };
+		1117D57E617B165CA5C7AD7E /* PGWXLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D5390644FB6760761A8F /* PGWXLayout.h */; };
+		1117D5CD31C9F02110EC0F09 /* PGWXSOCSamsung.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D04DC630ECD251A44B86 /* PGWXSOCSamsung.h */; };
+		1117D6645720DB950460B36B /* PGWXSOCAllwinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D7B949AA325A7107F5F1 /* PGWXSOCAllwinner.h */; };
+		1117D675A565C63176F7EE8C /* PGWXBit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D2B3911A99BED0F614D1 /* PGWXBit.h */; };
+		1117D681EE8D7370CFA1A2BE /* PGWXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D086BF560D2F0C29CCE9 /* PGWXSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1117D687570CBA6EAF0C9EEE /* PGWXPlatformHardkernel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D069E7C16A329EA73BCF /* PGWXPlatformHardkernel.m */; };
+		1117D6B649676887C0D919AA /* PGWXPlatformLinkSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D014CCBB66C6C2E4E36A /* PGWXPlatformLinkSprite.m */; };
+		1117D7479220E499014DCE7F /* PGWXLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D3A633EBE1095EA45A2C /* PGWXLayout.m */; };
+		1117D7CA1DD544FDB6743E31 /* PGWXPlatformRaspberryPi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DDF2CF0DF869F56DB298 /* PGWXPlatformRaspberryPi.m */; };
+		1117D805D4E8FE3C373DFF32 /* PGWXSOCBroadcomm.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D1374BDE6C1EBB9BE7BE /* PGWXSOCBroadcomm.h */; };
 		1117D9959FA36F0E8FE59468 /* PGWiringX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D935FDD8E40EF49D7730 /* PGWiringX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1117D9AA0F1C52D55578D182 /* PGWXPlatformXunLong.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D3ED6BF7EB55CB4AEB30 /* PGWXPlatformXunLong.h */; };
-		1117DA5F7C65649F6161F11C /* PGWXAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D8F752BF84A402A79E5C /* PGWXAddr.m */; };
-		1117DA679CA914D2005BB7F6 /* PGWXPlatformSolidRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D14E7B28B49FC1FD65C8 /* PGWXPlatformSolidRun.h */; };
-		1117DC1DE7B49FA0F8FE1573 /* PGWXBit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D8055DCA46B70C6308FB /* PGWXBit.h */; };
-		1117DC68D067272E69766459 /* PGWXPlatformXunLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D95BB876963A2FC8CC00 /* PGWXPlatformXunLong.m */; };
-		1117DCDBAB1E045E33A9306A /* PGWXPlatformLinkSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DD0EC176F3223D805338 /* PGWXPlatformLinkSprite.h */; };
-		1117DD284E48D799AB35BE86 /* PGWXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DB0A1508B1989B15AF19 /* PGWXSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1117DDA934099E5CF2414CDE /* PGWXSOCAllwinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D1F09B437DD1AD64DD96 /* PGWXSOCAllwinner.m */; };
-		1117DE0ACBCDCD197A8FFD17 /* PGWXPlatformRaspberryPi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DDAB958336F6F585EEE4 /* PGWXPlatformRaspberryPi.m */; };
-		1117DF6A2625EB720A8CB4D9 /* PGWXPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DC707B5C56E2ED489069 /* PGWXPlatform.h */; };
-		1117DF706DF68B25F5844B0E /* PGWXSOCAmlogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D8E4826530753199152F /* PGWXSOCAmlogic.m */; };
+		1117D9A518BF9DEC43D148F0 /* PGWXPlatformXunLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D46AB743F17B256654BF /* PGWXPlatformXunLong.m */; };
+		1117DA29B1EA95C1C3E0283F /* PGWXI2CChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D66092FA87A329B42BD2 /* PGWXI2CChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1117DB973F53AC4E1325A5C2 /* i2c-dev.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D87CF0042394947F2C9B /* i2c-dev.h */; };
+		1117DC1E8BD7BFBC5D8F00C5 /* PGWXPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D3D33D60AD3471A08876 /* PGWXPlatform.m */; };
+		1117DD2E29EEF59C26B57003 /* PGWXI2CChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D29E9F0F1B5213F1B527 /* PGWXI2CChannel.m */; };
+		1117DD481152EAD94E879B1A /* PGWXPlatformSolidRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117DD82C54DABA7A8ADC6B4 /* PGWXPlatformSolidRun.h */; };
+		1117DDA21CE2A74E3B8F25EC /* PGWXPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D2D7B9DF1EC7E9918AB9 /* PGWXPlatform.h */; };
+		1117DE25D694352A18108E64 /* PGWXPlatformLemaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D05A7816DAA1C4F7BA8F /* PGWXPlatformLemaker.h */; };
+		1117DE7268F32AD71C9F0E50 /* PGWXSOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DF6A66D3D12106E62ABE /* PGWXSOC.m */; };
+		1117DE8718EF919A224B82A9 /* PGWXPlatformHardkernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D27A248EFEBF02F92B06 /* PGWXPlatformHardkernel.h */; };
+		1117DE8CD15CBCF74EBC34B5 /* PGWXSOCAllwinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DCE68ACF80FC2FBB0C3C /* PGWXSOCAllwinner.m */; };
+		1117DEB62CBA6E08EEA9BF78 /* PGWXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DF91FC77939133D334E4 /* PGWXSupport.m */; };
+		1117DEEAC40899F6DA785830 /* PGWXBit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D44B215D8EA09C54BDB6 /* PGWXBit.m */; };
+		1117DF06DD9CA948F7428435 /* PGWXPlatformLinkSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1117D3C13A49012D919A00A6 /* PGWXPlatformLinkSprite.h */; };
+		1117DFE9B34A3C453B406D22 /* PGWXSOCAmlogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DF09B7CEC0759A526BD0 /* PGWXSOCAmlogic.m */; };
 		8310B8381EFC4EC7000FA77E /* PGWiringX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */; };
 		8310B83D1EFC4EC7000FA77E /* PGWiringXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8310B83C1EFC4EC7000FA77E /* PGWiringXTests.m */; };
 		8310B84A1EFC4F06000FA77E /* Rubicon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8310B8491EFC4F06000FA77E /* Rubicon.framework */; };
@@ -60,49 +66,55 @@
 
 /* Begin PBXFileReference section */
 		1117D00E9CA23956120A8845 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1117D00F0636025E4AC6D33D /* PGWXSOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOC.h; sourceTree = "<group>"; };
-		1117D14E7B28B49FC1FD65C8 /* PGWXPlatformSolidRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformSolidRun.h; sourceTree = "<group>"; };
-		1117D16CE3E787676100E253 /* PGWXPlatformRaspberryPi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformRaspberryPi.h; sourceTree = "<group>"; };
-		1117D1F09B437DD1AD64DD96 /* PGWXSOCAllwinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCAllwinner.m; sourceTree = "<group>"; };
+		1117D014CCBB66C6C2E4E36A /* PGWXPlatformLinkSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformLinkSprite.m; sourceTree = "<group>"; };
+		1117D04DC630ECD251A44B86 /* PGWXSOCSamsung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCSamsung.h; sourceTree = "<group>"; };
+		1117D05A7816DAA1C4F7BA8F /* PGWXPlatformLemaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformLemaker.h; sourceTree = "<group>"; };
+		1117D069E7C16A329EA73BCF /* PGWXPlatformHardkernel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformHardkernel.m; sourceTree = "<group>"; };
+		1117D086BF560D2F0C29CCE9 /* PGWXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSupport.h; sourceTree = "<group>"; };
+		1117D10706C5A94B948BE8F4 /* PGWXBogusI2C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXBogusI2C.h; sourceTree = "<group>"; };
+		1117D1374BDE6C1EBB9BE7BE /* PGWXSOCBroadcomm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCBroadcomm.h; sourceTree = "<group>"; };
+		1117D27A248EFEBF02F92B06 /* PGWXPlatformHardkernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformHardkernel.h; sourceTree = "<group>"; };
+		1117D29E9F0F1B5213F1B527 /* PGWXI2CChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXI2CChannel.m; sourceTree = "<group>"; };
+		1117D2B3911A99BED0F614D1 /* PGWXBit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXBit.h; sourceTree = "<group>"; };
 		1117D2BFC09DCC96D6FEF56F /* fetch_and_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fetch_and_config.sh; sourceTree = "<group>"; };
-		1117D34B86D301750EDDB3E2 /* PGWXSOCNXP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCNXP.h; sourceTree = "<group>"; };
+		1117D2D7B9DF1EC7E9918AB9 /* PGWXPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatform.h; sourceTree = "<group>"; };
+		1117D2E298ADCB24F02E21EE /* PGWXPlatformSolidRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformSolidRun.m; sourceTree = "<group>"; };
+		1117D35EA7CE2FB7C92843FE /* PGWXSOCAmlogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCAmlogic.h; sourceTree = "<group>"; };
+		1117D3A633EBE1095EA45A2C /* PGWXLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXLayout.m; sourceTree = "<group>"; };
+		1117D3C13A49012D919A00A6 /* PGWXPlatformLinkSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformLinkSprite.h; sourceTree = "<group>"; };
 		1117D3C4A979B05EAD289E2B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		1117D3C5B20082D113B6296A /* PGWXBit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXBit.m; sourceTree = "<group>"; };
-		1117D3ED6BF7EB55CB4AEB30 /* PGWXPlatformXunLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformXunLong.h; sourceTree = "<group>"; };
-		1117D4551B6115700ADD20E5 /* PGWXSOCBroadcomm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCBroadcomm.h; sourceTree = "<group>"; };
-		1117D52471DD93921FA0E5F1 /* PGWXSOCSamsung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCSamsung.m; sourceTree = "<group>"; };
-		1117D54494E5D920FAF44778 /* PGWXPlatformHardkernel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformHardkernel.m; sourceTree = "<group>"; };
-		1117D56A493DE04DEE7F6771 /* PGWXPlatformLinkSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformLinkSprite.m; sourceTree = "<group>"; };
-		1117D64A8FFFE6C1733640C1 /* PGWXSOCNXP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCNXP.m; sourceTree = "<group>"; };
-		1117D6A0BBFFDC23121D819F /* PGWXPlatformLemaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformLemaker.h; sourceTree = "<group>"; };
-		1117D6C0E674480F1B53D450 /* PGWXPlatformSolidRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformSolidRun.m; sourceTree = "<group>"; };
-		1117D6CE0556A5B1FAC0ABD0 /* PGWXPlatformLemaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformLemaker.m; sourceTree = "<group>"; };
-		1117D6DBB0DABC8C340C4CC3 /* PGWXPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatform.m; sourceTree = "<group>"; };
-		1117D7DE9394306FE72BCD28 /* PGWXSOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOC.m; sourceTree = "<group>"; };
-		1117D8055DCA46B70C6308FB /* PGWXBit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXBit.h; sourceTree = "<group>"; };
-		1117D80872D5E105C25C94C9 /* PGWXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSupport.m; sourceTree = "<group>"; };
+		1117D3D33D60AD3471A08876 /* PGWXPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatform.m; sourceTree = "<group>"; };
+		1117D44B215D8EA09C54BDB6 /* PGWXBit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXBit.m; sourceTree = "<group>"; };
+		1117D46AB743F17B256654BF /* PGWXPlatformXunLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformXunLong.m; sourceTree = "<group>"; };
+		1117D5390644FB6760761A8F /* PGWXLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXLayout.h; sourceTree = "<group>"; };
+		1117D66092FA87A329B42BD2 /* PGWXI2CChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXI2CChannel.h; sourceTree = "<group>"; };
+		1117D671692870EF93F7EB43 /* PGWXPlatformLemaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformLemaker.m; sourceTree = "<group>"; };
+		1117D675BE6BAD1306B0FA72 /* PGWXAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXAddr.h; sourceTree = "<group>"; };
+		1117D71745EA0E4E3725EE8C /* PGWXSOCNXP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCNXP.m; sourceTree = "<group>"; };
+		1117D7B949AA325A7107F5F1 /* PGWXSOCAllwinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCAllwinner.h; sourceTree = "<group>"; };
+		1117D87CF0042394947F2C9B /* i2c-dev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "i2c-dev.h"; sourceTree = "<group>"; };
 		1117D8A2A6B08114692895BF /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D8C5840215A915E3984C /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		1117D8CA0377D437AF579E56 /* PGWXLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXLayout.m; sourceTree = "<group>"; };
-		1117D8E4826530753199152F /* PGWXSOCAmlogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCAmlogic.m; sourceTree = "<group>"; };
-		1117D8F752BF84A402A79E5C /* PGWXAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXAddr.m; sourceTree = "<group>"; };
-		1117D9303D40B31C0B5167EF /* PGWXSOCSamsung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCSamsung.h; sourceTree = "<group>"; };
+		1117D8D2A169296FB6443BA2 /* PGWXPlatformXunLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformXunLong.h; sourceTree = "<group>"; };
 		1117D935FDD8E40EF49D7730 /* PGWiringX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWiringX.h; sourceTree = "<group>"; };
-		1117D95BB876963A2FC8CC00 /* PGWXPlatformXunLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformXunLong.m; sourceTree = "<group>"; };
-		1117D95BFFFE1D1E753E3482 /* PGWXSOCAllwinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCAllwinner.h; sourceTree = "<group>"; };
+		1117D949131907B26B3C4B56 /* PGWXSOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOC.h; sourceTree = "<group>"; };
 		1117D9B26A3F72EAD2F0924F /* macInstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = macInstall.sh; sourceTree = "<group>"; };
-		1117DB0A1508B1989B15AF19 /* PGWXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSupport.h; sourceTree = "<group>"; };
-		1117DB0D337FBC7A96E298D3 /* PGWXSOCBroadcomm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCBroadcomm.m; sourceTree = "<group>"; };
+		1117D9E9EF70B484C3BC78A4 /* PGWXSOCNXP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCNXP.h; sourceTree = "<group>"; };
+		1117DA00973B88D3C954A46F /* PGWXAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXAddr.m; sourceTree = "<group>"; };
+		1117DA1709EA6902C4E4010E /* i2c-dev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "i2c-dev.c"; sourceTree = "<group>"; };
+		1117DA87228CC3CD7999C9E5 /* PGWXSOCBroadcomm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCBroadcomm.m; sourceTree = "<group>"; };
 		1117DB134600AE3D3EEDABD3 /* PGWiringX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWiringX.m; sourceTree = "<group>"; };
-		1117DB7CE0554E19C2976A67 /* PGWXPlatformHardkernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformHardkernel.h; sourceTree = "<group>"; };
-		1117DBA5F1D7D386A22C446F /* PGWXAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXAddr.h; sourceTree = "<group>"; };
-		1117DC707B5C56E2ED489069 /* PGWXPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatform.h; sourceTree = "<group>"; };
-		1117DCBB69C3BE3FC9F2BE54 /* PGWXSOCAmlogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXSOCAmlogic.h; sourceTree = "<group>"; };
-		1117DD0EC176F3223D805338 /* PGWXPlatformLinkSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformLinkSprite.h; sourceTree = "<group>"; };
-		1117DD76F258924DA8D815C5 /* PGWXLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXLayout.h; sourceTree = "<group>"; };
-		1117DDAB958336F6F585EEE4 /* PGWXPlatformRaspberryPi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformRaspberryPi.m; sourceTree = "<group>"; };
+		1117DC62CD8871969CE6F7D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		1117DC9A20E4FA2231A39051 /* PGWXSOCSamsung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCSamsung.m; sourceTree = "<group>"; };
+		1117DCE68ACF80FC2FBB0C3C /* PGWXSOCAllwinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCAllwinner.m; sourceTree = "<group>"; };
+		1117DD82C54DABA7A8ADC6B4 /* PGWXPlatformSolidRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformSolidRun.h; sourceTree = "<group>"; };
+		1117DD954E4A6F005129E13D /* PGWXPlatformRaspberryPi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWXPlatformRaspberryPi.h; sourceTree = "<group>"; };
+		1117DDF2CF0DF869F56DB298 /* PGWXPlatformRaspberryPi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXPlatformRaspberryPi.m; sourceTree = "<group>"; };
+		1117DE7C6878A463890B8DEE /* PGWXBogusI2C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXBogusI2C.m; sourceTree = "<group>"; };
+		1117DF09B7CEC0759A526BD0 /* PGWXSOCAmlogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOCAmlogic.m; sourceTree = "<group>"; };
+		1117DF6A66D3D12106E62ABE /* PGWXSOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSOC.m; sourceTree = "<group>"; };
+		1117DF91FC77939133D334E4 /* PGWXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWXSupport.m; sourceTree = "<group>"; };
 		8310B82E1EFC4EC7000FA77E /* PGWiringX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PGWiringX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8310B8321EFC4EC7000FA77E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8310B8371EFC4EC7000FA77E /* PGWiringXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGWiringXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310B83C1EFC4EC7000FA77E /* PGWiringXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGWiringXTests.m; sourceTree = "<group>"; };
 		8310B83E1EFC4EC7000FA77E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,67 +141,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1117D8EC7C8661EDCCFE69E7 /* Source */ = {
+		1117D5F5940E959E3230F1BA /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				1117D7DE9394306FE72BCD28 /* PGWXSOC.m */,
-				1117D00F0636025E4AC6D33D /* PGWXSOC.h */,
-				1117D9E1ED4F3D18EEB17DEE /* Chipsets */,
-				1117DBCA0261301398BB5AE7 /* Boards */,
-				1117D6DBB0DABC8C340C4CC3 /* PGWXPlatform.m */,
-				1117DC707B5C56E2ED489069 /* PGWXPlatform.h */,
-				1117DBEAE0CC6FBFE1015FFF /* Support */,
-				1117DD76F258924DA8D815C5 /* PGWXLayout.h */,
-				1117D8CA0377D437AF579E56 /* PGWXLayout.m */,
+				1117D949131907B26B3C4B56 /* PGWXSOC.h */,
+				1117D3D33D60AD3471A08876 /* PGWXPlatform.m */,
+				1117DC1A63A2FDD7B8DE0B41 /* Chipsets */,
+				1117DF6A66D3D12106E62ABE /* PGWXSOC.m */,
+				1117D2D7B9DF1EC7E9918AB9 /* PGWXPlatform.h */,
+				1117D705B1EDFDBA269EF02C /* Boards */,
+				1117D9FAEA77FD4C751E9E36 /* Support */,
+				1117D5390644FB6760761A8F /* PGWXLayout.h */,
+				1117D3A633EBE1095EA45A2C /* PGWXLayout.m */,
 			);
-			path = Source;
+			path = Private;
 			sourceTree = "<group>";
 		};
-		1117D9E1ED4F3D18EEB17DEE /* Chipsets */ = {
+		1117D705B1EDFDBA269EF02C /* Boards */ = {
 			isa = PBXGroup;
 			children = (
-				1117DB0D337FBC7A96E298D3 /* PGWXSOCBroadcomm.m */,
-				1117D4551B6115700ADD20E5 /* PGWXSOCBroadcomm.h */,
-				1117D52471DD93921FA0E5F1 /* PGWXSOCSamsung.m */,
-				1117D9303D40B31C0B5167EF /* PGWXSOCSamsung.h */,
-				1117D64A8FFFE6C1733640C1 /* PGWXSOCNXP.m */,
-				1117D34B86D301750EDDB3E2 /* PGWXSOCNXP.h */,
-				1117D1F09B437DD1AD64DD96 /* PGWXSOCAllwinner.m */,
-				1117D95BFFFE1D1E753E3482 /* PGWXSOCAllwinner.h */,
-				1117D8E4826530753199152F /* PGWXSOCAmlogic.m */,
-				1117DCBB69C3BE3FC9F2BE54 /* PGWXSOCAmlogic.h */,
-			);
-			path = Chipsets;
-			sourceTree = "<group>";
-		};
-		1117DBCA0261301398BB5AE7 /* Boards */ = {
-			isa = PBXGroup;
-			children = (
-				1117D54494E5D920FAF44778 /* PGWXPlatformHardkernel.m */,
-				1117DB7CE0554E19C2976A67 /* PGWXPlatformHardkernel.h */,
-				1117DDAB958336F6F585EEE4 /* PGWXPlatformRaspberryPi.m */,
-				1117D16CE3E787676100E253 /* PGWXPlatformRaspberryPi.h */,
-				1117D6CE0556A5B1FAC0ABD0 /* PGWXPlatformLemaker.m */,
-				1117D6A0BBFFDC23121D819F /* PGWXPlatformLemaker.h */,
-				1117D56A493DE04DEE7F6771 /* PGWXPlatformLinkSprite.m */,
-				1117DD0EC176F3223D805338 /* PGWXPlatformLinkSprite.h */,
-				1117D6C0E674480F1B53D450 /* PGWXPlatformSolidRun.m */,
-				1117D14E7B28B49FC1FD65C8 /* PGWXPlatformSolidRun.h */,
-				1117D95BB876963A2FC8CC00 /* PGWXPlatformXunLong.m */,
-				1117D3ED6BF7EB55CB4AEB30 /* PGWXPlatformXunLong.h */,
+				1117D069E7C16A329EA73BCF /* PGWXPlatformHardkernel.m */,
+				1117D27A248EFEBF02F92B06 /* PGWXPlatformHardkernel.h */,
+				1117DDF2CF0DF869F56DB298 /* PGWXPlatformRaspberryPi.m */,
+				1117DD954E4A6F005129E13D /* PGWXPlatformRaspberryPi.h */,
+				1117D671692870EF93F7EB43 /* PGWXPlatformLemaker.m */,
+				1117D05A7816DAA1C4F7BA8F /* PGWXPlatformLemaker.h */,
+				1117D014CCBB66C6C2E4E36A /* PGWXPlatformLinkSprite.m */,
+				1117D3C13A49012D919A00A6 /* PGWXPlatformLinkSprite.h */,
+				1117D2E298ADCB24F02E21EE /* PGWXPlatformSolidRun.m */,
+				1117DD82C54DABA7A8ADC6B4 /* PGWXPlatformSolidRun.h */,
+				1117D46AB743F17B256654BF /* PGWXPlatformXunLong.m */,
+				1117D8D2A169296FB6443BA2 /* PGWXPlatformXunLong.h */,
 			);
 			path = Boards;
 			sourceTree = "<group>";
 		};
-		1117DBEAE0CC6FBFE1015FFF /* Support */ = {
+		1117D9FAEA77FD4C751E9E36 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				1117D8055DCA46B70C6308FB /* PGWXBit.h */,
-				1117D3C5B20082D113B6296A /* PGWXBit.m */,
-				1117D8F752BF84A402A79E5C /* PGWXAddr.m */,
-				1117DBA5F1D7D386A22C446F /* PGWXAddr.h */,
+				1117DA00973B88D3C954A46F /* PGWXAddr.m */,
+				1117D44B215D8EA09C54BDB6 /* PGWXBit.m */,
+				1117D2B3911A99BED0F614D1 /* PGWXBit.h */,
+				1117D675BE6BAD1306B0FA72 /* PGWXAddr.h */,
 			);
-			name = Support;
+			path = Support;
+			sourceTree = "<group>";
+		};
+		1117DBC17F9E99B668465AAD /* I2C */ = {
+			isa = PBXGroup;
+			children = (
+				1117D66092FA87A329B42BD2 /* PGWXI2CChannel.h */,
+				1117D29E9F0F1B5213F1B527 /* PGWXI2CChannel.m */,
+				1117DCE4693B1C0312DC34DA /* Private */,
+			);
+			path = I2C;
+			sourceTree = "<group>";
+		};
+		1117DC1A63A2FDD7B8DE0B41 /* Chipsets */ = {
+			isa = PBXGroup;
+			children = (
+				1117DA87228CC3CD7999C9E5 /* PGWXSOCBroadcomm.m */,
+				1117D1374BDE6C1EBB9BE7BE /* PGWXSOCBroadcomm.h */,
+				1117DC9A20E4FA2231A39051 /* PGWXSOCSamsung.m */,
+				1117D04DC630ECD251A44B86 /* PGWXSOCSamsung.h */,
+				1117D71745EA0E4E3725EE8C /* PGWXSOCNXP.m */,
+				1117D9E9EF70B484C3BC78A4 /* PGWXSOCNXP.h */,
+				1117DCE68ACF80FC2FBB0C3C /* PGWXSOCAllwinner.m */,
+				1117D7B949AA325A7107F5F1 /* PGWXSOCAllwinner.h */,
+				1117DF09B7CEC0759A526BD0 /* PGWXSOCAmlogic.m */,
+				1117D35EA7CE2FB7C92843FE /* PGWXSOCAmlogic.h */,
+			);
+			path = Chipsets;
 			sourceTree = "<group>";
 		};
 		1117DC8BBF7B7A3C7C8917C0 /* Supporting Files */ = {
@@ -204,10 +226,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1117DCE4693B1C0312DC34DA /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1117DA1709EA6902C4E4010E /* i2c-dev.c */,
+				1117D87CF0042394947F2C9B /* i2c-dev.h */,
+				1117D10706C5A94B948BE8F4 /* PGWXBogusI2C.h */,
+				1117DE7C6878A463890B8DEE /* PGWXBogusI2C.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		1117DEF847BFB1C99248C8D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				1117D8A2A6B08114692895BF /* CMakeLists.txt */,
+				1117DC62CD8871969CE6F7D0 /* Info.plist */,
+				1117DF91FC77939133D334E4 /* PGWXSupport.m */,
+				1117D086BF560D2F0C29CCE9 /* PGWXSupport.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,13 +271,11 @@
 		8310B8301EFC4EC7000FA77E /* PGWiringX */ = {
 			isa = PBXGroup;
 			children = (
-				8310B8321EFC4EC7000FA77E /* Info.plist */,
 				1117DEF847BFB1C99248C8D6 /* Supporting Files */,
-				1117D8EC7C8661EDCCFE69E7 /* Source */,
 				1117D935FDD8E40EF49D7730 /* PGWiringX.h */,
 				1117DB134600AE3D3EEDABD3 /* PGWiringX.m */,
-				1117D80872D5E105C25C94C9 /* PGWXSupport.m */,
-				1117DB0A1508B1989B15AF19 /* PGWXSupport.h */,
+				1117D5F5940E959E3230F1BA /* Private */,
+				1117DBC17F9E99B668465AAD /* I2C */,
 			);
 			path = PGWiringX;
 			sourceTree = "<group>";
@@ -271,23 +305,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1117D9959FA36F0E8FE59468 /* PGWiringX.h in Headers */,
-				1117D53483034412C86D50A3 /* PGWXSOC.h in Headers */,
-				1117D68B9BDB4FE63F525EC1 /* PGWXSOCAllwinner.h in Headers */,
-				1117D7B8C1745A7A5A73312D /* PGWXSOCAmlogic.h in Headers */,
-				1117D0C607B9DA8977A5FFF5 /* PGWXSOCBroadcomm.h in Headers */,
-				1117D843BF90DCD9DED06DF9 /* PGWXSOCNXP.h in Headers */,
-				1117D802DC50F4C0587DBD5A /* PGWXSOCSamsung.h in Headers */,
-				1117DF6A2625EB720A8CB4D9 /* PGWXPlatform.h in Headers */,
-				1117D10F852801144ABE35D6 /* PGWXPlatformHardkernel.h in Headers */,
-				1117D0677D2F1563E59ABB90 /* PGWXPlatformLemaker.h in Headers */,
-				1117DCDBAB1E045E33A9306A /* PGWXPlatformLinkSprite.h in Headers */,
-				1117D5FCCA78DCDB6BA9971B /* PGWXPlatformRaspberryPi.h in Headers */,
-				1117DA679CA914D2005BB7F6 /* PGWXPlatformSolidRun.h in Headers */,
-				1117D9AA0F1C52D55578D182 /* PGWXPlatformXunLong.h in Headers */,
-				1117DC1DE7B49FA0F8FE1573 /* PGWXBit.h in Headers */,
-				1117D43A1CE3FFBBCC5C86AD /* PGWXAddr.h in Headers */,
-				1117D3C5A85CE4BCB3FCA3D1 /* PGWXLayout.h in Headers */,
-				1117DD284E48D799AB35BE86 /* PGWXSupport.h in Headers */,
+				1117D681EE8D7370CFA1A2BE /* PGWXSupport.h in Headers */,
+				1117D39F12A76A1BC01DA016 /* PGWXSOC.h in Headers */,
+				1117DA29B1EA95C1C3E0283F /* PGWXI2CChannel.h in Headers */,
+				1117D805D4E8FE3C373DFF32 /* PGWXSOCBroadcomm.h in Headers */,
+				1117D5CD31C9F02110EC0F09 /* PGWXSOCSamsung.h in Headers */,
+				1117D0D8BDC444E1159F7185 /* PGWXSOCNXP.h in Headers */,
+				1117D6645720DB950460B36B /* PGWXSOCAllwinner.h in Headers */,
+				1117D2039288044DD65E7A20 /* PGWXSOCAmlogic.h in Headers */,
+				1117DDA21CE2A74E3B8F25EC /* PGWXPlatform.h in Headers */,
+				1117DE8718EF919A224B82A9 /* PGWXPlatformHardkernel.h in Headers */,
+				1117D43D7979BA20069A844E /* PGWXPlatformRaspberryPi.h in Headers */,
+				1117DE25D694352A18108E64 /* PGWXPlatformLemaker.h in Headers */,
+				1117DF06DD9CA948F7428435 /* PGWXPlatformLinkSprite.h in Headers */,
+				1117DD481152EAD94E879B1A /* PGWXPlatformSolidRun.h in Headers */,
+				1117D033BA15039B73C5E4BA /* PGWXPlatformXunLong.h in Headers */,
+				1117D675A565C63176F7EE8C /* PGWXBit.h in Headers */,
+				1117D54FF66A8EBD7705BBE5 /* PGWXAddr.h in Headers */,
+				1117DB973F53AC4E1325A5C2 /* i2c-dev.h in Headers */,
+				1117D242A23EA4854EA9CD76 /* PGWXBogusI2C.h in Headers */,
+				1117D57E617B165CA5C7AD7E /* PGWXLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,23 +429,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1117D000430186D201CAC256 /* PGWiringX.m in Sources */,
-				1117D1FADAF6A08EFA004574 /* PGWXSOC.m in Sources */,
-				1117D69A80CAB3A9A3EAB942 /* PGWXSOCBroadcomm.m in Sources */,
-				1117D23CB9D519BFFF043EB0 /* PGWXSOCSamsung.m in Sources */,
-				1117D3FE5369744F45A1BF3A /* PGWXSOCNXP.m in Sources */,
-				1117DDA934099E5CF2414CDE /* PGWXSOCAllwinner.m in Sources */,
-				1117DF706DF68B25F5844B0E /* PGWXSOCAmlogic.m in Sources */,
-				1117D8BC9BAB3FEF92DD4B3B /* PGWXPlatformHardkernel.m in Sources */,
-				1117DE0ACBCDCD197A8FFD17 /* PGWXPlatformRaspberryPi.m in Sources */,
-				1117D851B3F7C8016879B4C0 /* PGWXPlatformLemaker.m in Sources */,
-				1117D5D4288A6863CB8D7161 /* PGWXPlatformLinkSprite.m in Sources */,
-				1117D272CEDEB148B643A706 /* PGWXPlatformSolidRun.m in Sources */,
-				1117DC68D067272E69766459 /* PGWXPlatformXunLong.m in Sources */,
-				1117D3E291910C5363F24738 /* PGWXPlatform.m in Sources */,
-				1117D57B6F6E96175FC9796B /* PGWXBit.m in Sources */,
-				1117DA5F7C65649F6161F11C /* PGWXAddr.m in Sources */,
-				1117D2D933AB389577318CEE /* PGWXLayout.m in Sources */,
-				1117D78610A482A04996E84D /* PGWXSupport.m in Sources */,
+				1117DC1E8BD7BFBC5D8F00C5 /* PGWXPlatform.m in Sources */,
+				1117D160568A9ADC4A8F16F1 /* PGWXSOCBroadcomm.m in Sources */,
+				1117D413A949799C39D22C96 /* PGWXSOCSamsung.m in Sources */,
+				1117D24CC76BF4017DD4D1F6 /* PGWXSOCNXP.m in Sources */,
+				1117DE8CD15CBCF74EBC34B5 /* PGWXSOCAllwinner.m in Sources */,
+				1117DFE9B34A3C453B406D22 /* PGWXSOCAmlogic.m in Sources */,
+				1117DE7268F32AD71C9F0E50 /* PGWXSOC.m in Sources */,
+				1117D687570CBA6EAF0C9EEE /* PGWXPlatformHardkernel.m in Sources */,
+				1117D7CA1DD544FDB6743E31 /* PGWXPlatformRaspberryPi.m in Sources */,
+				1117D2054D9A91F3853CC090 /* PGWXPlatformLemaker.m in Sources */,
+				1117D6B649676887C0D919AA /* PGWXPlatformLinkSprite.m in Sources */,
+				1117D1CCFA456EBE161967E9 /* PGWXPlatformSolidRun.m in Sources */,
+				1117D9A518BF9DEC43D148F0 /* PGWXPlatformXunLong.m in Sources */,
+				1117D0B33BE2D4643BB8E6FD /* PGWXAddr.m in Sources */,
+				1117DEEAC40899F6DA785830 /* PGWXBit.m in Sources */,
+				1117DEB62CBA6E08EEA9BF78 /* PGWXSupport.m in Sources */,
+				1117DD2E29EEF59C26B57003 /* PGWXI2CChannel.m in Sources */,
+				1117D34D2C087F7BBCDCEAA4 /* i2c-dev.c in Sources */,
+				1117D0F55415D34DEB894CED /* PGWXBogusI2C.m in Sources */,
+				1117D7479220E499014DCE7F /* PGWXLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,8 +32,8 @@
 
 #ifndef __APPLE__
 
-double PGWiringXVersionNumber = 1.0;
-const unsigned char PGWiringXVersionString[] = "1.0.0\0";
+const unsigned char PGWiringXVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:PGWiringX  PROJECT:PGWiringX-1" "\n";
+const double PGWiringXVersionNumber __attribute__ ((used)) = (double)1.;
 
 #endif
 
@@ -69,7 +69,7 @@ NSString *const PGWX_OrangePiPCPlus      = @"Orange Pi PC+";
         PGWXPlatform *_platform;
     }
 
-    -(instancetype)initWithPlatformName:(NSString *)platformName error:(NSError *_Nullable *)error {
+    -(instancetype)initWithPlatformName:(NSString *)platformName error:(NSError **)error {
         self = [super init];
 
         if(self) {
@@ -82,17 +82,17 @@ NSString *const PGWX_OrangePiPCPlus      = @"Orange Pi PC+";
                     _platform = [(PGWXPlatform *)[NSClassFromString(platformClassName) alloc] init:&err];
 
                     if(_platform == nil) {
-                        PGWXMakeError(error, 652, PGFormat(@"Error creating platform %@: %@", platformName, err.description));
+                        PGWXMakeError(error, 101, PGFormat(@"Error creating platform %@: %@", platformName, err.description));
                         self = nil;
                     }
                 }
                 else {
-                    PGWXMakeError(error, 651, PGFormat(@"No platform found for name: %@", platformName));
+                    PGWXMakeError(error, 102, PGFormat(@"No platform found for name: %@", platformName));
                     self = nil;
                 }
             }
             else {
-                PGWXMakeError(error, 650, @"Platform name not provided.");
+                PGWXMakeError(error, 103, @"Platform name not provided.");
                 self = nil;
             }
         }
@@ -100,56 +100,32 @@ NSString *const PGWX_OrangePiPCPlus      = @"Orange Pi PC+";
         return self;
     }
 
-    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError **)error {
         return [_platform setMode:mode forPin:pin error:error];
     }
 
-    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError **)error {
         return [_platform digitalWrite:value toPin:pin error:error];
     }
 
-    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError **)error {
         return [_platform setISR:mode forPin:pin error:error];
     }
 
-    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError **)error {
         return [_platform digitalReadFromPin:pin error:error];
     }
 
-    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError **)error {
         return [_platform analogReadFromPin:pin error:error];
     }
 
-    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error {
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError **)error {
         return [_platform waitForInterruptOnPin:pin timeout:timeout error:error];
     }
 
     -(BOOL)isValidPin:(NSUInteger)pin {
         return [_platform isValidPin:pin];
-    }
-
-    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform selectableFdForPin:pin error:error];
-    }
-
-    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform sysfsExportPin:pin error:error];
-    }
-
-    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform sysfsUnexportPin:pin error:error];
-    }
-
-    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform sysfsCheckPin:pin error:error];
-    }
-
-    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform sysfsDigitalWrite:value toPin:pin error:error];
-    }
-
-    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error {
-        return [_platform sysfsDigitalReadFromPin:pin error:error];
     }
 
     +(NSDictionary<NSString *, NSString *> *)platformMap {

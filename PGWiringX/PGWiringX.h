@@ -56,33 +56,21 @@ FOUNDATION_EXPORT NSString *const PGWX_OrangePiPCPlus;
 
 @interface PGWiringX : NSObject
 
-    -(instancetype)initWithPlatformName:(NSString *)platformName error:(NSError *_Nullable *)error;
+    -(instancetype)initWithPlatformName:(NSString *)platformName error:(NSError **)error;
 
-    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError **)error;
 
-    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError **)error;
 
-    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError **)error;
 
-    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(NSInteger)analogReadFromPin:(NSUInteger)pin error:(NSError **)error;
 
-    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError **)error;
 
-    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError *_Nullable *)error;
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError **)error;
 
     -(BOOL)isValidPin:(NSUInteger)pin;
-
-    -(int)selectableFdForPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
-
-    -(BOOL)sysfsExportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
-
-    -(BOOL)sysfsUnexportPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
-
-    -(BOOL)sysfsCheckPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
-
-    -(BOOL)sysfsDigitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
-
-    -(PGWXPinState)sysfsDigitalReadFromPin:(NSUInteger)pin error:(NSError *_Nullable *)error;
 
 @end
 

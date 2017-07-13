@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXPlatform.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 6/26/17 3:02 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,44 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXPlatform_H_
+#define __PGWiringX_PGWXPlatform_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import "PGWXSOC.h"
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+NS_ASSUME_NONNULL_BEGIN
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+@interface PGWXPlatform : NSObject<NSLocking>
 
+    @property(nonatomic, readonly, copy) NSString            *boardName;
+    @property(nonatomic, readonly, retain) PGWXSOC           *soc;
+    @property(nonatomic, readonly, copy) NSArray<NSString *> *gpioMap;
+    @property(nonatomic, readonly, copy) NSArray<NSString *> *irqMap;
+
+    -(instancetype)init:(NSError **)error;
+
+    -(NSString *)pinNameForPin:(NSUInteger)pin;
+
+    -(NSString *)irqPinNameForPin:(NSUInteger)pin;
+
+    -(BOOL)setMode:(PGWXPinMode)mode forPin:(NSUInteger)pin error:(NSError **)error;
+
+    -(BOOL)digitalWrite:(PGWXPinState)value toPin:(NSUInteger)pin error:(NSError **)error;
+
+    -(PGWXPinState)digitalReadFromPin:(NSUInteger)pin error:(NSError **)error;
+
+    -(int32_t)analogReadFromPin:(NSUInteger)pin error:(NSError **)error;
+
+    -(BOOL)setISR:(PGWXISRMode)mode forPin:(NSUInteger)pin error:(NSError **)error;
+
+    -(BOOL)waitForInterruptOnPin:(NSUInteger)pin timeout:(NSUInteger)timeout error:(NSError **)error;
+
+    -(BOOL)isValidPin:(NSUInteger)pin;
+
+    -(BOOL)isValidIRQPin:(NSUInteger)pin;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXPlatform_H_

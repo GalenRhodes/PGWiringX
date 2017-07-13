@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXBogusI2C.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 7/5/17 3:37 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,48 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXBogusI2C_H_
+#define __PGWiringX_PGWXBogusI2C_H_
+#ifdef __APPLE__
+// @formatter:off
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+    #import  <Rubicon/Rubicon.h>
+    #include <sys/ioctl.h>
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+    #define I2C_SLAVE    0x0703
+    #define I2C_SMBUS    0x0720
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+    typedef uint32_t __u32;
+    typedef uint16_t __u16;
+    typedef uint8_t  __u8;
+    typedef int32_t  __s32;
+    typedef int16_t  __s16;
+    typedef int8_t   __s8;
 
+    struct i2c_smbus_ioctl_data {
+        __u8                 read_write;
+        __u8                 command;
+        __u32                size;
+        union i2c_smbus_data *data;
+    };
+
+    OS_INLINE __s32 i2c_smbus_access(int fd, char rw, int cmd, int size, union i2c_smbus_data *data) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_read_byte(int fd) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_write_byte(int fd, int value) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_read_byte_data(int fd, int cmd) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_write_byte_data(int fd, int cmd, int value) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_read_word_data(int fd, int cmd) { return 0; }
+
+    OS_INLINE __s32 i2c_smbus_write_word_data(int fd, int cmd, __u16 value) { return 0; }
+
+// @formatter:on
+#else
+    #include "i2c-dev.h"
+#endif
+
+#endif //__PGWiringX_PGWXBogusI2C_H_

@@ -37,7 +37,10 @@ typedef enum {
     PGWX_FUNCTION_DIGITAL   = 2,
     PGWX_FUNCTION_ANALOG    = 4,
     PGWX_FUNCTION_I2C       = 16,
-    PGWX_FUNCTION_INTERRUPT = 32
+    PGWX_FUNCTION_I2S       = 32,
+    PGWX_FUNCTION_SPI       = 64,
+    PGWX_FUNCTION_PWM       = 128,
+    PGWX_FUNCTION_INTERRUPT = 256
 } PGWXPinFunction;
 
 typedef enum {
@@ -61,5 +64,29 @@ FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeError(NSError *_Nullable *_Nullable 
 FOUNDATION_EXPORT NSError *_Nonnull PGWXMakeOSError(NSError *_Nullable *_Nullable error, int osErr);
 
 FOUNDATION_EXPORT NSString *_Nonnull const PGWXErrorDomain;
+
+NS_INLINE NSString *_Nonnull PGWXISRModeName(const PGWXISRMode isrMode) {
+    NSString *isrModeName = @"";
+
+    switch(isrMode) {
+        case PGWX_ISR_MODE_RISING:
+            isrModeName = @"rising";
+            break;
+        case PGWX_ISR_MODE_FALLING:
+            isrModeName = @"falling";
+            break;
+        case PGWX_ISR_MODE_BOTH:
+            isrModeName = @"both";
+            break;
+        case PGWX_ISR_MODE_NONE:
+            isrModeName = @"none";
+            break;
+        case PGWX_ISR_MODE_UNKNOWN:
+            isrModeName = @"";
+            break;
+    }
+
+    return isrModeName;
+}
 
 #endif //__PGWiringX_PGWXSupport_H_

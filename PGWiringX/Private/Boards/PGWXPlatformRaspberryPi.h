@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXPlatformRaspberryPi.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 6/26/17 2:58 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,31 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXPlatformRaspberryPi_H_
+#define __PGWiringX_PGWXPlatformRaspberryPi_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import "PGWXPlatform.h"
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+NS_ASSUME_NONNULL_BEGIN
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+@interface PGWXPlatformRaspberryPi1B1 : PGWXPlatform
+@end
 
+@interface PGWXPlatformRaspberryPi1B2 : PGWXPlatformRaspberryPi1B1
+@end
+
+@interface PGWXPlatformRaspberryPiZero : PGWXPlatformRaspberryPi1B2
+@end
+
+@interface PGWXPlatformRaspberryPi1BPlus : PGWXPlatformRaspberryPiZero
+@end
+
+@interface PGWXPlatformRaspberryPi2 : PGWXPlatformRaspberryPi1BPlus
+@end
+
+@interface PGWXPlatformRaspberryPi3 : PGWXPlatformRaspberryPi2
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXPlatformRaspberryPi_H_

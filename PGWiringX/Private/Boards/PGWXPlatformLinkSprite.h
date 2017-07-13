@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXPlatformLinkSprite.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 6/26/17 2:58 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,40 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXPlatformLinkSprite_H_
+#define __PGWiringX_PGWXPlatformLinkSprite_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import "PGWXPlatform.h"
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+NS_ASSUME_NONNULL_BEGIN
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+/*
+ PI19: PCDuino GPIO 0
+ PI18: PCDuino GPIO 1
+ PH7:  PCDuino GPIO 2
+ PH6:  PCDuino GPIO 3
+ PH8:  PCDuino GPIO 4
+ PB2:  PCDuino GPIO 5
+ PI3:  PCDuino GPIO 6
+ PH9:  PCDuino GPIO 7
+ PH10: PCDuino GPIO 8
+ PH5:  PCDuino GPIO 9
+ PI10: PCDuino GPIO 10
+ PI12: PCDuino GPIO 11
+ PI13: PCDuino GPIO 12
+ PI11: PCDuino GPIO 13
+ PH11: PCDuino GPIO 14
+ PH12: PCDuino GPIO 15
+ PH13: PCDuino GPIO 16
+ PH14: PCDuino GPIO 17
+ PH15: PCDuino GPIO 18 (TX LED)
+ PH16: PCDuino GPIO 19 (RX LED)
+*/
 
+@interface PGWXPlatformLinkSpritePCDuino1 : PGWXPlatform
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXPlatformLinkSprite_H_

@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXPlatformXunLong.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 6/26/17 3:00 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,47 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXPlatformXunLong_H_
+#define __PGWiringX_PGWXPlatformXunLong_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import "PGWXPlatform.h"
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+NS_ASSUME_NONNULL_BEGIN
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+/*
+3v|5v
+ 8|5v
+ 9|0v
+ 7|15
+0v|16
+ 0| 1
+ 2|0v
+ 3| 4
+3v| 5
+12|0v
+13| 6
+14|10
+0v|11
+0v|0v
+21|0v
+22|26
+23|0v
+24|27
+25|28
+0v|29
 
+0v
+17|PA5
+18|PA4
+
+LED RED = PA15
+LED GREEN = PL10
+*/
+
+@interface PGWXPlatformXunLongOrangePiPCP : PGWXPlatform
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXPlatformXunLong_H_

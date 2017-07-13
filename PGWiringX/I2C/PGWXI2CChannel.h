@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXI2CChannel.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 7/5/17 3:18 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,35 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXI2CChannel_H_
+#define __PGWiringX_PGWXI2CChannel_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import <Rubicon/Rubicon.h>
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+@class PGWXPlatform;
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+NS_ASSUME_NONNULL_BEGIN
 
+@interface PGWXI2CChannel : NSObject<NSLocking>
+
+    -(instancetype)init;
+
+    -(NSInteger)read:(NSError **)error;
+
+    -(NSInteger)readReg8:(NSInteger)reg error:(NSError **)error;
+
+    -(NSUInteger)readReg16:(NSInteger)reg error:(NSError **)error;
+
+    -(BOOL)write:(NSInteger)data error:(NSError **)error;
+
+    -(BOOL)write:(NSInteger)data reg8:(NSInteger)reg error:(NSError **)error;
+
+    -(BOOL)write:(NSInteger)data reg16:(NSInteger)reg error:(NSError **)error;
+
+    -(void)close;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXI2CChannel_H_

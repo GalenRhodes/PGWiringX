@@ -1,9 +1,9 @@
 /******************************************************************************************************************************//**
  *     PROJECT: PGWiringX
- *    FILENAME: PGWXSupport.m
+ *    FILENAME: PGWXSOCAmlogic.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 6/26/17 10:39 AM
+ *        DATE: 6/26/17 2:51 PM
  * DESCRIPTION:
  *
  * Copyright © 2017 Project Galen. All rights reserved.
@@ -21,15 +21,22 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *********************************************************************************************************************************/
 
-#import "PGWXSupport.h"
+#ifndef __PGWiringX_PGWXSOCAmlogic_H_
+#define __PGWiringX_PGWXSOCAmlogic_H_
 
-NSString *const PGWXErrorDomain = @"com.projectgalen.PGWiringX";
+#import "PGWXLayout.h"
+#import "PGWXSOC.h"
 
-NSError *PGWXMakeError(NSError **error, NSInteger code, NSString *message) {
-    return PGSetReference(error, [NSError errorWithDomain:PGWXErrorDomain code:code userInfo:@{ NSLocalizedDescriptionKey:message }]);
-}
+NS_ASSUME_NONNULL_BEGIN
 
-NSError *PGWXMakeOSError(NSError **error, int err) {
-    return PGWXMakeError(error, 100, PGStrError(err));
-}
+@interface PGWXSOCAmlogicS805 : PGWXSOC
 
+@end
+
+@interface PGWXSOCAmlogicS905 : PGWXSOCAmlogicS805
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+#endif //__PGWiringX_PGWXSOCAmlogic_H_
